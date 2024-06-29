@@ -1,0 +1,2 @@
+import './polyfills.server.mjs';
+import{a as r,b as i,c as n,d as p,e as m,l as s,n as f,o as a,r as c,x as d}from"./chunk-CDJGTFLA.mjs";var l=(()=>{let o=class o{constructor(){this.title="my-site"}};o.\u0275fac=function(e){return new(e||o)},o.\u0275cmp=r({type:o,selectors:[["app-root"]],standalone:!0,features:[m],decls:2,vars:0,template:function(e,h){e&1&&(i(0,"h1"),p(1,"Come il ponte di messina..."),n())}});let t=o;return t})();var u=[];var v={providers:[d(u),a()]};var x={providers:[c()]},g=s(v,x);var y=()=>f(l,g),q=y;export{q as a};
