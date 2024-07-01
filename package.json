@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --aot",
     "build-prod": "ng build --aot --configuration production --base-href https://lorisparata98.github.io/LorisParata98.github.io/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
