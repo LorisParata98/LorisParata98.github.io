@@ -30,7 +30,8 @@ jobs:
         run: 'npm run build-prod'
 
       - name: Deploy to Github Pages
-        uses: JamesIves/github-pages-deploy-action@release/v2
+        uses: JamesIves/
+        github-pages-deploy-action@releases/v2
         with:
           ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
           BASE_BRANCH: main
