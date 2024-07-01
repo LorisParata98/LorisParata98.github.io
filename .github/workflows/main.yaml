@@ -6,20 +6,20 @@ name: Deploy Angular App
 on:
   push:
     branches:
-      - gh-pages
-  workflow_dispatch:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4.0.0
+      - name: Check out code
+        uses: actions/checkout@v4
 
       - name: Setup Node.js environment
-        uses: actions/setup-node@v3.8.1
+        uses: actions/setup-node@v3
         with:
-          node-version: '20.x'
+          node-version: 20
 
       - name: npm install
         shell: bash
@@ -32,7 +32,7 @@ jobs:
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@releases/v2
         with:
-          ACCESS_TOKEN: ${{secrets.GH_TOKEN}}
+          ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
           BASE_BRANCH: main
           BRANCH: gh-pages
           FOLDER: dist/browser
