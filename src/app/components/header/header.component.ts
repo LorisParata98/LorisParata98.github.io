@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { LayoutService, MenubarItem } from '../../services/app.layout.service';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,26 +12,27 @@ import { DomSanitizer } from '@angular/platform-browser';
 })
 export class HeaderComponent {
   public headerTitle = signal<string>('LRS_DESIGN');
-  public menuItems = signal<any[]>([]);
+  public menuItems = signal<MenubarItem[]>([]);
 
   constructor(
     private _matIconRegistry: MatIconRegistry,
-    private _domSanitizer: DomSanitizer
+    private _domSanitizer: DomSanitizer,
+    private _layoutService: LayoutService
   ) {
     _matIconRegistry.addSvgIconSet(
       _domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
     );
 
-    this.menuItems.set([
-      { title: 'Home', id: 'home', icon: 'home' },
-      { title: 'Overview', id: 'overview', icon: 'overview' },
-      { title: 'Projects', id: 'projects', icon: 'projects' },
-      { title: 'Work Experiences', id: 'work', icon: 'work' },
-      { title: 'Knowledge', id: 'knowledge', icon: 'knowledge' },
-      { title: 'Contact Me', id: 'contact', icon: 'contact' },
-    ]);
+    this.menuItems.set(this._layoutService.getMenuItems());
   }
 
+  public isMenuOpen() {
+    return this._layoutService.isMenuOpen();
+  }
+
+  public onMenuToggle() {
+    this._layoutService.onMenuToggle();
+  }
   navigateTo(id: string) {
     console.log(id);
   }

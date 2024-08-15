@@ -13,28 +13,31 @@ header {
 }
 
 .menu-list {
-  ul{
+  ul {
     text-decoration: none;
-    list-style-type:none;
-        padding-inline-start: 0;
+    list-style-type: none;
+    padding-inline-start: 0;
     margin-block-start: 0;
-        li{
-          padding-left: 1rem;
-        }
+    li {
+      padding-left: 1rem;
+
+      h2 {
+        font-weight: 500;
+      }
+    }
   }
 
-  .menu-item-icon{
-        height: 28px;
-          width: 28px;
+  .menu-item-icon {
+    height: 28px;
+    width: 28px;
   }
   li:hover {
     background-color: var(--primary-500);
 
-
     h2 {
       color: var(--black00);
     }
-        .menu-item-icon {
+    .menu-item-icon {
       color: var(--black00);
     }
   }

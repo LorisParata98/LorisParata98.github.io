@@ -8,12 +8,14 @@
       type="button"
       pButton
       class="p-button p-button-text"
-      (click)="($event)"
+      (click)="onMenuToggle()"
     >
       <mat-icon class="menu-icon" svgIcon="menu"></mat-icon>
     </button>
   </div>
 </header>
+@if(isMenuOpen()){
+
 <div class="menu-list">
   <ul class="flex flex-col">
     @for (item of menuItems(); track $index) {
@@ -26,3 +28,4 @@
     }
   </ul>
 </div>
+}
