@@ -1,11 +1,13 @@
 :root {
-  --font-family: "Bebas Neue", sans-serif;
+  --font-family: "Poppins",    system-ui;
+  --font-family-titles: "Bebas Neue", sans-serif;
 
   /* THEME START */
   --border-input-color: transparent;
-  --bg-color: #121212;
 
-  --black00: #121212;
+
+  --black00: #000000;
+  --black01: #121212;
   --black02: #161616;
   --black03: #181818;
   --black04: #202020;
@@ -23,8 +25,8 @@
   --text-color: #fafafa;
   --primary-color-text: var(--neutral-white);
   --secondary-color-text: var(--neutral-white);
+  --bg-color: #000000;
 
-  --bg-color: #121212;
   --header-color: #181818;
 
   --surface-0: var(--neutral-white);

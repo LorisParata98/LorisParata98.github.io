@@ -1,0 +1,14 @@
+#experience-summary {
+  .vl {
+    border-left: 3px solid var(--surface-0);
+    height: 530px;
+  }
+  hr.gradient-hr {
+    padding: 0;
+    margin: 0;
+    border: none;
+    height: 3px;
+    /* Adjust the height as needed */
+    background: linear-gradient(to right, var(--surface-0), black);
+  }
+}

@@ -24,10 +24,15 @@
     </div>
   </div>
   <div class="row-span-3 col-span-10">
-    <div class="flex flex-col justify-end h-full py-8 gap-4">
-      <h2 class="m-0">Developer & Designer</h2>
-      <h1 class="m-0">LRS_DESIGN</h1>
-      <div>
+    <div class="flex flex-col justify-end h-full px-8 py-8 gap-1">
+      <h2
+        class="m-0 font-normal"
+        style="font-size: 48px; font-family: var(--font-family)"
+      >
+        Developer & Designer
+      </h2>
+      <h1 class="m-0 font-normal" style="font-size: 96px">LRS_DESIGN</h1>
+      <div class="max-w-2xl">
         Sono uno progettista e sviluppatore di applicativi web e mobile che mira
         a migliorare l’esperienza degli utenti che utilizzano giornalmente i
         miei prodotti per raggiungere i loro obiettivi.
@@ -39,5 +44,27 @@
       <div class="vl-2-short pe-4"></div>
       <div class="vl-2 pe-4"></div>
     </div>
+  </div>
+</div>
+<div class="flex justify-end px-32 py-8">
+  <div class="flex gap-2">
+    <button
+      title="change language to italian button"
+      type="button"
+      pButton
+      class="p-button p-button-text"
+      (click)="onChangeLanguage('IT')"
+    >
+      ITA
+    </button>
+    <button
+      title="change language to english button"
+      type="button"
+      pButton
+      class="p-button p-button-text"
+      (click)="onChangeLanguage('EN')"
+    >
+      ENG
+    </button>
   </div>
 </div>

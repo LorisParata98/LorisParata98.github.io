@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './presentation.component.html',
-  styleUrl: './presentation.component.scss'
+  styleUrl: './presentation.component.scss',
 })
 export class PresentationComponent {
-
+  public onChangeLanguage(lang: string) {}
 }

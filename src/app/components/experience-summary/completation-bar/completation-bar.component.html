@@ -1,0 +1,7 @@
+<div class="flex flex-col gap-2">
+  <div class="flex justify-between">
+    <span>{{ title() }}</span>
+    <span>{{ value() }}%</span>
+  </div>
+  <p-progressBar [value]="value()" [showValue]="false" />
+</div>
