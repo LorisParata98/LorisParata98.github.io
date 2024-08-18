@@ -13,6 +13,7 @@ import { LayoutService, MenubarItem } from '../../services/app.layout.service';
 export class HeaderComponent {
   public headerTitle = signal<string>('LRS_DESIGN');
   public menuItems = signal<MenubarItem[]>([]);
+  public activeId = signal<string | undefined>(undefined);
 
   constructor(
     private _matIconRegistry: MatIconRegistry,
@@ -34,6 +35,7 @@ export class HeaderComponent {
     this._layoutService.onMenuToggle();
   }
   navigateTo(id: string) {
+    this.activeId.set(id);
     console.log(id);
   }
 }

@@ -19,7 +19,11 @@
 <div class="menu-list">
   <ul class="flex flex-col">
     @for (item of menuItems(); track $index) {
-    <li class="flex flex-row gap-6 items-center" (click)="navigateTo(item.id)">
+    <li
+      class="flex flex-row gap-6 items-center"
+      [ngClass]="{ isActive: item.id == activeId() }"
+      (click)="navigateTo(item.id)"
+    >
       @if(item.icon){
       <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
       }

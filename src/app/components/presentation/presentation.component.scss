@@ -1,0 +1,32 @@
+.social{
+  height: 768px;
+
+
+  .social-logo {
+    svg{
+     fill: var(--surface-0);
+      // transform: scale(2.0);
+
+    &:hover {
+        fill: var(--primary-500);
+
+      }
+    }
+
+  }
+}
+
+.vl{
+    border-left: 1px solid var(--surface-0);
+      height: 184px;
+}
+
+.vl-2 {
+  border-left: 3px solid var(--surface-0);
+  height: 100%;
+}
+.vl-2-short {
+  border-left: 3px solid var(--primary-500);
+  height: 100px;
+}
+
