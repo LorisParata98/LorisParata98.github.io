@@ -1,0 +1,11 @@
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <ng-content select="[content]"></ng-content>
+    </div>
+    <div class="flip-card-back" [style]="'background-color:' + bgColor() + ';'">
+      <h1>{{ title() }}</h1>
+      <p>{{ description() }}</p>
+    </div>
+  </div>
+</div>

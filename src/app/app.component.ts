@@ -4,6 +4,8 @@ import { ExperienceSummaryComponent } from './components/experience-summary/expe
 import { HeaderComponent } from './components/header/header.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
 import { ProjectsPortfolioComponent } from './components/projects-portfolio/projects-portfolio.component';
+import { TecnologySkillsComponent } from './components/tecnology-skills/tecnology-skills.component';
+import { WorkExperiencesComponent } from './components/work-experiences/work-experiences.component';
 
 @Component({
   selector: 'app-root',
@@ -14,10 +16,12 @@ import { ProjectsPortfolioComponent } from './components/projects-portfolio/proj
     PresentationComponent,
     ExperienceSummaryComponent,
     ProjectsPortfolioComponent,
+    WorkExperiencesComponent,
+    TecnologySkillsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'my-site';
+  title = 'LRS-Design';
 }

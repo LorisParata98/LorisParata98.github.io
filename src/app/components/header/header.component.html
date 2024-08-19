@@ -1,35 +1,37 @@
-<header class="flex justify-between px-8 items-center">
-  <h1>
-    {{ headerTitle() }}
-  </h1>
-  <div>
-    <button
-      title="menu button"
-      type="button"
-      pButton
-      class="p-button p-button-text"
-      (click)="onMenuToggle()"
-    >
-      <mat-icon class="menu-icon" svgIcon="menu"></mat-icon>
-    </button>
-  </div>
-</header>
-@if(isMenuOpen()){
+<div class="flex flex-col header">
+  <header class="flex justify-between px-8 items-center">
+    <h1>
+      {{ headerTitle() }}
+    </h1>
+    <div>
+      <button
+        title="menu button"
+        type="button"
+        pButton
+        class="p-button p-button-text"
+        (click)="onMenuToggle()"
+      >
+        <mat-icon class="menu-icon" svgIcon="menu"></mat-icon>
+      </button>
+    </div>
+  </header>
+  @if(isMenuOpen()){
 
-<div class="menu-list">
-  <ul class="flex flex-col">
-    @for (item of menuItems(); track $index) {
-    <li
-      class="flex flex-row gap-6 items-center"
-      [ngClass]="{ isActive: item.id == activeId() }"
-      (click)="navigateTo(item.id)"
-    >
-      @if(item.icon){
-      <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
+  <nav class="menu-list">
+    <ul class="flex flex-col">
+      @for (item of menuItems(); track $index) {
+      <li
+        class="flex flex-row gap-6 items-center"
+        [ngClass]="{ isActive: item.id == activeId() }"
+        (click)="navigateTo(item.id)"
+      >
+        @if(item.icon){
+        <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
+        }
+        <h2>{{ item.title }}</h2>
+      </li>
       }
-      <h2>{{ item.title }}</h2>
-    </li>
-    }
-  </ul>
+    </ul>
+  </nav>
+  }
 </div>
-}

@@ -1,4 +1,13 @@
-header {
+.header {
+
+  position: -webkit-sticky;
+  /* For Safari */
+  position: sticky;
+  top: 0;
+z-index: 999;
+
+header{
+top: 84px;
   h1 {
     font-weight: 500;
   }
@@ -11,8 +20,12 @@ header {
     width: 40px;
   }
 }
+}
 
 .menu-list {
+  background-color: #121212cc;
+
+  width: 100%;
   ul {
     text-decoration: none;
     list-style-type: none;
@@ -31,7 +44,8 @@ header {
     height: 28px;
     width: 28px;
   }
-  li:hover,.isActive {
+  li:hover,
+  .isActive {
     background-color: var(--primary-500);
 
     h2 {
