@@ -1,0 +1,13 @@
+#contactMe {
+  .icon{
+    color: var(--primary-500);
+    height: 40px;
+      width: 40px;
+  }
+  a{
+    color: var(--surface-0);
+    &:hover{
+    color: var(--primary-500);
+    }
+  }
+}

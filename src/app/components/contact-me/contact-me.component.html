@@ -1,0 +1,74 @@
+<div class="grid grid-cols-2 gap-4 px-28 pt-16" id="contactMe">
+  <div class="flex flex-col gap-16">
+    <h2
+      class="m-0 font-normal"
+      style="font-family: var(--font-family); font-size: 42px"
+    >
+      Contattami
+    </h2>
+    <div class="flex flex-col gap-2">
+      <div class="flex items-center gap-3">
+        <mat-icon class="icon" svgIcon="map-marker-outline"></mat-icon>
+        <span class="text-xl">Matino (LE), Italia</span>
+      </div>
+      <div class="flex items-center gap-3">
+        <mat-icon class="icon" svgIcon="email-outline"></mat-icon>
+        <a href="mailto:lorisparata@gmail.com">
+          <span class="text-xl">lorisparata&#64;gmail.com</span></a
+        >
+      </div>
+    </div>
+  </div>
+  <div class="col-span-1 flex justify-center items-center">
+    <div class="flex flex-col gap-4 mb-8 w-full max-w-lg">
+      <p class="mt-0">
+        Hai un progetto in mente? <br />
+        Parliamone davanti a una tazza di caffè!
+      </p>
+      @if(form()){
+
+      <form
+        class="form flex flex-col gap-12"
+        [formGroup]="form()!"
+        (ngSubmit)="onSubmit()"
+      >
+        <p-floatLabel>
+          <input title="name" type="text" pInputText formControlName="name" />
+          <label for="name">Il tuo nome</label>
+        </p-floatLabel>
+        <p-floatLabel>
+          <input
+            title="email"
+            type="email"
+            pInputText
+            formControlName="email"
+          />
+          <label for="email">La tua email</label>
+        </p-floatLabel>
+
+        <p-floatLabel>
+          <textarea
+            title="body"
+            rows="5"
+            cols="30"
+            pInputTextarea
+            formControlName="body"
+          ></textarea>
+
+          <label for="body">Messaggio</label>
+        </p-floatLabel>
+
+        <button
+          pButton
+          title="Send message"
+          [disabled]="true"
+          type="submit"
+          class="p-button primary w-full"
+        >
+          <span class="w-full flex justify-center"> Invia messaggio </span>
+        </button>
+      </form>
+      }
+    </div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ContactMeComponent } from './components/contact-me/contact-me.component';
 import { ExperienceSummaryComponent } from './components/experience-summary/experience-summary.component';
 import { HeaderComponent } from './components/header/header.component';
 import { PresentationComponent } from './components/presentation/presentation.component';
@@ -18,6 +19,7 @@ import { WorkExperiencesComponent } from './components/work-experiences/work-exp
     ProjectsPortfolioComponent,
     WorkExperiencesComponent,
     TecnologySkillsComponent,
+    ContactMeComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
