@@ -6,10 +6,10 @@
     Technologies
   </h2>
 
-  <div class="flex gap-4">
+  <div class="flex flex-wrap gap-4 lg:justify-start justify-center">
     <app-skill-card
       [title]="'Angular'"
-      [description]="'Developed versions: 8/9/13/14/15/16/17/18'"
+      [description]="angularDescription()"
       [bgColor]="'#DE002D'"
     >
       <div content>
@@ -25,7 +25,7 @@
 
     <app-skill-card
       [title]="'Vue'"
-      [description]="'Developed versions: 2/3'"
+      [description]="vueDescription()"
       [bgColor]="'#42B883'"
     >
       <div content>
@@ -43,7 +43,7 @@
 
     <app-skill-card
       [title]="'Flutter'"
-      [description]="'Developed versions: 2/3'"
+      [description]="flutterDescription()"
       [bgColor]="'#00B5F7'"
     >
       <div content>

@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './projects-portfolio.component.scss',
 })
 export class ProjectsPortfolioComponent {
-  public onChangeLanguage(lang: string) {}
+  public goToFigma() {
+    // window.open(
+    //   'https://www.figma.com/team_invite/redeem/e3lix3UGA4E9epRTO9r8zx',
+    //   '_blank'
+    // );
+  }
 }
