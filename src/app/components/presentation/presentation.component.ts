@@ -1,7 +1,8 @@
 import { AfterViewInit, Component } from '@angular/core';
+import { TranslocoService } from '@jsverse/transloco';
 import gsap from "gsap";
 import { TextPlugin } from 'gsap/all';
-import { GsapServiceService } from '../../services/email.service copy';
+import { GsapServiceService } from '../../services/gsap.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { GsapServiceService } from '../../services/email.service copy';
 })
 export class PresentationComponent implements AfterViewInit {
 
-  constructor(private _gsapService: GsapServiceService) {
+  constructor(private _gsapService: GsapServiceService, private _translateService: TranslocoService) {
     gsap.registerPlugin(TextPlugin)
   }
 
@@ -34,5 +35,9 @@ export class PresentationComponent implements AfterViewInit {
   }
 
 
-  public onChangeLanguage(lang: string) { }
+  changeLanguage(lang: string) {
+
+    this._translateService.setActiveLang(lang);
+
+  }
 }

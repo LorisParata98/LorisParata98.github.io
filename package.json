@@ -10,6 +10,12 @@
     "test": "ng test",
     "serve:ssr:my-site": "node dist/my-site/server/server.mjs"
   },
+  "i18n": [
+    {
+      "scope": "core",
+      "path": "src/assets/i18n"
+    }
+  ],
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.1.0",
@@ -23,6 +29,7 @@
     "@angular/platform-server": "^18.1.0",
     "@angular/router": "^18.1.0",
     "@angular/ssr": "^18.1.0",
+    "@jsverse/transloco": "^7.4.3",
     "@mdi/angular-material": "^7.2.96",
     "express": "^4.18.2",
     "gsap": "^3.12.5",
