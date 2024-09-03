@@ -1,0 +1,144 @@
+.animation-duration-1000 {
+    animation-duration: 1s !important;
+}
+
+.fadeinleft {
+    animation: fadeinleft .15s linear;
+}
+
+
+.fadein {
+    animation: fadein .15s linear
+}
+
+.fadeout {
+    animation: fadeout .15s linear
+}
+
+.slidedown {
+    animation: slidedown .45s ease-in-out
+}
+
+.slideup {
+    animation: slideup .45s cubic-bezier(0, 1, 0, 1)
+}
+
+.scalein {
+    animation: scalein .15s linear
+}
+
+.fadeinleft {
+    animation: fadeinleft .15s linear
+}
+
+.fadeoutleft {
+    animation: fadeoutleft .15s linear
+}
+
+.fadeinright {
+    animation: fadeinright .15s linear
+}
+
+.fadeoutright {
+    animation: fadeoutright .15s linear
+}
+
+.fadeinup {
+    animation: fadeinup .15s linear
+}
+
+.fadeoutup {
+    animation: fadeoutup .15s linear
+}
+
+.fadeindown {
+    animation: fadeindown .15s linear
+}
+
+.fadeoutdown {
+    animation: fadeoutdown .15s linear
+}
+
+.animation-linear {
+    animation-timing-function: linear !important
+}
+
+.animation-ease-in {
+    animation-timing-function: cubic-bezier(.4, 0, 1, 1) !important
+}
+
+.animation-ease-out {
+    animation-timing-function: cubic-bezier(0, 0, .2, 1) !important
+}
+
+.animation-ease-in-out {
+    animation-timing-function: cubic-bezier(.4, 0, .2, 1) !important
+}
+
+.animation-fill-none {
+    animation-fill-mode: none !important
+}
+
+.animation-fill-forwards {
+    animation-fill-mode: forwards !important
+}
+
+.animation-fill-backwards {
+    animation-fill-mode: backwards !important
+}
+
+.animation-fill-both {
+    animation-fill-mode: both !important
+}
+
+@keyframes fadeinleft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+        transition: transform .12s cubic-bezier(0, 0, .2, 1), opacity .12s cubic-bezier(0, 0, .2, 1)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes fadeoutleft {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform .12s cubic-bezier(0, 0, .2, 1), opacity .12s cubic-bezier(0, 0, .2, 1)
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes fadeinright {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+        transition: transform .12s cubic-bezier(0, 0, .2, 1), opacity .12s cubic-bezier(0, 0, .2, 1)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@keyframes fadeoutright {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+        transition: transform .12s cubic-bezier(0, 0, .2, 1), opacity .12s cubic-bezier(0, 0, .2, 1)
+    }
+
+    to {
+        opacity: 0;
+        transform: translateX(100%)
+    }
+}

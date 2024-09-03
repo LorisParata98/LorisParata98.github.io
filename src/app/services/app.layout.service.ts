@@ -1,6 +1,5 @@
 import { Injectable, signal } from '@angular/core';
 import { Router } from '@angular/router';
-
 export interface MenubarItem {
   title: string;
   icon?: string;
