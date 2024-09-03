@@ -21,7 +21,6 @@ export const appConfig: ApplicationConfig = {
         flatten: {
           aot: !isDevMode()
         },
-
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },

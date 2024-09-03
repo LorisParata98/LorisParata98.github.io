@@ -21,7 +21,7 @@ import { WorkExperiencesComponent } from './components/work-experiences/work-exp
     WorkExperiencesComponent,
     TecnologySkillsComponent,
     ContactMeComponent,
-    AnimateOnScrollModule
+    AnimateOnScrollModule,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

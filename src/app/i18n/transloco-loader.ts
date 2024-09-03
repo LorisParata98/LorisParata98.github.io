@@ -13,6 +13,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
     ) { }
 
     getTranslation(lang: string) {
+        debugger
         return this._http
             .get<Translation>(`/assets/i18n/${lang}.json`)
             .pipe(

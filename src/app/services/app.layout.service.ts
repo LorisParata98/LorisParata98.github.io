@@ -16,6 +16,9 @@ export class LayoutService {
   public menuItems = signal<MenubarItem[]>([]);
 
   constructor(private _router: Router, private _translateService: TranslocoService) {
+    const asd = this._translateService.getAvailableLangs();
+    console.log(asd);
+
     this._translateService.langChanges$.subscribe(() => {
       this.menuItems.set([
         { title: this._translateService.translate('menu.home'), id: 'home', icon: 'home' },
