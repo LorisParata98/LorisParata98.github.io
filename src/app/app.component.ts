@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ContactMeComponent } from './components/contact-me/contact-me.component';
@@ -29,5 +30,9 @@ import { WorkExperiencesComponent } from './components/work-experiences/work-exp
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'LRS-Design';
+  title = 'LRS_Design';
+
+  constructor(private titleService: Title) {
+    this.titleService.setTitle(this.title);
+  }
 }
