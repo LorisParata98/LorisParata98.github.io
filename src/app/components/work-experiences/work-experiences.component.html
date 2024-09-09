@@ -1,45 +1,36 @@
 <div class="flex flex-col gap-4 px-28 pt-32">
   <h2
-    class="m-0 font-normal max-w-md"
+    class="m-0 font-normal max-w-lg"
     style="font-family: var(--font-family); font-size: 42px"
   >
-    Accademic & Work Experiences
+    {{ 'work.title' | transloco }}
   </h2>
 
   <div class="flex flex-col gap-8">
     <app-experience-item
-      [entity]="'Mind The App S.R.L'"
-      [title]="'Design & Development'"
+      [entity]="'work.mta' | transloco"
+      [title]="'work.designAndDev' | transloco"
     >
       <div content>
         <ul class="my-0">
           <li>
-            Ho iniziato la mia carriera come tirocinante, lavorando su un
-            progetto in Angular 8. Durante i due anni in cui ho combinato studio
-            e lavoro, ho sviluppato applicazioni anche in Vue 2/3 e Flutter.
+            {{ 'work.mta1Desc' | transloco }}
           </li>
           <li>
-            Dopo aver conseguito la laurea magistrale in Sistemi Multimediali e
-            Interaction Design, ho intrapreso la progettazione di vari
-            gestionali e applicazioni mobile, sviluppati principalmente con
-            Angular 15/16/17/18 e Flutter.
+            {{ 'work.mta2Desc' | transloco }}
           </li>
         </ul>
       </div>
     </app-experience-item>
 
     <app-experience-item
-      [entity]="'Freelancing'"
-      [title]="'Web portal development with CMS'"
+      [entity]="'work.freelance' | transloco"
+      [title]="'work.webCmsTitle' | transloco"
     >
       <div content>
         <ul class="my-0">
           <li>
-            Durante i miei primi anni di scuola superiore, ho creato diversi
-            siti web utilizzando principalmente Wordpress e, in un caso,
-            Prestashop. Mi sono occupato di tutto il processo di sviluppo, dalla
-            selezione dei template fino alla messa in produzione dei portali
-            web, supportando i clienti nel raggiungimento dei loro obiettivi.
+            {{ 'work.webCms1Desc' | transloco }}
           </li>
         </ul>
       </div>

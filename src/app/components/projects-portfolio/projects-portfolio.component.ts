@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
+import { TranslocoModule } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-projects-portfolio',
   standalone: true,
-  imports: [],
+  imports: [TranslocoModule],
   templateUrl: './projects-portfolio.component.html',
   styleUrl: './projects-portfolio.component.scss',
 })

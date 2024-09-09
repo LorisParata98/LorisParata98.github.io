@@ -1,7 +1,7 @@
 <div class="flex flex-col header">
   <header class="flex justify-between px-8 items-center">
     <h1>
-      {{ headerTitle() }}
+      {{ "intro.logo" | transloco }}
     </h1>
     <div>
       <button
@@ -28,7 +28,7 @@
         @if(item.icon){
         <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
         }
-        <h2>{{ item.title }}</h2>
+        <h2>{{ item.title | transloco }}</h2>
       </li>
       }
     </ul>

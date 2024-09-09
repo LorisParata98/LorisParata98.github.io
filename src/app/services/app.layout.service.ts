@@ -16,19 +16,18 @@ export class LayoutService {
   public menuItems = signal<MenubarItem[]>([]);
 
   constructor(private _router: Router, private _translateService: TranslocoService) {
-    const asd = this._translateService.getAvailableLangs();
-    console.log(asd);
 
-    this._translateService.langChanges$.subscribe(() => {
-      this.menuItems.set([
-        { title: this._translateService.translate('menu.home'), id: 'home', icon: 'home' },
-        { title: this._translateService.translate('menu.overview'), id: 'overview', icon: 'account-search' },
-        { title: this._translateService.translate('menu.projects'), id: 'projects', icon: 'draw' },
-        { title: this._translateService.translate('menu.workExperiences'), id: 'work', icon: 'forklift' },
-        { title: this._translateService.translate('menu.technicalSkills'), id: 'knowledge', icon: 'bookshelf' },
-        { title: this._translateService.translate('menu.contactMe'), id: 'contact', icon: 'phone' },
-      ]);
-    })
+
+
+    this.menuItems.set([
+      { title: 'menu.home', id: 'home', icon: 'home' },
+      { title: 'menu.overview', id: 'overview', icon: 'account-search' },
+      { title: 'menu.projects', id: 'projects', icon: 'draw' },
+      { title: 'menu.workExperiences', id: 'work', icon: 'forklift' },
+      { title: 'menu.technicalSkills', id: 'knowledge', icon: 'bookshelf' },
+      { title: 'menu.contactMe', id: 'contact', icon: 'phone' },
+    ]);
+
   }
 
   onMenuToggle() {

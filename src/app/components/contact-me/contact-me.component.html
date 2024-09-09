@@ -4,7 +4,7 @@
       class="m-0 font-normal"
       style="font-family: var(--font-family); font-size: 42px"
     >
-      Contattami
+      {{ 'contact.title' | transloco }}
     </h2>
     <div class="flex flex-col gap-2">
       <div class="flex items-center gap-3">
@@ -22,8 +22,8 @@
   <div class="col-span-1 flex justify-center items-center">
     <div class="flex flex-col gap-4 mb-8 w-full max-w-lg">
       <p class="mt-0">
-        Hai un progetto in mente? <br />
-        Parliamone davanti a una tazza di caffè!
+        {{ 'contact.description' | transloco }} <br />
+        {{ 'contact.description2' | transloco }}
       </p>
       @if(form()){
 
@@ -34,7 +34,7 @@
       >
         <p-floatLabel>
           <input title="name" type="text" pInputText formControlName="name" />
-          <label for="name">Il tuo nome</label>
+          <label for="name">{{ 'contact.yourName' | transloco }}</label>
         </p-floatLabel>
         <p-floatLabel>
           <input
@@ -43,7 +43,7 @@
             pInputText
             formControlName="email"
           />
-          <label for="email">La tua email</label>
+          <label for="email">{{ 'contact.yourEmail' | transloco }}</label>
         </p-floatLabel>
 
         <p-floatLabel>
@@ -55,7 +55,7 @@
             formControlName="body"
           ></textarea>
 
-          <label for="body">Messaggio</label>
+          <label for="body">{{ 'contact.message' | transloco }}</label>
         </p-floatLabel>
 
         <button
@@ -65,7 +65,9 @@
           type="submit"
           class="p-button primary w-full"
         >
-          <span class="w-full flex justify-center"> Invia messaggio </span>
+          <span class="w-full flex justify-center">
+            {{ 'contact.sendMessage' | transloco }}
+          </span>
         </button>
       </form>
       }

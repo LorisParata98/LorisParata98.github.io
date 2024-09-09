@@ -3,13 +3,13 @@
     class="m-0 font-normal max-w-md"
     style="font-family: var(--font-family); font-size: 42px"
   >
-    Technologies
+    {{ 'tecnologies.title' | transloco }}
   </h2>
 
   <div class="flex flex-wrap gap-4 lg:justify-start justify-center">
     <app-skill-card
-      [title]="'Angular'"
-      [description]="angularDescription()"
+      [title]="'tecnologies.angular' | transloco"
+      [description]="'tecnologies.angularDesc' | transloco"
       [bgColor]="'#DE002D'"
     >
       <div content>
@@ -24,8 +24,8 @@
     </app-skill-card>
 
     <app-skill-card
-      [title]="'Vue'"
-      [description]="vueDescription()"
+      [title]="'tecnologies.vue' | transloco"
+      [description]="'tecnologies.vueDesc' | transloco"
       [bgColor]="'#42B883'"
     >
       <div content>
@@ -42,8 +42,8 @@
     </app-skill-card>
 
     <app-skill-card
-      [title]="'Flutter'"
-      [description]="flutterDescription()"
+      [title]="'tecnologies.flutter' | transloco"
+      [description]="'tecnologies.flutterDesc' | transloco"
       [bgColor]="'#00B5F7'"
     >
       <div content>

@@ -11,19 +11,22 @@
     "contactMe": "Contattami"
   },
   "intro": {
+    "welcome": "Benvenuto :)",
+    "presentation": "Il mio nome è Loris Parata,",
+    "presentation2": "Il mio nome è Loris Parata,",
     "d&d": "Designer & Developer",
     "logo": "LRS_DESIGN",
-    "description": "Sono uno progettista e sviluppatore di applicativi web e mobile che mira a migliorare l’esperienza degli utenti che utilizzano giornalmente i miei prodotti per raggiungere i loro obiettivi."
+    "description": "Sono un progettista e sviluppatore specializzato in applicativi web e mobile, con l'obiettivo di ottimizzare l'esperienza degli utenti che utilizzano quotidianamente i miei prodotti per raggiungere i loro obiettivi."
   },
   "experience": {
     "title": "L'esperienza non manca",
     "description": "Grazie alle nottate di programmazione in compagnia del caffè e alle solide basi teoriche acquisite negli studi accademici, miro a creare prodotti utili e confortevoli per gli utenti.",
     "years": "Anni",
     "experience": "Esperienza",
-    "working": "Lavorativo",
-    "uxDesign": "UX Design",
+    "working": "Lavorativa",
+    "uxDesign": "Progettazione dell'esperienza utente",
     "prototyping": "Prototipazione",
-    "developing": "Svilupppo"
+    "developing": "Sviluppo"
   },
   "projects": {
     "figma": "Figma",
@@ -53,7 +56,10 @@
     "title": "Contattami",
     "description": "Hai un progetto in mente?",
     "description2": "Parliamone davanti a una tazza di caffè!",
-    "sendMessage": "Invia il messaggio"
+    "sendMessage": "Invia il messaggio",
+    "yourName": "Il tuo nome",
+    "yourEmail": "La tua email",
+    "message": "Messaggio"
   },
   "common": {
     "ita": "ITA",
@@ -82,7 +88,6 @@
     "companyName": "Azienda",
     "link": "Link",
     "date": "Data",
-
     "description": "Descrizione",
     "image": "Immagine",
     "city": "Città",
@@ -135,7 +140,6 @@
     "passwordInvalidCharacters": "La password contiene caratteri non validi",
     "passwordWeak": "La password deve contenere almeno 8 caratteri, almeno un numero e almeno una lettera"
   },
-
   "primeng": {
     "startsWith": "Inizia con",
     "contains": "Contiene",
@@ -167,7 +171,17 @@
     "cancel": "Annulla",
     "completed": "Completato",
     "pending": "In corso",
-    "fileSizeTypes": ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+    "fileSizeTypes": [
+      "B",
+      "KB",
+      "MB",
+      "GB",
+      "TB",
+      "PB",
+      "EB",
+      "ZB",
+      "YB"
+    ],
     "dayNames": [
       "Domenica",
       "Lunedi",
@@ -177,8 +191,24 @@
       "Venerdì",
       "Sabato"
     ],
-    "dayNamesShort": ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
-    "dayNamesMin": ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
+    "dayNamesShort": [
+      "Dom",
+      "Lun",
+      "Mar",
+      "Mer",
+      "Gio",
+      "Ven",
+      "Sab"
+    ],
+    "dayNamesMin": [
+      "Do",
+      "Lu",
+      "Ma",
+      "Me",
+      "Gi",
+      "Ve",
+      "Sa"
+    ],
     "monthNames": [
       "Gennaio",
       "Febbraio",
