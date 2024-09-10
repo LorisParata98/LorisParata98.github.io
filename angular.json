@@ -27,11 +27,14 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
               {
                 "glob": "mdi.svg",
                 "input": "node_modules/@mdi/angular-material/",
                 "output": "./assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "public"
               }
             ],
             "styles": [

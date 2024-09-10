@@ -21,7 +21,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
             );
     }
 }
-//Serve per caricare la prima volta le traduzioni
+
 export function appInitializerFactory(translateService: TranslocoService) {
     return (): Promise<Translation> => {
         const defaultLang = translateService.getDefaultLang();

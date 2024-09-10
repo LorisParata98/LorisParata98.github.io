@@ -2,25 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,700;1,900&display=swap');
 @import "../node_modules/primeng/resources/primeng.min.css";
 @import "../node_modules/primeng/resources/themes/lara-light-blue/theme.css";
-@import "assets/theme.css";
-@import "assets/theme/_buttons.scss";
-@import "assets/theme/_radioButtons.scss";
-@import "assets/theme/_dataTable.scss";
-@import "assets/theme/_calendar.scss";
-@import "assets/theme/_checkbox.scss";
-@import "assets/theme/_inputSwitch.scss";
-@import "assets/theme/_inputText.scss";
-@import "assets/theme/_toolbar.scss";
-@import "assets/theme/_dropdown.scss";
-@import "assets/theme/_overlayPanel.scss";
-@import "assets/theme/_message.scss";
-@import "assets/theme/_inputNumber.scss";
-@import "assets/theme/_inputPassword.scss";
-@import "assets/theme/_dialog.scss";
-@import "assets/theme/_stepper.scss";
-@import "assets/theme/_breadcrumb.scss";
-@import "assets/theme/_multiselect.scss";
-@import "assets/theme/_progressbar.scss";
+@import "../public/assets/theme.css";
+
 
 @tailwind utilities;
 

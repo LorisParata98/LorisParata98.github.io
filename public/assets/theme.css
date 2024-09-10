@@ -1,10 +1,28 @@
+@import 'theme/_buttons.scss';
+@import 'theme/_radioButtons.scss';
+@import 'theme/_dataTable.scss';
+@import 'theme/_calendar.scss';
+@import 'theme/_checkbox.scss';
+@import 'theme/_inputSwitch.scss';
+@import 'theme/_inputText.scss';
+@import 'theme/_toolbar.scss';
+@import 'theme/_dropdown.scss';
+@import 'theme/_overlayPanel.scss';
+@import 'theme/_message.scss';
+@import 'theme/_inputNumber.scss';
+@import 'theme/_inputPassword.scss';
+@import 'theme/_dialog.scss';
+@import 'theme/_stepper.scss';
+@import 'theme/_breadcrumb.scss';
+@import 'theme/_multiselect.scss';
+@import 'theme/_progressbar.scss';
+
 :root {
-  --font-family: "Poppins",    system-ui;
-  --font-family-titles: "Bebas Neue", sans-serif;
+  --font-family: 'Poppins', system-ui;
+  --font-family-titles: 'Bebas Neue', sans-serif;
 
   /* THEME START */
   --border-input-color: transparent;
-
 
   --black00: #000000;
   --black01: #121212;
