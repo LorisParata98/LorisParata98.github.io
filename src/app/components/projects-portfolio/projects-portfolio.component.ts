@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 
 @Component({
   selector: 'app-projects-portfolio',
   standalone: true,
-  imports: [TranslocoModule],
+  imports: [TranslocoPipe],
   templateUrl: './projects-portfolio.component.html',
   styleUrl: './projects-portfolio.component.scss',
 })

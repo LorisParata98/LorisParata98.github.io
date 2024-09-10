@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
-import { TranslocoModule } from '@jsverse/transloco';
+import { TranslocoPipe } from '@jsverse/transloco';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
@@ -18,7 +18,7 @@ import { EmailService } from '../../services/email.service';
   selector: 'app-contact-me',
   standalone: true,
   imports: [
-    TranslocoModule,
+    TranslocoPipe,
     MatIconModule,
     ReactiveFormsModule,
     FormsModule,

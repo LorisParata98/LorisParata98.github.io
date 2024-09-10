@@ -1,5 +1,5 @@
 import { AfterViewInit, Component } from '@angular/core';
-import { TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import gsap from "gsap";
 import { TextPlugin } from 'gsap/all';
 import { GsapServiceService } from '../../services/gsap.service';
@@ -8,7 +8,7 @@ import { GsapServiceService } from '../../services/gsap.service';
 @Component({
   selector: 'app-presentation',
   standalone: true,
-  imports: [],
+  imports: [TranslocoPipe],
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss',
 })

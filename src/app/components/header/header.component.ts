@@ -2,12 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { TranslocoModule, TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LayoutService, MenubarItem } from '../../services/app.layout.service';
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [MatIconModule, CommonModule, TranslocoModule, TranslocoPipe],
+  imports: [MatIconModule, CommonModule, TranslocoPipe, TranslocoPipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
