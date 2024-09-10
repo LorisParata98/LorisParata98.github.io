@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Translation, TranslocoLoader, TranslocoService } from '@jsverse/transloco';
 
 import { PrimeNGConfig } from 'primeng/api';
-import { firstValueFrom } from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
     constructor(
@@ -27,7 +27,7 @@ export function appInitializerFactory(translateService: TranslocoService) {
         const defaultLang = translateService.getDefaultLang();
         translateService.setActiveLang(defaultLang);
         translateService.getTranslation(defaultLang)
-        return firstValueFrom(translateService.load(defaultLang))
+        return lastValueFrom(translateService.load(defaultLang))
     }
 }
 

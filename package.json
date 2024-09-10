@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --aot",
-    "build-prod": "ng build --aot --configuration production",
+    "build": "ng build --aot --configuration production",
+    "build-prod": "ng build ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:my-site": "node dist/my-site/server/server.mjs"
