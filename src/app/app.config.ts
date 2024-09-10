@@ -1,16 +1,13 @@
 import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
-import { provideRouter } from '@angular/router';
 
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideTransloco, TranslocoService } from '@jsverse/transloco';
-import { routes } from './app.routes';
 import { appInitializerFactory, TranslocoHttpLoader } from './i18n/transloco-loader';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideTransloco({
