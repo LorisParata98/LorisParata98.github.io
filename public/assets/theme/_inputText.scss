@@ -1,0 +1,62 @@
+.p-inputtext,
+.p-textarea {
+  width: 100%;
+  font-family: var(--font-family);
+  font-feature-settings: var(--font-feature-settings, normal);
+  font-size: 1rem;
+  color: var(--surface-0);
+  background: transparent;
+  padding: 0.75rem 0.75rem;
+  border: none;
+  border-bottom: 1px solid var(--surface-0);
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+  border-radius: 0;
+}
+
+.p-inputtext:enabled:hover {
+  border-color: var(--primary-500);
+}
+
+.p-inputtext:enabled:focus {
+  outline: 0 none;
+  border-color: var(--primary-500);
+  outline-offset: 0;
+  box-shadow: none;
+}
+
+.p-inputtext.ng-dirty.ng-invalid {
+  border-color: #e24c4c;
+}
+
+.p-inputtext.p-variant-filled {
+  background-color: #f3f4f6;
+}
+
+.p-inputtext.p-variant-filled:enabled:hover {
+  background-color: #f3f4f6;
+}
+
+.p-inputtext.p-variant-filled:enabled:focus {
+  background-color: #ffffff;
+}
+
+.p-inputtext.p-inputtext-sm {
+  font-size: 0.875rem;
+  padding: 0.65625rem 0.65625rem;
+}
+
+.p-inputtext.p-inputtext-lg {
+  font-size: 1.25rem;
+  padding: 0.9375rem 0.9375rem;
+}
+
+.p-float-label > label {
+  left: 0.75rem;
+  color: var(--surface-0);
+  transition-duration: 0.2s;
+}
+
+.p-float-label > .ng-invalid.ng-dirty + label {
+  color: #e24c4c;
+}

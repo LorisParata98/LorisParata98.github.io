@@ -1,0 +1,55 @@
+.p-progressbar {
+  position: relative;
+  overflow: hidden;
+    border: 0 none;
+      height: 0.5rem;
+      background: var(--surface-0);
+      border-radius: 6px;
+}
+
+
+.p-progressbar .p-progressbar-value {
+  border: 0 none;
+  margin: 0;
+  background: var(--primary-500);
+}
+
+.p-progressbar .p-progressbar-label {
+  color: #ffffff;
+  line-height: 1.5rem;
+}
+
+.p-progressbar-determinate .p-progressbar-value {
+  height: 100%;
+  width: 0%;
+  position: absolute;
+  display: none;
+  border: 0 none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden
+}
+
+.p-progressbar-determinate .p-progressbar-label {
+  display: inline-flex
+}
+
+.p-progressbar-determinate .p-progressbar-value-animate {
+  transition: width 1s ease-in-out;
+}
+
+.p-progressbar-indeterminate .p-progressbar-value:before {
+  content: "";
+  position: absolute;
+  background-color: inherit;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  will-change: left, right;
+  -webkit-animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(.65, .815, .735, .395) infinite;
+  animation: p-progressbar-indeterminate-anim 2.1s cubic-bezier(.65, .815, .735, .395) infinite
+}
+
+
+
