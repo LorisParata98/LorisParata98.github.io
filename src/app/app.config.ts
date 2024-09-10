@@ -8,6 +8,7 @@ import { appInitializerFactory, TranslocoHttpLoader } from './i18n/transloco-loa
 
 export const appConfig: ApplicationConfig = {
   providers: [
+
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideTransloco({
@@ -15,9 +16,6 @@ export const appConfig: ApplicationConfig = {
         defaultLang: 'it',
         availableLangs: ['it', 'en'],
         failedRetries: 2,
-        flatten: {
-          aot: !isDevMode()
-        },
         reRenderOnLangChange: true,
         prodMode: !isDevMode(),
       },
