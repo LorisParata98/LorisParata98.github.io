@@ -7,31 +7,44 @@ on:
   push:
     branches:
       - main
+      
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+  
 jobs:
   build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+      
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js environment
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
       - name: npm install
         shell: bash
-        run: 'npm install'
+        run: 'npm cy'
 
       - name: npm build prod
         shell: bash
         run: 'npm run build-prod'
 
-      - name: Deploy to Github Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
-          branch: gh-pages
-          folder: dist/browser
+          # Upload entire repository
+          path: 'dist/browser'
+
+      - name: Deploy to Github Pages
+        uses: actions/deploy-pages@v4
