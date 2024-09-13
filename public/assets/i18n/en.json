@@ -11,9 +11,11 @@
     "contactMe": "Contact Me"
   },
   "intro": {
+    "welcome": "Welcome :)",
+    "presentation": "My name is Loris Parata,",
     "d&d": "Designer & Developer",
     "logo": "LRS_DESIGN",
-    "description": "I am a designer and developer of web and mobile applications, aiming to improve the experience of users who daily use my products to achieve their goals."
+    "description": "I am a designer and developer specializing in web and mobile applications, with the goal of optimizing the user experience for those who use my products daily to achieve their goals."
   },
   "experience": {
     "title": "Experience is not lacking",
@@ -165,17 +167,7 @@
     "cancel": "Cancel",
     "completed": "Completed",
     "pending": "Pending",
-    "fileSizeTypes": [
-      "B",
-      "KB",
-      "MB",
-      "GB",
-      "TB",
-      "PB",
-      "EB",
-      "ZB",
-      "YB"
-    ],
+    "fileSizeTypes": ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
     "dayNames": [
       "Sunday",
       "Monday",
@@ -185,24 +177,8 @@
       "Friday",
       "Saturday"
     ],
-    "dayNamesShort": [
-      "Sun",
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "dayNamesMin": [
-      "Su",
-      "Mo",
-      "Tu",
-      "We",
-      "Th",
-      "Fr",
-      "Sa"
-    ],
+    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     "monthNames": [
       "January",
       "February",

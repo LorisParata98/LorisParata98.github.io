@@ -1,9 +1,9 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
-import gsap from "gsap";
+import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
+import { combineLatest } from 'rxjs';
 import { GsapServiceService } from '../../services/gsap.service';
-
 
 @Component({
   selector: 'app-presentation',
@@ -13,29 +13,70 @@ import { GsapServiceService } from '../../services/gsap.service';
   styleUrl: './presentation.component.scss',
 })
 export class PresentationComponent implements AfterViewInit {
-
-  constructor(private _gsapService: GsapServiceService, private _translateService: TranslocoService) {
-    gsap.registerPlugin(TextPlugin)
+  constructor(
+    private _gsapService: GsapServiceService,
+    private _translateService: TranslocoService
+  ) {
+    gsap.registerPlugin(TextPlugin);
   }
 
   ngAfterViewInit(): void {
-    if (this._gsapService.isOnVue()) {
-      gsap.to("#titolo", { duration: 2, text: this._translateService.translate('intro.welcome'), delay: 1 });
-      gsap.to("#titolo", {
-        duration: 3, text: this._translateService.translate('intro.presentation'), delay: 4
-      });
-      gsap.to("#titolo", { duration: 4, text: this._translateService.translate('intro.presentation2'), delay: 7 });
-      gsap.to("#titolo", { duration: 2, text: "|", delay: 11 });
+    this._translateService.langChanges$.subscribe(() => {
+      if (this._gsapService.isOnVue()) {
+        gsap.killTweensOf('#titolo');
+        gsap.killTweensOf('#descrizione');
+        gsap.killTweensOf('#intestazione');
 
-      gsap.to("#titolo", { duration: 2, text: "LRS_DESIGN", delay: 13 });
-      gsap.to("#descrizione", {
-        duration: 6, text: this._translateService.translate('intro.description'), delay: 15
-      });
-      gsap.to("#intestazione", { duration: 2, text: this._translateService.translate('intro.d&d'), delay: 18 });
-    }
-
+        this._loadPresentation();
+      }
+    });
   }
 
+  private _loadPresentation() {
+    if (
+      this._gsapService.isOnVue() &&
+      (!gsap.isTweening('#titolo') ||
+        !gsap.isTweening('#descrizione') ||
+        !gsap.isTweening('#intestazione'))
+    ) {
+      combineLatest({
+        welcome: this._translateService.selectTranslate('intro.welcome'),
+        presentation:
+          this._translateService.selectTranslate('intro.presentation'),
+
+        description:
+          this._translateService.selectTranslate('intro.description'),
+        dnd: this._translateService.selectTranslate('intro.d&d'),
+      }).subscribe({
+        next: (translations: any) => {
+          // Quando tutte le traduzioni sono pronte, esegui le animazioni
+          gsap.to('#titolo', {
+            duration: 2,
+            text: translations.welcome,
+            delay: 1,
+          });
+          gsap.to('#titolo', {
+            duration: 5,
+            text: translations.presentation,
+            delay: 4,
+          });
+          gsap.to('#titolo', { duration: 2, text: '|', delay: 9 });
+          gsap.to('#titolo', { duration: 2, text: 'LRS_DESIGN', delay: 11 });
+          gsap.to('#descrizione', {
+            duration: 6,
+            text: translations.description,
+            delay: 13,
+          });
+          gsap.to('#intestazione', {
+            duration: 2,
+            text: translations.dnd,
+            delay: 18,
+          });
+        },
+        error: (ex) => console.log(ex),
+      });
+    }
+  }
 
   changeLanguage(lang: string) {
     this._translateService.setActiveLang(lang);
