@@ -11,4 +11,14 @@
     /* Adjust the height as needed */
     background: linear-gradient(to right, var(--surface-0), black);
   }
+
+  .indicators {
+    height: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 32rem;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
 }

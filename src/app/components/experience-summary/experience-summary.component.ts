@@ -9,6 +9,4 @@ import { CompletationBarComponent } from './completation-bar/completation-bar.co
   templateUrl: './experience-summary.component.html',
   styleUrl: './experience-summary.component.scss',
 })
-export class ExperienceSummaryComponent {
-  public onChangeLanguage(lang: string) { }
-}
+export class ExperienceSummaryComponent {}

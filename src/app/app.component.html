@@ -1,23 +1,32 @@
 <app-header></app-header>
 <div style="overflow: hidden">
   <app-presentation></app-presentation>
+  @defer(on viewport; ){
   <app-experience-summary
     pAnimateOnScroll
-    [once]="false"
+    [once]="true"
     enterClass="fadeinright"
     leaveClass="fadeoutright"
     class="flex animation-duration-1000 animation-ease-in-out"
   ></app-experience-summary>
+  }@placeholder{
+  <div></div>
+  }
+
   <app-projects-portfolio></app-projects-portfolio>
+  @defer(on viewport; ){
 
   <app-work-experiences
     pAnimateOnScroll
-    [once]="false"
+    [once]="true"
     enterClass="fadeinleft"
     leaveClass="fadeoutleft"
     class="flex animation-duration-1000 animation-ease-in-out"
   >
   </app-work-experiences>
+  }@placeholder{
+  <div></div>
+  }
 
   <app-tecnology-skills></app-tecnology-skills>
   <app-contact-me></app-contact-me>
