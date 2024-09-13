@@ -24,7 +24,6 @@ import { WorkExperiencesComponent } from './components/work-experiences/work-exp
     TecnologySkillsComponent,
     ContactMeComponent,
     AnimateOnScrollModule,
-
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
@@ -34,5 +33,16 @@ export class AppComponent {
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title);
+  }
+
+  public scrollToSection(id: string) {
+    const targetDiv = document.querySelector(`#${id}`);
+    console.log(id);
+
+    if (targetDiv) {
+      targetDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      console.error(`Div with ID "${id}" not found.`);
+    }
   }
 }

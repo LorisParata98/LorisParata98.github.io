@@ -1,4 +1,4 @@
-<div class="grid grid-rows-3 grid-col-12 grid-flow-col gap-4 px-16">
+<div class="grid grid-rows-3 grid-col-12 grid-flow-col gap-4 px-16" id="home">
   <div class="row-span-3 social w-10">
     <div class="flex flex-col justify-between items-center h-full py-4">
       <div class="vl"></div>
@@ -61,8 +61,8 @@
     <button
       title="change language to italian button"
       type="button"
-      pButton
       class="p-button p-button-text"
+      [ngClass]="{ active: selectedLanguage() == 'it' }"
       (click)="changeLanguage('it')"
     >
       ITA
@@ -70,8 +70,8 @@
     <button
       title="change language to english button"
       type="button"
-      pButton
       class="p-button p-button-text"
+      [ngClass]="{ active: selectedLanguage() == 'en' }"
       (click)="changeLanguage('en')"
     >
       ENG

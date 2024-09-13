@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LayoutService, MenubarItem } from '../../services/app.layout.service';
+
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -15,6 +16,7 @@ export class HeaderComponent {
   // public headerTitle = signal<string>('LRS_DESIGN');
   public menuItems = signal<MenubarItem[]>([]);
   public activeId = signal<string | undefined>(undefined);
+  public onSelect = output<string>();
 
   constructor(
     private _matIconRegistry: MatIconRegistry,
@@ -26,16 +28,16 @@ export class HeaderComponent {
       _domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
     );
 
-    this.menuItems.set(this._layoutService.getMenuItems().map((el) => ({
-      ...el,
-      title: this._translateService.translate(el.title)
-    })));
+    this.menuItems.set(
+      this._layoutService.getMenuItems().map((el) => ({
+        ...el,
+        title: this._translateService.translate(el.title),
+      }))
+    );
 
     this._translateService.langChanges$.subscribe(() => {
-
-      this.menuItems.set(this._layoutService.getMenuItems()
-      );
-    })
+      this.menuItems.set(this._layoutService.getMenuItems());
+    });
   }
 
   public isMenuOpen() {
@@ -46,7 +48,8 @@ export class HeaderComponent {
     this._layoutService.onMenuToggle();
   }
   navigateTo(id: string) {
+    this._layoutService.onMenuToggle();
     this.activeId.set(id);
-
+    this.onSelect.emit(id);
   }
 }

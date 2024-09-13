@@ -1,4 +1,5 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AfterViewInit, Component, signal } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
@@ -8,7 +9,7 @@ import { GsapServiceService } from '../../services/gsap.service';
 @Component({
   selector: 'app-presentation',
   standalone: true,
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, CommonModule],
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss',
 })
@@ -20,7 +21,13 @@ export class PresentationComponent implements AfterViewInit {
     gsap.registerPlugin(TextPlugin);
   }
 
+  public selectedLanguage = signal<string>('it');
+
   ngAfterViewInit(): void {
+    this._translateService.langChanges$.subscribe((res) => {
+      this.selectedLanguage.set(res);
+    });
+
     this._translateService.langChanges$.subscribe(() => {
       if (this._gsapService.isOnVue()) {
         gsap.killTweensOf('#titolo');

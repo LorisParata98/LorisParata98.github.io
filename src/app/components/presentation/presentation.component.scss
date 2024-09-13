@@ -14,6 +14,10 @@
   }
 }
 
+button.active {
+  color: var(--primary-500);
+}
+
 .vl {
   border-left: 1px solid var(--surface-0);
   height: 184px;
