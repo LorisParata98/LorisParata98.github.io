@@ -40,7 +40,7 @@ export class ContactMeComponent {
   private _buildForm() {
     return this._fb.group({
       name: [null, Validators.required],
-      email: [null, [Validators.email, Validators.required]],
+      // email: [null, [Validators.email, Validators.required]],
       body: [null, Validators.required],
     });
   }
@@ -48,17 +48,18 @@ export class ContactMeComponent {
     if (this.form()?.valid) {
       const formData = this.form()?.getRawValue();
       //TODO DA RIVEDERE LA COSTRUZIONE
-      this._emailService.sendEmail(
-        formData.email,
-        formData.name,
-        formData.body
-      );
-      // .then((response) => {
-      //   console.log('Email sent successfully!', response);
-      // })
-      // .catch((error) => {
-      //   console.error('Failed to send email', error);
-      // });
+      // this._emailService.sendEmail(
+      //   formData.name,
+      //   formData.body
+      // );
+
+      const email = 'lorisparata@gmail.com';
+      const subject = 'LRS_Design - Messaggio da ' + formData.name;
+
+      const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(formData.body)}`;
+
+      // Apri il link per inviare l'email
+      window.location.href = mailtoLink;
     }
   }
 }

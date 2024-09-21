@@ -43,13 +43,13 @@
     "webCms1Desc": "During my early years in high school, I created several websites primarily using WordPress and, in one case, Prestashop. I handled the entire development process, from template selection to the deployment of web portals, supporting clients in achieving their goals."
   },
   "technologies": {
-    "title": "Technologies Used",
+    "title": "Technologies used",
     "angular": "Angular",
-    "angularDesc": "Angular description",
+    "angularDesc": "This is my go-to framework. I started with version 8/9 and have worked on enterprise projects based on versions 15-18.",
     "vue": "Vue",
-    "vueDesc": "Vue description",
+    "vueDesc": "Used to maintain and evolve three enterprise projects, using versions 2 and 3.",
     "flutter": "Flutter",
-    "flutterDesc": "Flutter description"
+    "flutterDesc": "I developed enhancements for two existing applications, and created two new ones, one of which uses sockets to communicate with hardware devices."
   },
   "contact": {
     "title": "Contact Me",
@@ -167,7 +167,17 @@
     "cancel": "Cancel",
     "completed": "Completed",
     "pending": "Pending",
-    "fileSizeTypes": ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
+    "fileSizeTypes": [
+      "B",
+      "KB",
+      "MB",
+      "GB",
+      "TB",
+      "PB",
+      "EB",
+      "ZB",
+      "YB"
+    ],
     "dayNames": [
       "Sunday",
       "Monday",
@@ -177,8 +187,24 @@
       "Friday",
       "Saturday"
     ],
-    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-    "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    "dayNamesShort": [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+    ],
+    "dayNamesMin": [
+      "Su",
+      "Mo",
+      "Tu",
+      "We",
+      "Th",
+      "Fr",
+      "Sa"
+    ],
     "monthNames": [
       "January",
       "February",
