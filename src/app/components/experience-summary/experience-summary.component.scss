@@ -3,6 +3,7 @@
     border-left: 3px solid var(--surface-0);
     height: 530px;
   }
+
   hr.gradient-hr {
     padding: 0;
     margin: 0;
@@ -20,5 +21,22 @@
     max-width: 32rem;
     gap: 2rem;
     margin-top: 1rem;
+  }
+
+
+  .years {
+    font-size: 256px
+  }
+
+  @media only screen and (max-width: 768px) {
+    .years {
+      font-size: 192px
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .years {
+      font-size: 144px
+    }
   }
 }

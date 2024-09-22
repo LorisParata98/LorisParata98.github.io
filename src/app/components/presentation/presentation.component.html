@@ -1,8 +1,14 @@
-<div class="grid grid-rows-3 grid-col-12 grid-flow-col gap-4 px-16" id="home">
-  <div class="row-span-3 social w-10">
+<div
+  class="flex flex-col md:grid md:grid-rows-3 md:grid-col-12 md:grid-flow-col md:gap-4 px-2 md:px-16"
+  id="home"
+>
+  <div class="md:row-span-3 social w-full md:w-10">
     <div class="flex flex-col justify-between items-center h-full py-4">
-      <div class="vl"></div>
-      <div class="flex flex-col justify-between items-center gap-12">
+      <div class="hidden md:block vl"></div>
+
+      <div
+        class="flex flex-row md:flex-col justify-between items-center gap-8 md:gap-12"
+      >
         <div class="social-logo">
           <a
             title="instagram link"
@@ -30,33 +36,32 @@
           </a>
         </div>
       </div>
-      <div class="vl"></div>
+      <div class="hidden md:block vl"></div>
     </div>
   </div>
   <div class="row-span-3 col-span-10">
-    <div class="flex flex-col justify-end h-full px-8 py-8 gap-1">
+    <div
+      class="flex flex-col justify-between md:justify-end h-full md:p-8 gap-1"
+    >
       <h2
-        class="m-0 font-normal"
-        style="font-size: 48px; font-family: var(--font-family)"
+        class="m-0 font-normal text-3xl md:text-5xl"
+        style="font-family: var(--font-family)"
         id="intestazione"
       ></h2>
 
-      <h1
-        class="m-0 font-normal"
-        style="font-size: 96px; min-height: 125px"
-        id="titolo"
-      ></h1>
-      <div class="max-w-2xl" id="descrizione"></div>
+      <h1 class="m-0 font-normal text-5xl md:text-8xl" id="titolo"></h1>
+      <div class="max-w-2xl px-4 md:px-0" id="descrizione"></div>
     </div>
   </div>
-  <div class="row-span-3">
+
+  <div class="hidden md:block row-span-3">
     <div class="flex flex-col items-end h-full py-4">
       <div class="vl-2-short pe-4"></div>
       <div class="vl-2 pe-4"></div>
     </div>
   </div>
 </div>
-<div class="flex justify-end px-32 py-8">
+<div class="flex justify-around md:justify-end md:px-32 py-4 md:py-8">
   <div class="flex gap-2">
     <button
       title="change language to italian button"

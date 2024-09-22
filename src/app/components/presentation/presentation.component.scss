@@ -14,6 +14,20 @@
   }
 }
 
+#titolo {
+  height: 125px;
+}
+
+@media only screen and (max-width: 768px) {
+  .social {
+    height: min-content;
+  }
+
+  #titolo {
+    height: min-content;
+  }
+}
+
 button.active {
   color: var(--primary-500);
 }
@@ -27,6 +41,7 @@ button.active {
   border-left: 3px solid var(--surface-0);
   height: 100%;
 }
+
 .vl-2-short {
   border-left: 3px solid var(--primary-500);
   height: 100px;
