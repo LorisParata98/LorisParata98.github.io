@@ -67,17 +67,17 @@ export class PresentationComponent implements AfterViewInit {
             text: translations.presentation,
             delay: 4,
           });
-          gsap.to('#titolo', { duration: 2, text: '|', delay: 9 });
-          gsap.to('#titolo', { duration: 2, text: 'LRS_DESIGN', delay: 11 });
+          gsap.to('#titolo', { duration: 2, text: '|', delay: 16 });
+          gsap.to('#titolo', { duration: 2, text: 'LRS_DESIGN', delay: 18 });
           gsap.to('#descrizione', {
             duration: 6,
             text: translations.description,
-            delay: 13,
+            delay: 10,
           });
           gsap.to('#intestazione', {
             duration: 2,
             text: translations.dnd,
-            delay: 18,
+            delay: 17,
           });
         },
         error: (ex) => console.log(ex),
