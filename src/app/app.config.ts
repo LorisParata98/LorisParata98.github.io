@@ -3,7 +3,9 @@ import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideRouter } from '@angular/router';
 import { provideTransloco, TranslocoService } from '@jsverse/transloco';
+import { routes } from './app.routes';
 import { appInitializerFactory, TranslocoHttpLoader } from './i18n/transloco-loader';
 
 export const appConfig: ApplicationConfig = {
@@ -11,6 +13,8 @@ export const appConfig: ApplicationConfig = {
 
     provideClientHydration(),
     provideHttpClient(withFetch()),
+    provideRouter(routes),
+
     provideTransloco({
       config: {
         defaultLang: 'it',

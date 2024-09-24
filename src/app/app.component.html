@@ -1,37 +1,7 @@
 <app-header class="w-full" (onSelect)="scrollToSection($event)"></app-header>
 
 <div class="flex w-full items-center justify-center">
-  <div
-    style="overflow: hidden; max-width: 1920px"
-    class="w-full flex flex-col gap-16 md:gap-28"
-  >
-    <app-presentation></app-presentation>
-
-    <app-experience-summary
-      pAnimateOnScroll
-      [once]="true"
-      enterClass="fadeinright"
-      leaveClass="fadeoutright"
-      class="flex animation-duration-1000 animation-ease-in-out"
-    ></app-experience-summary>
-
-    <app-projects-portfolio></app-projects-portfolio>
-    @defer(on viewport; ){
-    <app-work-experiences
-      pAnimateOnScroll
-      [once]="false"
-      enterClass="fadeinleft"
-      leaveClass="fadeoutleft"
-      class="flex animation-duration-1000 animation-ease-in-out"
-    >
-    </app-work-experiences>
-    }@placeholder {
-
-    <div></div>
-
-    }
-
-    <app-tecnology-skills></app-tecnology-skills>
-    <app-contact-me></app-contact-me>
+  <div style="overflow: hidden; max-width: 1920px" class="w-full">
+    <router-outlet></router-outlet>
   </div>
 </div>

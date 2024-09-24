@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
+
+import { HeaderComponent } from '../header/header.component';
+
 @Component({
-  selector: 'app-root',
+  selector: 'app-projects',
   standalone: true,
   imports: [
-    RouterOutlet,
     HeaderComponent,
   ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+  templateUrl: './projects.component.html',
+  styleUrl: './projects.component.scss',
 })
-export class AppComponent {
-  title = 'LRS_Design';
+export class ProjectsComponent {
+  title = 'projects';
+
 
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title);
@@ -25,6 +26,7 @@ export class AppComponent {
       const scrollPosition = (targetDiv as any).offsetTop - 540;
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
+
 
   }
 }
