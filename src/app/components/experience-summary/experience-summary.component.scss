@@ -32,11 +32,19 @@
     .years {
       font-size: 192px
     }
+
+    .vl {
+      height: 470px;
+    }
   }
 
   @media only screen and (max-width: 425px) {
     .years {
       font-size: 144px
+    }
+
+    .vl {
+      height: 390px;
     }
   }
 }
