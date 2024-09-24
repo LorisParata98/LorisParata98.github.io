@@ -42,7 +42,11 @@ export class LayoutService {
     return !this.isDesktop();
   }
 
-  getMenuItems() {
-    return this.menuItems();
+  getMenuItems(currentRoute?: string) {
+    if (currentRoute == '/projects') {
+      return [{ title: 'menu.prj1', id: 'prj1', icon: '1' },]
+    } else {
+      return this.menuItems();
+    }
   }
 }

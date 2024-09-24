@@ -28,9 +28,9 @@
     "developing": "Sviluppo"
   },
   "projects": {
-    "figma": "Figma",
-    "portfolio": "Portfolio progetti",
-    "viewProjects": "Esplora i progetti"
+    "projects": "Progetti",
+    "portfolio": "Esplora i progetti che ho realizzato fino ad oggi",
+    "viewProjects": "Esplora portfolio"
   },
   "work": {
     "title": "Esperienze accademiche e lavorative ",

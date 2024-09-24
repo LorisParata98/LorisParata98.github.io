@@ -1,36 +1,40 @@
 .header {
-
   position: -webkit-sticky;
-  /* For Safari */
   position: sticky;
   top: 0;
-z-index: 999;
+  z-index: 999;
 
-header{
-top: 84px;
-  h1 {
-    font-weight: 500;
+  header {
+    top: 84px;
+
+    h1 {
+      font-weight: 500;
+    }
+
+    background-color: var(--header-color);
+
+    .p-button.p-button-text {
+      padding: 2px 4px;
+    }
+
+    .menu-icon {
+      height: 40px;
+      width: 40px;
+    }
   }
-  background-color: var(--header-color);
-  .p-button.p-button-text {
-    padding: 2px 4px;
-  }
-  .menu-icon {
-    height: 40px;
-    width: 40px;
-  }
-}
 }
 
 .menu-list {
   background-color: #121212cc;
 
   width: 100%;
+
   ul {
     text-decoration: none;
     list-style-type: none;
     padding-inline-start: 0;
     margin-block-start: 0;
+
     li {
       padding-left: 1rem;
 
@@ -44,6 +48,7 @@ top: 84px;
     height: 28px;
     width: 28px;
   }
+
   li:hover,
   .isActive {
     background-color: var(--primary-500);
@@ -51,6 +56,7 @@ top: 84px;
     h2 {
       color: var(--black01);
     }
+
     .menu-item-icon {
       color: var(--black01);
     }

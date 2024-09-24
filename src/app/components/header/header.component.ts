@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, output, signal } from '@angular/core';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { LayoutService, MenubarItem } from '../../services/app.layout.service';
 
@@ -22,7 +23,8 @@ export class HeaderComponent {
     private _matIconRegistry: MatIconRegistry,
     private _domSanitizer: DomSanitizer,
     private _translateService: TranslocoService,
-    private _layoutService: LayoutService
+    private _layoutService: LayoutService,
+    private _router: Router,
   ) {
     _matIconRegistry.addSvgIconSet(
       _domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
@@ -45,6 +47,13 @@ export class HeaderComponent {
   }
 
   public onMenuToggle() {
+    this.menuItems.set(
+      this._layoutService.getMenuItems(this._router.url).map((el) => ({
+        ...el,
+        title: this._translateService.translate(el.title),
+      }))
+    );
+
     this._layoutService.onMenuToggle();
   }
   navigateTo(id: string) {
