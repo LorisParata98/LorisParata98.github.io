@@ -31,18 +31,26 @@ import { WorkExperiencesComponent } from './components/work-experiences/work-exp
 export class AppComponent {
   title = 'LRS_Design';
 
+
   constructor(private titleService: Title) {
     this.titleService.setTitle(this.title);
   }
 
   public scrollToSection(id: string) {
+
     const targetDiv = document.querySelector(`#${id}`);
-    console.log(id);
 
     if (targetDiv) {
-      targetDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    } else {
-      console.error(`Div with ID "${id}" not found.`);
+
+      const scrollPosition = (targetDiv as any).offsetTop - 540;
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
+
+
+    //   if (targetDiv && homeElement) {
+    //     homeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    //   } else {
+    //     console.error(`Div with ID "${id}" not found.`);
+    //   }
   }
 }
