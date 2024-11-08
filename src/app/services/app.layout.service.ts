@@ -1,6 +1,4 @@
 import { Injectable, signal } from '@angular/core';
-import { Router } from '@angular/router';
-import { TranslocoService } from '@jsverse/transloco';
 export interface MenubarItem {
   title: string;
   icon?: string;
@@ -15,10 +13,7 @@ export class LayoutService {
   public isMenuOpen = signal<boolean>(false);
   public menuItems = signal<MenubarItem[]>([]);
 
-  constructor(private _router: Router, private _translateService: TranslocoService) {
-
-
-
+  constructor() {
     this.menuItems.set([
       { title: 'menu.home', id: 'home', icon: 'home' },
       { title: 'menu.overview', id: 'overview', icon: 'account-search' },
@@ -27,7 +22,6 @@ export class LayoutService {
       { title: 'menu.technicalSkills', id: 'knowledge', icon: 'bookshelf' },
       { title: 'menu.contactMe', id: 'contact', icon: 'phone' },
     ]);
-
   }
 
   onMenuToggle() {
