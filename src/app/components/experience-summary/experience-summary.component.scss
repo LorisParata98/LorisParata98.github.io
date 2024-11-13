@@ -1,7 +1,7 @@
 #overview {
   .vl {
     border-left: 3px solid var(--surface-0);
-    height: 530px;
+    height: 560px;
   }
 
   hr.gradient-hr {
@@ -23,24 +23,23 @@
     margin-top: 1rem;
   }
 
-
   .years {
-    font-size: 256px
+    font-size: 256px;
   }
 
   @media only screen and (max-width: 768px) {
     .years {
-      font-size: 192px
+      font-size: 192px;
     }
 
     .vl {
-      height: 470px;
+      height: 440px;
     }
   }
 
   @media only screen and (max-width: 425px) {
     .years {
-      font-size: 144px
+      font-size: 144px;
     }
 
     .vl {

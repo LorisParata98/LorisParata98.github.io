@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { AfterViewInit, Component, signal } from '@angular/core';
-import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { TranslocoService } from '@jsverse/transloco';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
 import { combineLatest } from 'rxjs';
@@ -9,7 +9,7 @@ import { GsapServiceService } from '../../services/gsap.service';
 @Component({
   selector: 'app-presentation',
   standalone: true,
-  imports: [TranslocoPipe, CommonModule],
+  imports: [CommonModule],
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss',
 })

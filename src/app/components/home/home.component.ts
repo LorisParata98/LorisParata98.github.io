@@ -4,7 +4,6 @@ import { Title } from '@angular/platform-browser';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ContactMeComponent } from '../contact-me/contact-me.component';
 import { ExperienceSummaryComponent } from '../experience-summary/experience-summary.component';
-import { HeaderComponent } from '../header/header.component';
 import { PresentationComponent } from '../presentation/presentation.component';
 import { ProjectsPortfolioComponent } from '../projects-portfolio/projects-portfolio.component';
 import { TecnologySkillsComponent } from '../tecnology-skills/tecnology-skills.component';
@@ -14,7 +13,6 @@ import { WorkExperiencesComponent } from '../work-experiences/work-experiences.c
   selector: 'app-home',
   standalone: true,
   imports: [
-    HeaderComponent,
     CommonModule,
     PresentationComponent,
     ExperienceSummaryComponent,
@@ -40,6 +38,5 @@ export class HomeComponent {
       const scrollPosition = (targetDiv as any).offsetTop - 540;
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
-
   }
 }

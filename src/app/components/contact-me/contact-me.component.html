@@ -4,10 +4,10 @@
 >
   <div class="w-full md:w-1/2 flex flex-col gap-8 md:gap-16">
     <h2
-      class="m-0 font-normal"
-      style="font-family: var(--font-family); font-size: 42px"
+      class="m-0 font-normal text-4xl md:text-6xl"
+      style="font-family: var(--font-family)"
     >
-      {{ 'contact.title' | transloco }}
+      {{ "contact.title" | transloco }}
     </h2>
     <div class="hidden md:flex flex-col gap-2">
       <div class="flex items-center gap-3">
@@ -25,8 +25,8 @@
   <div class="w-full md:w-1/2 flex flex-col items-center">
     <div class="flex justify-between gap-2 w-full md:max-w-lg">
       <p class="mt-0 text-lg">
-        {{ 'contact.description' | transloco }} <br />
-        {{ 'contact.description2' | transloco }}
+        {{ "contact.description" | transloco }} <br />
+        {{ "contact.description2" | transloco }}
       </p>
       <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <path
@@ -44,7 +44,7 @@
       >
         <p-floatLabel class="mt-8">
           <input title="name" type="text" pInputText formControlName="name" />
-          <label for="name">{{ 'contact.yourName' | transloco }}</label>
+          <label for="name">{{ "contact.yourName" | transloco }}</label>
         </p-floatLabel>
         <!-- <p-floatLabel>
           <input
@@ -65,7 +65,7 @@
             formControlName="body"
           ></textarea>
 
-          <label for="body">{{ 'contact.message' | transloco }}</label>
+          <label for="body">{{ "contact.message" | transloco }}</label>
         </p-floatLabel>
 
         <button
@@ -75,7 +75,7 @@
           class="p-button primary w-full"
         >
           <span class="w-full flex justify-center">
-            {{ 'contact.sendMessage' | transloco }}
+            {{ "contact.sendMessage" | transloco }}
           </span>
         </button>
       </form>
