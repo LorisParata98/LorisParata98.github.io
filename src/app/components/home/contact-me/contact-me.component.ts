@@ -12,7 +12,8 @@ import { TranslocoPipe } from '@jsverse/transloco';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputTextareaModule } from 'primeng/inputtextarea';
-import { EmailService } from '../../services/email.service';
+import { EmailService } from '../../../services/email.service';
+
 
 @Component({
   selector: 'app-contact-me',

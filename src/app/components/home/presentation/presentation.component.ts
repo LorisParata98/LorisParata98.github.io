@@ -4,7 +4,8 @@ import { TranslocoService } from '@jsverse/transloco';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
 import { combineLatest } from 'rxjs';
-import { GsapServiceService } from '../../services/gsap.service';
+import { GsapServiceService } from '../../../services/gsap.service';
+
 
 @Component({
   selector: 'app-presentation',

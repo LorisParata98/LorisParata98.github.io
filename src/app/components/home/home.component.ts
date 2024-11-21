@@ -2,25 +2,25 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
-import { ContactMeComponent } from '../contact-me/contact-me.component';
 import { ExperienceSummaryComponent } from '../experience-summary/experience-summary.component';
-import { PresentationComponent } from '../presentation/presentation.component';
-import { ProjectsPortfolioComponent } from '../projects-portfolio/projects-portfolio.component';
 import { TecnologySkillsComponent } from '../tecnology-skills/tecnology-skills.component';
 import { WorkExperiencesComponent } from '../work-experiences/work-experiences.component';
+import { ContactMeComponent } from './contact-me/contact-me.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { ProjectsPortfolioComponent } from './projects-portfolio/projects-portfolio.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    PresentationComponent,
     ExperienceSummaryComponent,
-    ProjectsPortfolioComponent,
     WorkExperiencesComponent,
     TecnologySkillsComponent,
     ContactMeComponent,
+    ProjectsPortfolioComponent,
     AnimateOnScrollModule,
+    PresentationComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

@@ -61,4 +61,8 @@ export class HeaderComponent {
     this.activeId.set(id);
     this.onSelect.emit(id);
   }
+
+  public goToHome() {
+    this._router.navigateByUrl('/');
+  }
 }

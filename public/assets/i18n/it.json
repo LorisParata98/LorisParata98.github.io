@@ -30,7 +30,8 @@
   "projects": {
     "projects": "Progetti",
     "portfolio": "Esplora i progetti che ho realizzato fino ad oggi",
-    "viewProjects": "Esplora portfolio"
+    "viewProjects": "Esplora portfolio",
+    "myProjects": "I miei progetti"
   },
   "work": {
     "title": "Esperienze accademiche e lavorative ",

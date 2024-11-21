@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
+import { TranslocoPipe } from '@jsverse/transloco';
 import { HeaderComponent } from '../header/header.component';
 
 @Component({
@@ -8,6 +9,7 @@ import { HeaderComponent } from '../header/header.component';
   standalone: true,
   imports: [
     HeaderComponent,
+    TranslocoPipe
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
@@ -26,7 +28,5 @@ export class ProjectsComponent {
       const scrollPosition = (targetDiv as any).offsetTop - 540;
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
-
-
   }
 }

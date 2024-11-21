@@ -30,7 +30,8 @@
   "projects": {
     "figma": "Figma",
     "portfolio": "Project Portfolio",
-    "viewProjects": "Explore Projects"
+    "viewProjects": "Explore Projects",
+    "myProjects": "My Projects"
   },
   "work": {
     "title": "Academic and Work Experiences",
