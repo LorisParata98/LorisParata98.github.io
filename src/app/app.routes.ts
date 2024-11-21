@@ -6,7 +6,8 @@ export const routes: Routes = [
         path: '', children: [
             { path: '', component: HomeComponent },
             // { path: 'projects', component: ProjectsComponent }
-            { path: '**', component: HomeComponent }
+            { path: '**', redirectTo: 'home', pathMatch: 'full' }
+
         ]
     }
 ];
