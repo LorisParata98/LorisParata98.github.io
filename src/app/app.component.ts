@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
@@ -12,27 +12,34 @@ import { PushNotificationService } from './services/notification.service';
     RouterOutlet,
     HeaderComponent,
     PwaInstallPromptComponent,
-    IosInstallBannerComponent
+    IosInstallBannerComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'LRS_Design';
   notificationsEnabled = false;
   fcmToken: string | null = null;
   lastMessage: any = null;
 
-  constructor(private titleService: Title, private pushService: PushNotificationService) {
+  constructor(
+    private titleService: Title,
+    private pushService: PushNotificationService,
+  ) {
     this.titleService.setTitle(this.title);
+  }
 
+  ngOnInit(): void {
     // Verifica se le notifiche sono già abilitate
+    console.log('Permesso check');
     if (Notification.permission === 'granted') {
+      console.log('Dentro primo if');
       this.initializeNotifications();
     }
 
     // Ascolta i messaggi in arrivo
-    this.pushService.message$.subscribe(message => {
+    this.pushService.message$.subscribe((message) => {
       if (message) {
         this.lastMessage = message;
       }
@@ -45,7 +52,6 @@ export class AppComponent {
       const scrollPosition = (targetDiv as any).offsetTop - 540;
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
-
   }
 
   async enableNotifications(): Promise<void> {
@@ -62,7 +68,7 @@ export class AppComponent {
   }
 
   private async initializeNotifications(): Promise<void> {
-    this.fcmToken = await this.pushService.getToken() ?? null;
+    this.fcmToken = (await this.pushService.getToken()) ?? null;
     this.notificationsEnabled = !!this.fcmToken;
     this.pushService.listenToMessages();
   }
