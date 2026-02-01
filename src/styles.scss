@@ -1,3 +1,7 @@
+// Import PrimeNG 19 - il tema Aura è gestito da providePrimeNG in app.config.ts
+// Qui importiamo solo i nostri stili personalizzati
+@use "./assets/theme" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,900;1,700;1,900&display=swap");
 
 @tailwind base;
