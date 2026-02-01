@@ -58,9 +58,10 @@ export class AppComponent implements OnInit {
 
   async enableNotifications(): Promise<void> {
     const token = await this.pushService.requestPermission();
-
+    console.log('Token ricevuto:', token);
     if (token) {
       this.fcmToken = token;
+      alert(token);
       this.notificationsEnabled = true;
       this.pushService.listenToMessages();
 
