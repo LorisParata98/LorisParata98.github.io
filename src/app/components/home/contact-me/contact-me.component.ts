@@ -11,8 +11,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputTextModule } from 'primeng/inputtext';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { EmailService } from '../../../services/email.service';
+
+import { TextareaModule } from 'primeng/textarea';
 
 
 @Component({
@@ -25,7 +26,7 @@ import { EmailService } from '../../../services/email.service';
     FormsModule,
     CommonModule,
     InputTextModule,
-    InputTextareaModule,
+    TextareaModule,
     FloatLabelModule,
   ],
   templateUrl: './contact-me.component.html',

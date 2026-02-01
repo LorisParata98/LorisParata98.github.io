@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { PushNotificationService } from './services/notification.service';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,9 +15,24 @@ import { HeaderComponent } from './components/header/header.component';
 })
 export class AppComponent {
   title = 'LRS_Design';
+  notificationsEnabled = false;
+  fcmToken: string | null = null;
+  lastMessage: any = null;
 
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private pushService: PushNotificationService) {
     this.titleService.setTitle(this.title);
+
+    // Verifica se le notifiche sono già abilitate
+    if (Notification.permission === 'granted') {
+      this.initializeNotifications();
+    }
+
+    // Ascolta i messaggi in arrivo
+    this.pushService.message$.subscribe(message => {
+      if (message) {
+        this.lastMessage = message;
+      }
+    });
   }
 
   public scrollToSection(id: string) {
@@ -26,5 +42,34 @@ export class AppComponent {
       window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
 
+  }
+
+  async enableNotifications(): Promise<void> {
+    const token = await this.pushService.requestPermission();
+
+    if (token) {
+      this.fcmToken = token;
+      this.notificationsEnabled = true;
+      this.pushService.listenToMessages();
+
+      // Invia il token al tuo backend
+      this.sendTokenToBackend(token);
+    }
+  }
+
+  private async initializeNotifications(): Promise<void> {
+    this.fcmToken = await this.pushService.getToken() ?? null;
+    this.notificationsEnabled = !!this.fcmToken;
+    this.pushService.listenToMessages();
+  }
+
+  private sendTokenToBackend(token: string): void {
+    // Implementa la chiamata al tuo backend
+    console.log('Invia questo token al backend:', token);
+    // fetch('/api/save-token', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ token })
+    // });
   }
 }

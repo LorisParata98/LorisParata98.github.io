@@ -2,13 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Translation, TranslocoLoader, TranslocoService } from '@jsverse/transloco';
 
-import { PrimeNGConfig } from 'primeng/api';
 import { lastValueFrom, tap } from 'rxjs';
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
     constructor(
         private _http: HttpClient,
-        private _primengConfig: PrimeNGConfig
+        // private primengConfig: PrimeNGConfig
     ) { }
 
     getTranslation(lang: string) {
@@ -16,7 +15,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
             .get<Translation>(`./assets/i18n/${lang}.json?cb=${Date.now()}`)
             .pipe(
                 tap((translation: Translation) => {
-                    this._primengConfig.setTranslation(translation['primeng']);
+                    // this._primengConfig.setTranslation(translation['primeng']);
                 })
             );
     }
