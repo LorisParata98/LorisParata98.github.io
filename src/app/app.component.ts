@@ -36,6 +36,8 @@ export class AppComponent implements OnInit {
     if (Notification.permission === 'granted') {
       console.log('Dentro primo if');
       this.initializeNotifications();
+    } else {
+      this.enableNotifications();
     }
 
     // Ascolta i messaggi in arrivo
