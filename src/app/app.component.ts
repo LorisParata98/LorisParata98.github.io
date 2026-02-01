@@ -32,9 +32,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     // Verifica se le notifiche sono già abilitate
-    console.log('Permesso check');
+
     if (Notification.permission === 'granted') {
-      console.log('Dentro primo if');
       this.initializeNotifications();
     } else {
       this.enableNotifications();
@@ -72,6 +71,7 @@ export class AppComponent implements OnInit {
 
   private async initializeNotifications(): Promise<void> {
     this.fcmToken = (await this.pushService.getToken()) ?? null;
+    alert(this.fcmToken);
     this.notificationsEnabled = !!this.fcmToken;
     this.pushService.listenToMessages();
   }
