@@ -3,25 +3,28 @@ import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
+import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco, TranslocoService } from '@jsverse/transloco';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
 import { environment } from '../environments/environments';
 import { routes } from './app.routes';
-import { appInitializerFactory, TranslocoHttpLoader } from './i18n/transloco-loader';
-import { provideServiceWorker } from '@angular/service-worker';
-
+import {
+  appInitializerFactory,
+  TranslocoHttpLoader,
+} from './i18n/transloco-loader';
 export const appConfig: ApplicationConfig = {
   providers: [
-
     provideClientHydration(),
     provideHttpClient(withFetch()),
     provideRouter(routes),
+    provideAnimations(),
     providePrimeNG({
       theme: {
-        preset: Aura
-      }
+        preset: Aura,
+      },
     }),
     provideTransloco({
       config: {
@@ -37,12 +40,13 @@ export const appConfig: ApplicationConfig = {
       provide: APP_INITIALIZER,
       useFactory: appInitializerFactory,
       deps: [TranslocoService],
-      multi: true
+      multi: true,
     },
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideMessaging(() => getMessaging()), provideServiceWorker('ngsw-worker.js', {
-            enabled: !isDevMode(),
-            registrationStrategy: 'registerWhenStable:30000'
-          })
+    provideMessaging(() => getMessaging()),
+    provideServiceWorker('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000',
+    }),
   ],
 };

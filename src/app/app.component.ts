@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
+import { IosInstallBannerComponent } from './components/ios-install-banner/ios-install-banner.component';
+import { PwaInstallPromptComponent } from './components/pwa-install-prompt/pwa-install-prompt.component';
 import { PushNotificationService } from './services/notification.service';
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { PushNotificationService } from './services/notification.service';
   imports: [
     RouterOutlet,
     HeaderComponent,
+    PwaInstallPromptComponent,
+    IosInstallBannerComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
