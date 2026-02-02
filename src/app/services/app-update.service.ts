@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
-import { Observable, filter } from 'rxjs';
+import { filter } from 'rxjs';
 
 /**
  * Servizio per gestire gli aggiornamenti della PWA
@@ -67,7 +67,7 @@ export class AppUpdateService {
    * Controlla manualmente per aggiornamenti
    * Utile da esporre tramite UI se necessario
    */
-  public checkForUpdateManually(): Observable<boolean> {
+  public checkForUpdateManually(): Promise<boolean> {
     return this.swUpdate.checkForUpdate();
   }
 }
