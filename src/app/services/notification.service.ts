@@ -39,7 +39,7 @@ export class PushNotificationService {
 
       const permission = await Notification.requestPermission();
 
-      if (permission === 'granted') {
+      if (permission !== 'denied') {
         return await this.getToken();
       } else {
         alert('Permesso notifiche negato');
