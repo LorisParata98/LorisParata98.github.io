@@ -31,11 +31,7 @@ export class PushNotificationService {
 
   async requestPermission(): Promise<string | null | undefined> {
     try {
-      // Su iOS, le notifiche sono limitate. Non chiedere il permesso se non in standalone
-      if (this.isIOS() && (navigator as any).standalone !== true) {
-        console.log('iOS: notifiche limitate fuori dalla modalità standalone');
-        return null;
-      }
+       
 
       const permission = await Notification.requestPermission();
 
