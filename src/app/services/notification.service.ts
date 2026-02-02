@@ -31,34 +31,44 @@ export class PushNotificationService {
 
   async requestPermission(): Promise<string | null | undefined> {
     try {
-       
+      // Su iOS, le notifiche sono limitate. Non chiedere il permesso se non in standalone
+      if (this.isIOS() && (navigator as any).standalone !== true) {
+        alert('iOS: notifiche limitate fuori dalla modalità standalone');
+        return null;
+      }
 
       const permission = await Notification.requestPermission();
 
       if (permission === 'granted') {
-        console.log('Permesso notifiche concesso');
         return await this.getToken();
       } else {
-        console.log('Permesso notifiche negato');
+        alert('Permesso notifiche negato');
         return null;
       }
     } catch (error) {
-      console.error('Errore nella richiesta permessi:', error);
+      alert('Errore nella richiesta permessi: ' + error);
       return undefined;
     }
   }
 
   async getToken(): Promise<string | null | undefined> {
     try {
-      const token = await getToken(this.messaging);
+      const registration = await navigator.serviceWorker.register(
+        '/firebase-messaging-sw.js',
+      );
+      const token = await getToken(this.messaging, {
+        serviceWorkerRegistration: registration,
+      });
 
       if (token) {
+        alert('Permesso notifiche concesso');
         console.log('FCM Token:', token);
         // Invia questo token al tuo backend per salvarlo
         return token;
       }
       return null;
     } catch (error) {
+      alert('Errore nel recupero del token: ' + error);
       return undefined;
     }
   }

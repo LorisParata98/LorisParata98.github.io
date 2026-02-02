@@ -33,6 +33,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // Verifica se le notifiche sono supportate e abilitate
+    if (!this.pushService.isNotificationSupported()) {
+      alert('Notifiche non supportate su questo dispositivo');
+      return;
+    }
+
+    // Su iOS, le notifiche sono disponibili solo in standalone mode
+    if (this.pushService.isIOS()) {
+      alert('Dispositivo iOS rilevato - notifiche limitate');
+    }
     try {
       alert(`Notification.permission: ${Notification.permission}`);
       if (Notification.permission === 'granted') {
