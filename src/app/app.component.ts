@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { IosInstallBannerComponent } from './components/ios-install-banner/ios-install-banner.component';
 import { PwaInstallPromptComponent } from './components/pwa-install-prompt/pwa-install-prompt.component';
+import { AppUpdateService } from './services/app-update.service';
 import { PushNotificationService } from './services/notification.service';
 @Component({
   selector: 'app-root',
@@ -26,6 +27,7 @@ export class AppComponent implements OnInit {
   constructor(
     private titleService: Title,
     private pushService: PushNotificationService,
+    private appUpdateService: AppUpdateService,
   ) {
     this.titleService.setTitle(this.title);
   }
