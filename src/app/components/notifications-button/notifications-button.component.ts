@@ -64,9 +64,8 @@ export class NotificationsButtonComponent {
     alert('Permesso notifiche: ' + this.permission());
 
     if (this.permission() == 'granted') {
-      alert('Token ricevuto: ' + this.permission());
-
       this.fcmToken = await this.pushService.getToken();
+      alert('FCM Token ottenuto: ' + this.fcmToken);
       if (this.fcmToken) {
         this.notificationsEnabled = true;
         this.pushService.listenToMessages();
