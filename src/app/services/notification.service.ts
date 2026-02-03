@@ -29,29 +29,7 @@ export class PushNotificationService {
     return /iPad|iPhone|iPod/.test(navigator.userAgent);
   }
 
-  async requestPermission(): Promise<string | null | undefined> {
-    try {
-      // Su iOS, le notifiche sono limitate. Non chiedere il permesso se non in standalone
-      if (this.isIOS() && (navigator as any).standalone !== true) {
-        alert('iOS: notifiche limitate fuori dalla modalità standalone');
-        return null;
-      }
-
-      const permission = await Notification.requestPermission();
-
-      if (permission !== 'denied') {
-        return await this.getToken();
-      } else {
-        alert('Permesso notifiche negato');
-        return null;
-      }
-    } catch (error) {
-      alert('Errore nella richiesta permessi: ' + error);
-      return undefined;
-    }
-  }
-
-  async getToken(): Promise<string | null | undefined> {
+  async getToken(): Promise<string | undefined> {
     try {
       const registration = await navigator.serviceWorker.register(
         '/firebase-messaging-sw.js',
@@ -66,11 +44,10 @@ export class PushNotificationService {
         // Invia questo token al tuo backend per salvarlo
         return token;
       }
-      return null;
     } catch (error) {
       alert('Errore nel recupero del token: ' + error);
-      return undefined;
     }
+    return undefined;
   }
 
   listenToMessages(): void {

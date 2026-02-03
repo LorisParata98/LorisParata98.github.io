@@ -1,0 +1,27 @@
+<div class="flex justify-center mb-12">
+  <button
+    title="change language to italian button"
+    type="button"
+    pButton
+    class="p-button primary"
+    (click)="click()"
+  >
+    @if (!isSupported) {
+      <span class="text-center w-full"> Notifiche non supportate </span>
+    } @else {
+      <span class="text-center w-full">
+        @switch (permission()) {
+          @case ("denied") {
+            Permesso notifiche negato
+          }
+          @case ("granted") {
+            Notifiche abilitate
+          }
+          @default {
+            Attiva notifiche
+          }
+        }
+      </span>
+    }
+  </button>
+</div>

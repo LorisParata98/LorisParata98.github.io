@@ -1,6 +1,8 @@
 <div class="flex flex-col gap-16 md:gap-28">
   <app-presentation></app-presentation>
 
+  <app-notifications-button />
+
   <app-experience-summary
     pAnimateOnScroll
     [once]="true"
@@ -10,19 +12,17 @@
   ></app-experience-summary>
 
   <app-projects-portfolio></app-projects-portfolio>
-  @defer(on viewport; ){
-  <app-work-experiences
-    pAnimateOnScroll
-    [once]="false"
-    enterClass="fadeinleft"
-    leaveClass="fadeoutleft"
-    class="flex animation-duration-1000 animation-ease-in-out"
-  >
-  </app-work-experiences>
-  }@placeholder {
-
-  <div></div>
-
+  @defer (on viewport) {
+    <app-work-experiences
+      pAnimateOnScroll
+      [once]="false"
+      enterClass="fadeinleft"
+      leaveClass="fadeoutleft"
+      class="flex animation-duration-1000 animation-ease-in-out"
+    >
+    </app-work-experiences>
+  } @placeholder {
+    <div></div>
   }
 
   <app-tecnology-skills></app-tecnology-skills>
