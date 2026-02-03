@@ -33,8 +33,6 @@ export class NotificationsButtonComponent {
     try {
       if (this.permission() === 'granted') {
         this.initializeNotifications();
-      } else if (this.permission() === 'default') {
-        this.enableNotifications();
       }
     } catch (error) {
       alert('Errore durante la verifica del permesso notifiche: ' + error);
