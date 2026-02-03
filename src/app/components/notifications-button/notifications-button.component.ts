@@ -62,12 +62,14 @@ export class NotificationsButtonComponent {
   }
 
   async enableNotifications(): Promise<void> {
-    const token = await Notification.requestPermission();
+    this.permission.set(await Notification.requestPermission());
+    alert('Permesso notifiche: ' + this.permission());
 
     if (this.permission() == 'granted') {
       alert('Token ricevuto: ' + this.permission());
-      if (token) {
-        this.fcmToken = await this.pushService.getToken();
+
+      this.fcmToken = await this.pushService.getToken();
+      if (this.fcmToken) {
         this.notificationsEnabled = true;
         this.pushService.listenToMessages();
       }
