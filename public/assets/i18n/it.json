@@ -36,6 +36,9 @@
   "work": {
     "title": "Esperienze accademiche e lavorative ",
     "designAndDev": "Progettazione e Sviluppo",
+    "timeflow": "Timeflow S.R.L",
+    "seniorDev": "Senior FE Developer",
+    "timeflow1Desc": "Sono stato assunto in Timeflow per ristrutturare il loro applicativo web in ottica enterprise lavorando a stretto contatto con il team Design e con l'obiettivo di evolvere il loro applicativo dalla versione 11 alla 16",
     "mta": "Mind The App S.R.L",
     "mta1Desc": "Ho iniziato la mia carriera come tirocinante, lavorando su un progetto in Angular 8. Durante i due anni in cui ho combinato studio e lavoro, ho sviluppato applicazioni anche in Vue 2/3 e Flutter.",
     "mta2Desc": "Dopo aver conseguito la laurea magistrale in Sistemi Multimediali e Interaction Design, ho intrapreso la progettazione di vari gestionali e applicazioni mobile, sviluppati principalmente con Angular 15/16/17/18 e Flutter.",
@@ -171,17 +174,7 @@
     "cancel": "Annulla",
     "completed": "Completato",
     "pending": "In corso",
-    "fileSizeTypes": [
-      "B",
-      "KB",
-      "MB",
-      "GB",
-      "TB",
-      "PB",
-      "EB",
-      "ZB",
-      "YB"
-    ],
+    "fileSizeTypes": ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
     "dayNames": [
       "Domenica",
       "Lunedi",
@@ -191,24 +184,8 @@
       "Venerdì",
       "Sabato"
     ],
-    "dayNamesShort": [
-      "Dom",
-      "Lun",
-      "Mar",
-      "Mer",
-      "Gio",
-      "Ven",
-      "Sab"
-    ],
-    "dayNamesMin": [
-      "Do",
-      "Lu",
-      "Ma",
-      "Me",
-      "Gi",
-      "Ve",
-      "Sa"
-    ],
+    "dayNamesShort": ["Dom", "Lun", "Mar", "Mer", "Gio", "Ven", "Sab"],
+    "dayNamesMin": ["Do", "Lu", "Ma", "Me", "Gi", "Ve", "Sa"],
     "monthNames": [
       "Gennaio",
       "Febbraio",

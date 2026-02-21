@@ -1,7 +1,7 @@
-// #knowledge {
-
-svg {
-  fill: var(--surface-0);
+app-skill-card {
+  ::ng-deep {
+    svg {
+      fill: var(--surface-0);
+    }
+  }
 }
-
-// }

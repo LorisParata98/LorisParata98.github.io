@@ -6,7 +6,6 @@ import { TextPlugin } from 'gsap/all';
 import { combineLatest } from 'rxjs';
 import { GsapServiceService } from '../../../services/gsap.service';
 
-
 @Component({
   selector: 'app-presentation',
   standalone: true,
@@ -17,7 +16,7 @@ import { GsapServiceService } from '../../../services/gsap.service';
 export class PresentationComponent implements AfterViewInit {
   constructor(
     private _gsapService: GsapServiceService,
-    private _translateService: TranslocoService
+    private _translateService: TranslocoService,
   ) {
     gsap.registerPlugin(TextPlugin);
   }

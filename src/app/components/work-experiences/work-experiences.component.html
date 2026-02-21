@@ -1,39 +1,24 @@
-<div class="flex flex-col gap-4 px-4 md:px-28" id="work">
+<section class="flex flex-col gap-4 px-4 md:px-28" id="work">
   <h2
-    class="m-0 font-normal max-w-full text-4xl md:text-6xl"
-    style="font-family: var(--font-family)"
+    class="m-0 font-normal text-4xl md:text-6xl [font-family:var(--font-family)]"
   >
     {{ "work.title" | transloco }}
   </h2>
 
   <div class="flex flex-col gap-8">
-    <app-experience-item
-      [entity]="'work.mta' | transloco"
-      [title]="'work.designAndDev' | transloco"
-    >
-      <div content>
-        <ul class="my-2 md:my-0">
-          <li class="text-lg md:text-base">
-            {{ "work.mta1Desc" | transloco }}
-          </li>
-          <li class="text-lg md:text-base">
-            {{ "work.mta2Desc" | transloco }}
-          </li>
-        </ul>
-      </div>
-    </app-experience-item>
-
-    <app-experience-item
-      [entity]="'work.freelance' | transloco"
-      [title]="'work.webCmsTitle' | transloco"
-    >
-      <div content>
-        <ul class="my-2 md:my-0">
-          <li class="text-lg md:text-base">
-            {{ "work.webCms1Desc" | transloco }}
-          </li>
-        </ul>
-      </div>
-    </app-experience-item>
+    @for (item of workItems; track item.entity) {
+      <app-experience-item
+        [entity]="item.entity | transloco"
+        [title]="item.title | transloco"
+      >
+        <div content>
+          <ul class="my-2 md:my-0">
+            @for (desc of item.descriptions; track desc) {
+              <li class="text-lg md:text-base">{{ desc | transloco }}</li>
+            }
+          </ul>
+        </div>
+      </app-experience-item>
+    }
   </div>
-</div>
+</section>

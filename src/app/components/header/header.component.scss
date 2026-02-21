@@ -7,10 +7,6 @@
   header {
     top: 84px;
 
-    h1 {
-      font-weight: 500;
-    }
-
     background-color: var(--header-color);
 
     .p-button.p-button-text {
@@ -26,7 +22,6 @@
 
 .menu-list {
   background-color: #121212cc;
-
   width: 100%;
 
   ul {
@@ -39,7 +34,7 @@
       padding-left: 1rem;
 
       h2 {
-        font-weight: 500;
+        font-weight: 400;
       }
     }
   }

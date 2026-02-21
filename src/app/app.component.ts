@@ -2,19 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
-import { IosInstallBannerComponent } from './components/ios-install-banner/ios-install-banner.component';
-import { PwaInstallPromptComponent } from './components/pwa-install-prompt/pwa-install-prompt.component';
-import { AppUpdateService } from './services/app-update.service';
-import { PushNotificationService } from './services/notification.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    PwaInstallPromptComponent,
-    IosInstallBannerComponent,
-  ],
+  imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -23,8 +14,8 @@ export class AppComponent implements OnInit {
 
   constructor(
     private titleService: Title,
-    private pushService: PushNotificationService,
-    private appUpdateService: AppUpdateService,
+    // private pushService: PushNotificationService,
+    // private appUpdateService: AppUpdateService,
   ) {
     this.titleService.setTitle(this.title);
   }

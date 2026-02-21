@@ -1,7 +1,9 @@
 <div class="flex flex-col header">
-  <header class="flex justify-between px-4 md:px-8 items-center">
+  <header
+    class="flex justify-between px-4 md:px-8 py-3 text-medium items-center"
+  >
     <h1 class="cursor-pointer" (click)="goToHome()">
-      {{ 'intro.logo' | transloco }}
+      {{ "intro.logo" | transloco }}
     </h1>
     <div>
       <button
@@ -15,23 +17,22 @@
       </button>
     </div>
   </header>
-  @if(isMenuOpen()){
-
-  <nav class="menu-list">
-    <ul class="flex flex-col">
-      @for (item of menuItems(); track $index) {
-      <li
-        class="flex flex-row gap-6 items-center"
-        [ngClass]="{ isActive: item.id == activeId() }"
-        (click)="navigateTo(item.id)"
-      >
-        @if(item.icon){
-        <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
+  @if (isMenuOpen()) {
+    <nav class="menu-list">
+      <ul class="flex flex-col gap-4 p-4">
+        @for (item of menuItems(); track $index) {
+          <li
+            class="flex flex-row gap-6 items-center"
+            [ngClass]="{ isActive: item.id == activeId() }"
+            (click)="navigateTo(item.id)"
+          >
+            @if (item.icon) {
+              <mat-icon class="menu-item-icon" [svgIcon]="item.icon"></mat-icon>
+            }
+            <h2 class="mt-1">{{ item.title | transloco }}</h2>
+          </li>
         }
-        <h2>{{ item.title | transloco }}</h2>
-      </li>
-      }
-    </ul>
-  </nav>
+      </ul>
+    </nav>
   }
 </div>

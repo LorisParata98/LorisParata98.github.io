@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ExperienceSummaryComponent } from '../experience-summary/experience-summary.component';
-import { NotificationsButtonComponent } from '../notifications-button/notifications-button.component';
 import { TecnologySkillsComponent } from '../tecnology-skills/tecnology-skills.component';
 import { WorkExperiencesComponent } from '../work-experiences/work-experiences.component';
 import { ContactMeComponent } from './contact-me/contact-me.component';
@@ -22,7 +21,7 @@ import { ProjectsPortfolioComponent } from './projects-portfolio/projects-portfo
     ProjectsPortfolioComponent,
     AnimateOnScrollModule,
     PresentationComponent,
-    NotificationsButtonComponent,
+    // NotificationsButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',

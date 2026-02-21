@@ -27,14 +27,14 @@ export class HeaderComponent {
     private _router: Router,
   ) {
     _matIconRegistry.addSvgIconSet(
-      _domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg')
+      _domSanitizer.bypassSecurityTrustResourceUrl('./assets/mdi.svg'),
     );
 
     this.menuItems.set(
       this._layoutService.getMenuItems().map((el) => ({
         ...el,
         title: this._translateService.translate(el.title),
-      }))
+      })),
     );
 
     this._translateService.langChanges$.subscribe(() => {
@@ -51,7 +51,7 @@ export class HeaderComponent {
       this._layoutService.getMenuItems(this._router.url).map((el) => ({
         ...el,
         title: this._translateService.translate(el.title),
-      }))
+      })),
     );
 
     this._layoutService.onMenuToggle();

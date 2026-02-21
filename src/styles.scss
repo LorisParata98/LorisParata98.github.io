@@ -24,3 +24,46 @@ h6 {
   font-family: var(--font-family-titles);
   color: var(--text-color);
 }
+@layer base {
+  h1,
+  .h1 {
+    @apply text-3xl font-normal leading-tight tracking-tight m-0 p-0
+           md:text-5xl
+           lg:text-6xl;
+  }
+
+  h2,
+  .h2 {
+    @apply text-2xl font-normal leading-tight tracking-tight m-0 p-0
+           md:text-4xl
+           lg:text-5xl;
+  }
+
+  h3,
+  .h3 {
+    @apply text-xl font-normal leading-snug m-0 p-0
+           md:text-3xl
+           lg:text-4xl;
+  }
+
+  h4,
+  .h4 {
+    @apply text-lg font-normal leading-snug m-0 p-0
+           md:text-2xl
+           lg:text-3xl;
+  }
+
+  h5,
+  .h5 {
+    @apply text-base font-normal leading-normal m-0 p-0
+           md:text-xl
+           lg:text-2xl;
+  }
+
+  h6,
+  .h6 {
+    @apply text-sm font-normal  tracking-widest m-0 p-0
+           md:text-base
+           lg:text-lg;
+  }
+}
