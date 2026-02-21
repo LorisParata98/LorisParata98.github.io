@@ -49,6 +49,26 @@ export class ProjectsComponent {
             },
           ],
         },
+        {
+          client: 'Portali web',
+          projects: [
+            {
+              nome: 'M13 Progetti',
+              descrizione:
+                'Portale web per far conoscere la realtà imprenditoriale dello studio professionale M13.',
+              tecnologia: 'Angular 20',
+              urlPreview: 'https://www.m13progetti.it',
+            },
+            {
+              nome: 'DendeTravel',
+              descrizione:
+                'Portale web per far conoscere la travel Designer Denise, esploratrice esperta, che ha visitato oltre 30 paesi.',
+
+              tecnologia: 'Wordpress',
+              urlPreview: 'https://www.dendetravel.it',
+            },
+          ],
+        },
       ],
     },
     {
