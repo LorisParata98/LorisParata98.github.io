@@ -16,16 +16,19 @@ export class WorkExperiencesComponent {
       entity: 'work.timeflow',
       title: 'work.seniorDev',
       descriptions: ['work.timeflow1Desc'],
+      current: true,
     },
     {
       entity: 'work.mta',
       title: 'work.designAndDev',
       descriptions: ['work.mta1Desc', 'work.mta2Desc'],
+      current: false,
     },
     {
       entity: 'work.freelance',
       title: 'work.webCmsTitle',
       descriptions: ['work.webCms1Desc'],
+      current: false,
     },
   ];
 }

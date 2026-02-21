@@ -24,7 +24,7 @@
   </div>
   <div class="w-full md:w-1/2 flex flex-col items-center">
     <div class="flex justify-between gap-2 w-full md:max-w-lg">
-      <p class="mt-0 text-lg">
+      <p class="mt-0 text-2xl md:text-xl">
         {{ "contact.description" | transloco }} <br />
         {{ "contact.description2" | transloco }}
       </p>
@@ -35,18 +35,17 @@
       </svg>
     </div>
     <div class="flex flex-col gap-4 mb-8 w-full md:max-w-lg justify-center">
-      @if(form()){
-
-      <form
-        class="flex flex-col gap-12"
-        [formGroup]="form()!"
-        (ngSubmit)="onSubmit()"
-      >
-        <p-floatLabel class="mt-8">
-          <input title="name" type="text" pInputText formControlName="name" />
-          <label for="name">{{ "contact.yourName" | transloco }}</label>
-        </p-floatLabel>
-        <!-- <p-floatLabel>
+      @if (form()) {
+        <form
+          class="flex flex-col gap-12"
+          [formGroup]="form()!"
+          (ngSubmit)="onSubmit()"
+        >
+          <p-floatLabel class="mt-8">
+            <input title="name" type="text" pInputText formControlName="name" />
+            <label for="name">{{ "contact.yourName" | transloco }}</label>
+          </p-floatLabel>
+          <!-- <p-floatLabel>
           <input
             title="email"
             type="email"
@@ -56,29 +55,29 @@
           <label for="email">{{ 'contact.yourEmail' | transloco }}</label>
         </p-floatLabel> -->
 
-        <p-floatLabel>
-          <textarea
-            title="body"
-            rows="5"
-            cols="30"
-            pInputTextarea
-            formControlName="body"
-          ></textarea>
+          <p-floatLabel>
+            <textarea
+              title="body"
+              rows="5"
+              cols="30"
+              pInputTextarea
+              formControlName="body"
+            ></textarea>
 
-          <label for="body">{{ "contact.message" | transloco }}</label>
-        </p-floatLabel>
+            <label for="body">{{ "contact.message" | transloco }}</label>
+          </p-floatLabel>
 
-        <button
-          pButton
-          title="Send message"
-          type="submit"
-          class="p-button primary w-full"
-        >
-          <span class="w-full flex justify-center">
-            {{ "contact.sendMessage" | transloco }}
-          </span>
-        </button>
-      </form>
+          <button
+            pButton
+            title="Send message"
+            type="submit"
+            class="p-button primary w-full"
+          >
+            <span class="w-full flex justify-center">
+              {{ "contact.sendMessage" | transloco }}
+            </span>
+          </button>
+        </form>
       }
     </div>
     <div class="flex md:hidden flex-col gap-2 mb-4">

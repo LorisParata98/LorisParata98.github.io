@@ -2,11 +2,26 @@
   class="flex flex-col md:flex-row gap-4 md:gap-8 py-8 border-b border-current"
 >
   <div class="flex flex-col gap-1 w-full md:w-1/3">
-    <span class="text-sm uppercase tracking-widest opacity-60">{{
-      entity()
-    }}</span>
+    <div
+      class="flex items-center gap-2"
+      [ngClass]="{
+        'justify-between mb-2': current(),
+        'justify-end': !current(),
+      }"
+    >
+      @if (current()) {
+        <span
+          class="text-xs font-semibold px-2 py-0.5 rounded-full bg-primary-500 text-black"
+        >
+          Now
+        </span>
+      }
+      <span class="text-sm uppercase tracking-widest opacity-60">{{
+        entity()
+      }}</span>
+    </div>
     <h3
-      class="m-0 font-normal text-2xl md:text-4xl [font-family:var(--font-family)]"
+      class="m-0 font-normal text-4xl md:text-4xl [font-family:var(--font-family)]"
     >
       {{ title() }}
     </h3>

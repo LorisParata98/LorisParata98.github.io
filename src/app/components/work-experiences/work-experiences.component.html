@@ -10,11 +10,12 @@
       <app-experience-item
         [entity]="item.entity | transloco"
         [title]="item.title | transloco"
+        [current]="item.current"
       >
         <div content>
           <ul class="my-2 md:my-0">
             @for (desc of item.descriptions; track desc) {
-              <li class="text-lg md:text-base">{{ desc | transloco }}</li>
+              <li class="text-2xl md:text-xl">{{ desc | transloco }}</li>
             }
           </ul>
         </div>
