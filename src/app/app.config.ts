@@ -1,6 +1,5 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -9,7 +8,6 @@ import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco, TranslocoService } from '@jsverse/transloco';
 import Aura from '@primeng/themes/aura';
 import { providePrimeNG } from 'primeng/config';
-import { environment } from '../environments/environments';
 import { routes } from './app.routes';
 import {
   appInitializerFactory,
@@ -42,7 +40,7 @@ export const appConfig: ApplicationConfig = {
       deps: [TranslocoService],
       multi: true,
     },
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideMessaging(() => getMessaging()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: !isDevMode(),

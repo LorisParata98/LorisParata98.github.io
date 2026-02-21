@@ -1,61 +1,27 @@
-<div class="flex flex-col gap-16 md:gap-28">
-  <div class="w-full grid gap-2 md:gap-4 px-4 md:px-28" id="overview">
-    <h1>{{ 'projects.myProjects' | transloco }}</h1>
+<section
+  class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 mt-8"
+  id="overview"
+>
+  <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
 
-    <div class="col-span-12">
-      <div>
-        <h3>Gestionali Vue.Js</h3>
-        <h4>Spurgo CanalJet</h4>
-        <h4>Fast&Clean</h4>
-        <h4>Amici di Nico</h4>
-      </div>
+  @for (section of sections; track section.year) {
+    <div class="flex flex-col gap-6">
+      <h2 class="m-0 text-4xl md:text-6xl [font-family:var(--font-family)]">
+        {{ section.year }}
+      </h2>
 
-      <div>
-        <h3>Sinfonist</h3>
-        <h4>QSM</h4>
-      </div>
-
-      <div>
-        <h3>Hydra</h3>
-        <h4>TT</h4>
-        <h4>TT Mobile</h4>
-      </div>
-
-      <div>
-        <h3>Poste CyberGames</h3>
-      </div>
-
-      <div>
-        <h3>Timecloud</h3>
-        <h4>Timecloud Mobile</h4>
-        <h4>Restyling</h4>
-      </div>
-
-      <div>
-        <h3>Federazione Ordine dei Farmacisti Italiani</h3>
-        <h4>Portale Pubblico</h4>
-        <h4>Portale Gestionale</h4>
-        <h4>Federazione Ordini Farmacisti Italiani - Piattaforma Tirocini</h4>
-      </div>
-
-      <div>
-        <h3>DMG</h3>
-        <h4>Fusion App</h4>
-        <h4>Fusion Dashboard</h4>
-      </div>
-      <div>
-        <h3>EhiApp</h3>
-      </div>
-      <div>
-        <h3>Progetti universitari</h3>
-        <h4>Crowd Frame</h4>
-        <h4>Scratch Detector</h4>
-        <h4>Cash Your Trash</h4>
-        <h4>Smart Parking</h4>
-        <h4>ParBrum</h4>
-        <h4>MyHealthStory</h4>
-        <h4>Fullfact Scraper</h4>
-      </div>
+      @for (group of section.groups; track group.client) {
+        <div class="flex flex-col gap-2">
+          @if (group.client) {
+            <h3
+              class="m-0 text-lg md:text-xl opacity-60 uppercase tracking-widest"
+            >
+              {{ group.client }}
+            </h3>
+          }
+          <app-carousel [items]="group.projects" />
+        </div>
+      }
     </div>
-  </div>
-</div>
+  }
+</section>
