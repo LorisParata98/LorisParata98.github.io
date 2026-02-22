@@ -1,27 +1,55 @@
 <section
-  class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 mt-8"
+  class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 my-8"
   id="overview"
 >
   <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
 
-  @for (section of sections; track section.year) {
-    <div class="flex flex-col gap-6">
+  <!-- Filtri -->
+  <div class="flex flex-col gap-3">
+    <div class="flex flex-wrap gap-2">
+      @for (tech of allTecnologie; track tech) {
+        <button
+          class="text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
+          [class]="
+            isSelected(tech)
+              ? 'border-yellow-300 bg-yellow-300 text-black'
+              : 'border-white/20 text-white/60 hover:border-yellow-300/40 hover:text-white'
+          "
+          (click)="toggleTecnologia(tech)"
+        >
+          {{ tech }}
+        </button>
+      }
+    </div>
+
+    @if (selectedTecnologie().size > 0) {
+      <button
+        class="self-start text-xs text-white/40 hover:text-white underline transition-colors"
+        (click)="clearFilters()"
+      >
+        Rimuovi filtri
+      </button>
+    }
+  </div>
+
+  <!-- Sezioni per anno -->
+  @for (section of sections(); track section.year) {
+    <div class="flex flex-col gap-4">
       <h2 class="m-0 text-4xl md:text-6xl [font-family:var(--font-family)]">
         {{ section.year }}
       </h2>
 
-      @for (group of section.groups; track group.client) {
-        <div class="flex flex-col gap-2">
-          @if (group.client) {
-            <h3
-              class="m-0 text-lg md:text-xl opacity-60 uppercase tracking-widest"
-            >
-              {{ group.client }}
-            </h3>
-          }
-          <app-carousel [items]="group.projects" />
-        </div>
-      }
+      <app-carousel [items]="section.projects" (select)="onSelect($event)" />
     </div>
   }
+
+  @if (sections().length === 0) {
+    <p class="text-white/40 text-sm">
+      Nessun progetto trovato per i filtri selezionati.
+    </p>
+  }
 </section>
+<app-project-drawer
+  [project]="selectedProject()"
+  (close)="selectedProject.set(null)"
+/>

@@ -1,26 +1,17 @@
-import { Component, input } from '@angular/core';
-import { TagModule } from 'primeng/tag';
+import { Component, input, output } from '@angular/core';
 import { Project } from '../projects.component';
+
 @Component({
   selector: 'app-project-card',
   standalone: true,
-  imports: [TagModule],
+  imports: [],
   templateUrl: './project-card.component.html',
-  styleUrl: './project-card.component.scss'
 })
 export class ProjectCardComponent {
-  public project = input<Project>()
+  project = input<Project>();
+  select = output<Project | undefined>();
 
-
-  public getSeverity(status: string | undefined) {
-    switch (status) {
-      case 'INSTOCK':
-        return 'success';
-      case 'LOWSTOCK':
-        return 'warning';
-      case 'OUTOFSTOCK':
-        return 'danger';
-      default: return 'info';
-    }
+  onClick() {
+    this.select.emit(this.project());
   }
 }

@@ -5,6 +5,7 @@ import {
   HostListener,
   inject,
   input,
+  output,
   signal,
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -20,7 +21,7 @@ import { Project } from '../projects.component';
 })
 export class CarouselComponent {
   private bp = inject(BreakpointObserver);
-
+  select = output<Project | undefined>();
   visibleCount = toSignal(
     this.bp.observe(['(max-width: 767px)', '(max-width: 1023px)']).pipe(
       map(({ breakpoints }) => {
@@ -60,5 +61,9 @@ export class CarouselComponent {
 
   next() {
     if (this.canNext()) this.currentIndex.update((i) => i + 1);
+  }
+
+  public onSelect(project?: Project) {
+    if (project) this.select.emit(project);
   }
 }
