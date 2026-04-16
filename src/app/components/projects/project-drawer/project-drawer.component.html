@@ -67,7 +67,7 @@
         </div>
       </div>
 
-      @if (project()?.urlPreview) {
+      @if (project()?.urlPreview && project()?.urlPreview !== 'https://example.com') {
         <a
           [href]="project()?.urlPreview"
           target="_blank"

@@ -43,7 +43,7 @@ export const appConfig: ApplicationConfig = {
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideMessaging(() => getMessaging()),
     provideServiceWorker('ngsw-worker.js', {
-      enabled: !isDevMode(),
+      enabled: typeof navigator !== 'undefined' && 'serviceWorker' in navigator,
       registrationStrategy: 'registerWhenStable:30000',
     }),
   ],
