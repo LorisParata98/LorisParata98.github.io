@@ -25,9 +25,9 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/firebase-messaging-sw.js",
-              "src/favicon.ico",
               "src/favicon.svg",
-              "src/assets/icons",
+              "src/favicon-16.png",
+              "src/favicon-32.png",
               "src/manifest.json",
               {
                 "glob": "mdi.svg",
@@ -91,7 +91,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["src/favicon.ico", "src/assets"],
+            "assets": ["src/favicon.svg", "src/favicon-16.png", "src/favicon-32.png", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
           }

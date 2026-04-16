@@ -36,11 +36,7 @@ export class LayoutService {
     return !this.isDesktop();
   }
 
-  getMenuItems(currentRoute?: string) {
-    if (currentRoute == '/projects') {
-      return [{ title: 'menu.prj1', id: 'prj1', icon: '1' },]
-    } else {
-      return this.menuItems();
-    }
+  getMenuItems() {
+    return this.menuItems();
   }
 }

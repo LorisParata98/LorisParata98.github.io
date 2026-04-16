@@ -3,7 +3,7 @@ import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
 import { provideTransloco, TranslocoService } from '@jsverse/transloco';
 import Aura from '@primeng/themes/aura';
@@ -17,7 +17,10 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideClientHydration(),
     provideHttpClient(withFetch()),
-    provideRouter(routes),
+    provideRouter(
+      routes,
+      withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
+    ),
     provideAnimations(),
     providePrimeNG({
       theme: {

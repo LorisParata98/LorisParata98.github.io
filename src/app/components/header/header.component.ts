@@ -48,7 +48,7 @@ export class HeaderComponent {
 
   public onMenuToggle() {
     this.menuItems.set(
-      this._layoutService.getMenuItems(this._router.url).map((el) => ({
+      this._layoutService.getMenuItems().map((el) => ({
         ...el,
         title: this._translateService.translate(el.title),
       })),
