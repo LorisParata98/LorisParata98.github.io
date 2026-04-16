@@ -17,20 +17,47 @@
       {{ "common.close" | transloco }} <span class="text-base">✕</span>
     </button>
 
-    <!-- Immagine -->
+    <!-- Immagine / Galleria -->
     <div
-      class="w-full h-56 bg-white/5 flex items-center justify-center shrink-0 relative"
+      class="w-full h-80 bg-black flex items-center justify-center shrink-0 relative"
     >
-      @if (project()?.urlPreview) {
+      @if (currentImage()) {
         <img
-          [src]="project()?.urlPreview"
+          [src]="currentImage()"
           [alt]="project()?.nome"
-          class="w-full h-full object-cover"
-          (error)="img.style.display = 'none'"
-          #img
+          class="w-full h-full object-contain"
         />
+        @if (hasMultiple()) {
+          <button
+            type="button"
+            (click)="prev()"
+            class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white hover:bg-yellow-300 hover:text-black transition-colors"
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
+          <button
+            type="button"
+            (click)="next()"
+            class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white hover:bg-yellow-300 hover:text-black transition-colors"
+            aria-label="Next image"
+          >
+            ›
+          </button>
+          <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+            @for (img of images(); track $index) {
+              <span
+                class="w-1.5 h-1.5 rounded-full transition-colors"
+                [class.bg-yellow-300]="$index === currentImageIndex()"
+                [class.bg-white]="$index !== currentImageIndex()"
+                [class.opacity-40]="$index !== currentImageIndex()"
+              ></span>
+            }
+          </div>
+        }
+      } @else {
+        <span class="text-white/20 text-sm">{{ "projects.noPreview" | transloco }}</span>
       }
-      <span class="text-white/20 text-sm">{{ "projects.noPreview" | transloco }}</span>
     </div>
 
     <!-- Contenuto -->

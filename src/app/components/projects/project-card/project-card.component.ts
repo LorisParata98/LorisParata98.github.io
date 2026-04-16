@@ -17,6 +17,6 @@ export class ProjectCardComponent {
 
   onImageError(event: Event) {
     const img = event.target as HTMLImageElement;
-    img.src = 'assets/images/projects/default.png';
+    img.src = 'assets/images/projects/default.webp';
   }
 }

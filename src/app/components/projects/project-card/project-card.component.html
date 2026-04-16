@@ -7,7 +7,7 @@
       class="relative w-full h-36 rounded-md overflow-hidden bg-black/40 border border-white/10"
     >
       <img
-        [src]="project()?.images?.[0] || 'assets/images/projects/default.png'"
+        [src]="project()?.images?.[0] || 'assets/images/projects/default.webp'"
         [alt]="project()?.nome"
         class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
         (error)="onImageError($event)"

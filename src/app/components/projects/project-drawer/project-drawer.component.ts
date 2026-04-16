@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, computed, effect, input, output, signal } from '@angular/core';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { Project } from '../projects.component';
 
@@ -13,5 +13,28 @@ export class ProjectDrawerComponent {
   project = input<Project | null>(null);
   close = output<void>();
 
-  selectedProject = signal<Project | null>(null);
+  currentImageIndex = signal(0);
+
+  images = computed(() => this.project()?.images ?? []);
+  currentImage = computed(() => this.images()[this.currentImageIndex()]);
+  hasMultiple = computed(() => this.images().length > 1);
+
+  constructor() {
+    effect(() => {
+      this.project();
+      this.currentImageIndex.set(0);
+    });
+  }
+
+  prev() {
+    this.currentImageIndex.update((i) =>
+      i === 0 ? this.images().length - 1 : i - 1,
+    );
+  }
+
+  next() {
+    this.currentImageIndex.update((i) =>
+      i === this.images().length - 1 ? 0 : i + 1,
+    );
+  }
 }

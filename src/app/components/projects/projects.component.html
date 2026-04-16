@@ -27,14 +27,15 @@
       }
     </div>
 
-    @if (selectedTecnologie().size > 0) {
-      <button
-        class="self-start text-xs text-white/40 hover:text-white underline transition-colors"
-        (click)="clearFilters()"
-      >
-        {{ "projects.clearFilters" | transloco }}
-      </button>
-    }
+    <button
+      class="self-start text-xs text-white/40 hover:text-white underline transition-colors"
+      [class.invisible]="selectedTecnologie().size === 0"
+      [attr.aria-hidden]="selectedTecnologie().size === 0 ? 'true' : null"
+      [attr.tabindex]="selectedTecnologie().size === 0 ? -1 : null"
+      (click)="clearFilters()"
+    >
+      {{ "projects.clearFilters" | transloco }}
+    </button>
   </div>
 
   <!-- Sezioni per anno -->

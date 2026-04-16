@@ -8,9 +8,14 @@
     &#8592;
   </button>
 
-  <div class="flex gap-4 flex-1 overflow-hidden">
+  <div
+    class="grid gap-4 flex-1 overflow-hidden"
+    [style.grid-template-columns]="
+      'repeat(' + visibleCount() + ', minmax(0, 1fr))'
+    "
+  >
     @for (item of visibleItems(); track item.nome) {
-      <div class="flex-1 min-w-0">
+      <div class="min-w-0">
         <app-project-card [project]="item" (select)="onSelect($event)" />
       </div>
     }
