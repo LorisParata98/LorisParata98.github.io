@@ -59,7 +59,18 @@ export class HeaderComponent {
   navigateTo(id: string) {
     this._layoutService.onMenuToggle();
     this.activeId.set(id);
-    this.onSelect.emit(id);
+
+    if (id === 'projects') {
+      this._router.navigate(['/projects']);
+    } else {
+      if (this._router.url !== '/') {
+        this._router.navigate(['/']).then(() => {
+          setTimeout(() => this.onSelect.emit(id), 100);
+        });
+      } else {
+        this.onSelect.emit(id);
+      }
+    }
   }
 
   public goToHome() {

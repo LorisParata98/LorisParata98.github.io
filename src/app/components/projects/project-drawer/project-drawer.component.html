@@ -56,11 +56,15 @@
         <span class="text-xs uppercase tracking-widest text-white/40"
           >{{ "projects.technology" | transloco }}</span
         >
-        <span
-          class="inline-block self-start text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
-        >
-          {{ project()?.tecnologia }}
-        </span>
+        <div class="flex flex-wrap gap-1.5">
+          @for (tech of project()?.tecnologie || []; track tech) {
+            <span
+              class="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
+            >
+              {{ tech }}
+            </span>
+          }
+        </div>
       </div>
 
       @if (project()?.urlPreview) {

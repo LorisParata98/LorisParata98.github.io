@@ -2,7 +2,12 @@
   class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 my-8"
   id="projects-list"
 >
-  <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
+  <div class="flex flex-col gap-2">
+    <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
+    <p class="m-0 text-white/60 text-lg md:text-xl max-w-3xl">
+      {{ "projects.intro" | transloco }}
+    </p>
+  </div>
 
   <!-- Filtri -->
   <div class="flex flex-col gap-3">

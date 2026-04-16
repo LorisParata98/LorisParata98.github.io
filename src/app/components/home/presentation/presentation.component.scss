@@ -16,12 +16,29 @@
 
 
 
-@media only screen and (max-width: 768px) {
-  .social {
-    height: min-content;
+// Altezze minime durante l'animazione GSAP — rimosse a fine animazione via JS
+.intro-titolo {
+  min-height: 12rem;
+  transition: min-height 0.4s ease;
+}
+
+.intro-descrizione {
+  min-height: 5rem;
+  transition: min-height 0.4s ease;
+}
+
+@media only screen and (min-width: 769px) {
+  .intro-titolo {
+    min-height: 18rem;
   }
 
-  #titolo {
+  .intro-descrizione {
+    min-height: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .social {
     height: min-content;
   }
 }

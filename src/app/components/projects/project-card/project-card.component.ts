@@ -14,4 +14,9 @@ export class ProjectCardComponent {
   onClick() {
     this.select.emit(this.project());
   }
+
+  onImageError(event: Event) {
+    const img = event.target as HTMLImageElement;
+    img.src = 'assets/images/projects/default.png';
+  }
 }

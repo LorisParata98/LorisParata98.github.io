@@ -52,6 +52,7 @@ export class PresentationComponent implements AfterViewInit {
           if (this._animationComplete) {
             this._applyTranslations();
           } else {
+            this._restoreMinHeights();
             this._clearText();
             this._playAnimation();
           }
@@ -87,9 +88,9 @@ export class PresentationComponent implements AfterViewInit {
     const descrizione = document.querySelector('#descrizione');
     const intestazione = document.querySelector('#intestazione');
 
-    if (titolo) titolo.textContent = '';
-    if (descrizione) descrizione.textContent = '';
-    if (intestazione) intestazione.textContent = '';
+    if (titolo) titolo.innerHTML = '&nbsp;';
+    if (descrizione) descrizione.innerHTML = '&nbsp;';
+    if (intestazione) intestazione.innerHTML = '&nbsp;';
   }
 
   private _playAnimation() {
@@ -113,6 +114,7 @@ export class PresentationComponent implements AfterViewInit {
       delay: 18,
       onComplete: () => {
         this._animationComplete = true;
+        this._releaseMinHeights();
       },
     });
     gsap.to('#descrizione', {
@@ -125,6 +127,24 @@ export class PresentationComponent implements AfterViewInit {
       text: tr.dnd,
       delay: 17,
     });
+  }
+
+  /** Rimuove i min-height dopo l'animazione per evitare spazi vuoti */
+  private _releaseMinHeights() {
+    const titolo = document.querySelector<HTMLElement>('.intro-titolo');
+    const descrizione = document.querySelector<HTMLElement>('.intro-descrizione');
+
+    if (titolo) titolo.style.minHeight = '0';
+    if (descrizione) descrizione.style.minHeight = '0';
+  }
+
+  /** Ripristina i min-height prima di riavviare l'animazione */
+  private _restoreMinHeights() {
+    const titolo = document.querySelector<HTMLElement>('.intro-titolo');
+    const descrizione = document.querySelector<HTMLElement>('.intro-descrizione');
+
+    if (titolo) titolo.style.minHeight = '';
+    if (descrizione) descrizione.style.minHeight = '';
   }
 
   changeLanguage(lang: string) {
