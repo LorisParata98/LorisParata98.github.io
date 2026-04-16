@@ -26,6 +26,8 @@
             "assets": [
               "src/firebase-messaging-sw.js",
               "src/favicon.ico",
+              "src/favicon.svg",
+              "src/assets/icons",
               "src/manifest.json",
               {
                 "glob": "mdi.svg",
