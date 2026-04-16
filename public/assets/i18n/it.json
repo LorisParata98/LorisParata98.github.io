@@ -8,7 +8,8 @@
     "projects": "Progetti",
     "workExperiences": "Esperienze lavorative",
     "technicalSkills": "Competenze tecnologiche",
-    "contactMe": "Contattami"
+    "contactMe": "Contattami",
+    "prj1": "I miei progetti"
   },
   "intro": {
     "welcome": "Benvenuto :)",
@@ -31,7 +32,12 @@
     "projects": "Progetti",
     "portfolio": "Esplora i progetti che ho realizzato fino ad oggi",
     "viewProjects": "Esplora portfolio",
-    "myProjects": "I miei progetti"
+    "myProjects": "I miei progetti",
+    "clearFilters": "Rimuovi filtri",
+    "noResults": "Nessun progetto trovato per i filtri selezionati.",
+    "noPreview": "Nessuna anteprima",
+    "technology": "Tecnologia",
+    "openProject": "Apri progetto"
   },
   "work": {
     "title": "Esperienze accademiche e lavorative ",
@@ -44,7 +50,8 @@
     "mta2Desc": "Dopo aver conseguito la laurea magistrale in Sistemi Multimediali e Interaction Design, ho intrapreso la progettazione di vari gestionali e applicazioni mobile, sviluppati principalmente con Angular 15/16/17/18 e Flutter.",
     "freelance": "Freelancing",
     "webCmsTitle": "Sviluppatore di Siti Web con CMS",
-    "webCms1Desc": "Durante i miei primi anni di scuola superiore, ho creato diversi siti web utilizzando principalmente Wordpress e, in un caso, Prestashop. Mi sono occupato di tutto il processo di sviluppo, dalla selezione dei template fino alla messa in produzione dei portali web, supportando i clienti nel raggiungimento dei loro obiettivi."
+    "webCms1Desc": "Durante i miei primi anni di scuola superiore, ho creato diversi siti web utilizzando principalmente Wordpress e, in un caso, Prestashop. Mi sono occupato di tutto il processo di sviluppo, dalla selezione dei template fino alla messa in produzione dei portali web, supportando i clienti nel raggiungimento dei loro obiettivi.",
+    "now": "Attuale"
   },
   "tecnologies": {
     "title": "Tecnologie utilizzate",

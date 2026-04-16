@@ -27,6 +27,7 @@ export interface YearSection {
 export class ProjectsComponent {
   selectedProject = signal<Project | null>(null);
   readonly allProjects: Project[] = [
+    // 2025
     {
       nome: 'Procurement',
       descrizione: 'Portale enterprise per la gestione dei fornitori.',
@@ -58,7 +59,7 @@ export class ProjectsComponent {
       urlPreview: 'https://www.dendetravel.it',
       anno: 2025,
     },
-
+    // 2024
     {
       nome: 'Portale pubblico',
       descrizione:
@@ -82,26 +83,13 @@ export class ProjectsComponent {
       anno: 2024,
     },
     {
-      nome: 'Fusion App',
-      descrizione: 'Applicazione mobile per la gestione aziendale.',
-      tecnologia: 'Flutter',
-      urlPreview: 'https://example.com',
-      anno: 2024,
-    },
-    {
-      nome: 'Fusion Dashboard',
-      descrizione: 'Dashboard per il monitoraggio dei dati aziendali.',
-      tecnologia: 'Angular',
-      urlPreview: 'https://example.com',
-      anno: 2024,
-    },
-    {
       nome: 'Ehi App',
       descrizione: 'Applicazione per la gestione delle comunicazioni.',
       tecnologia: 'Angular',
       urlPreview: 'https://example.com',
       anno: 2024,
     },
+    // 2023
     {
       nome: 'Poste Cybergame',
       descrizione:
@@ -126,43 +114,17 @@ export class ProjectsComponent {
       anno: 2023,
     },
     {
-      nome: 'Scratch Detector',
-      descrizione: 'Rilevamento automatico di graffi su superfici.',
-      tecnologia: 'Python',
-      urlPreview: 'https://example.com',
-      anno: 2023,
-    },
-    {
       nome: 'Fullfact Scraper',
-      descrizione: 'Scraper per la raccolta di fact-checking.',
+      descrizione: 'Scraper per la raccolta di dati di fact-checking.',
       tecnologia: 'Python',
       urlPreview: 'https://example.com',
       anno: 2023,
     },
+    // 2022
     {
-      nome: 'Core',
-      descrizione: 'Modulo core della piattaforma Sinfonist.',
-      tecnologia: 'Angular',
-      urlPreview: 'https://example.com',
-      anno: 2022,
-    },
-    {
-      nome: 'QSM',
-      descrizione: 'Quality & Service Management.',
-      tecnologia: 'Angular',
-      urlPreview: 'https://example.com',
-      anno: 2022,
-    },
-    {
-      nome: 'Audit',
-      descrizione: 'Modulo di audit e compliance.',
-      tecnologia: 'Angular',
-      urlPreview: 'https://example.com',
-      anno: 2022,
-    },
-    {
-      nome: 'Billing',
-      descrizione: 'Gestione della fatturazione.',
+      nome: 'Sinfonist',
+      descrizione:
+        'Piattaforma enterprise composta da moduli Core, QSM, Audit e Billing per la gestione aziendale.',
       tecnologia: 'Angular',
       urlPreview: 'https://example.com',
       anno: 2022,
@@ -174,37 +136,11 @@ export class ProjectsComponent {
       urlPreview: 'https://example.com',
       anno: 2022,
     },
+    // 2021
     {
-      nome: 'ToP City',
-      descrizione: 'Simulatore di gestione urbana.',
-      tecnologia: 'Project',
-      urlPreview: 'https://example.com',
-      anno: 2022,
-    },
-    {
-      nome: 'Hydra',
-      descrizione: 'Integrazione sistema trouble tickets.',
-      tecnologia: 'Vue',
-      urlPreview: 'https://example.com',
-      anno: 2021,
-    },
-    {
-      nome: 'Spurgo CanalJet',
-      descrizione: 'Gestionale per operazioni di spurgo.',
-      tecnologia: 'Vue',
-      urlPreview: 'https://example.com',
-      anno: 2021,
-    },
-    {
-      nome: 'Fast&Clean',
-      descrizione: 'Gestionale per servizi di pulizia.',
-      tecnologia: 'Vue',
-      urlPreview: 'https://example.com',
-      anno: 2021,
-    },
-    {
-      nome: 'Amici di Nico',
-      descrizione: 'Piattaforma per la gestione di eventi benefici.',
+      nome: 'Gestionali aziendali',
+      descrizione:
+        'Applicativi gestionali sviluppati per Hydra, Spurgo CanalJet, Fast&Clean e Amici di Nico.',
       tecnologia: 'Vue',
       urlPreview: 'https://example.com',
       anno: 2021,
@@ -213,13 +149,6 @@ export class ProjectsComponent {
       nome: 'MyHealthStory',
       descrizione: 'App per la gestione del percorso sanitario personale.',
       tecnologia: 'Flutter',
-      urlPreview: 'https://example.com',
-      anno: 2021,
-    },
-    {
-      nome: 'ParBrum',
-      descrizione: 'Sistema IoT per il monitoraggio ambientale urbano.',
-      tecnologia: 'IoT',
       urlPreview: 'https://example.com',
       anno: 2021,
     },

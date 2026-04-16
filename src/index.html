@@ -15,6 +15,26 @@
     />
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <base href="/" />
+    <script>
+      // GitHub Pages SPA redirect handler
+      // Restores the real path from the query string set by 404.html
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (s) {
+              return s.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(
+            null,
+            null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      })(window.location);
+    </script>
     <link rel="manifest" href="manifest.webmanifest" />
   </head>
   <body>

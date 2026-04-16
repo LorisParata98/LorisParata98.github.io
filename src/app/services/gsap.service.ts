@@ -11,11 +11,11 @@ export class GsapServiceService {
     private platformId: Object
   ) { }
 
-  isOnVue(): boolean {
+  isOnBrowser(): boolean {
     return isPlatformBrowser(this.platformId);
   }
 
-  isOnServ(): boolean {
+  isOnServer(): boolean {
     return isPlatformServer(this.platformId);
   }
 }

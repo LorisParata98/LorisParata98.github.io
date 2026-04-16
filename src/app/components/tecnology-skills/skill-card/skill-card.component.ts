@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, signal } from '@angular/core';
 
 @Component({
   selector: 'app-skill-card',
@@ -12,4 +12,9 @@ export class SkillCardComponent {
   public imageName = input<string>();
   public description = input<string>();
   public bgColor = input<string>();
+  public flipped = signal(false);
+
+  toggleFlip() {
+    this.flipped.update((v) => !v);
+  }
 }

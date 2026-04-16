@@ -1,6 +1,6 @@
 <section
   class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 my-8"
-  id="overview"
+  id="projects-list"
 >
   <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
 
@@ -27,7 +27,7 @@
         class="self-start text-xs text-white/40 hover:text-white underline transition-colors"
         (click)="clearFilters()"
       >
-        Rimuovi filtri
+        {{ "projects.clearFilters" | transloco }}
       </button>
     }
   </div>
@@ -45,7 +45,7 @@
 
   @if (sections().length === 0) {
     <p class="text-white/40 text-sm">
-      Nessun progetto trovato per i filtri selezionati.
+      {{ "projects.noResults" | transloco }}
     </p>
   }
 </section>

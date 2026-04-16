@@ -14,7 +14,8 @@
     will-change: transform;
   }
 
-  &:hover &-inner {
+  &:hover &-inner,
+  &-inner.is-flipped {
     transform: rotateY(180deg);
   }
 

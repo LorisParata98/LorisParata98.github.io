@@ -19,7 +19,7 @@ export const routes: Routes = [
         data: { title: 'Projects' },
         canActivate: [titleGuard],
       },
-      { path: '**', redirectTo: 'home', pathMatch: 'full' },
+      { path: '**', redirectTo: '', pathMatch: 'full' },
     ],
   },
 ];

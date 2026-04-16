@@ -8,9 +8,9 @@
     &#8592;
   </button>
 
-  <div class="flex gap-4 flex-1">
+  <div class="flex gap-4 flex-1 overflow-hidden">
     @for (item of visibleItems(); track item.nome) {
-      <div class="w-96 shrink-0">
+      <div class="flex-1 min-w-0">
         <app-project-card [project]="item" (select)="onSelect($event)" />
       </div>
     }

@@ -14,7 +14,7 @@
       class="self-end m-4 text-sm text-white/60 hover:text-yellow-300 transition-colors flex items-center gap-1"
       (click)="close.emit()"
     >
-      Close <span class="text-base">✕</span>
+      {{ "common.close" | transloco }} <span class="text-base">✕</span>
     </button>
 
     <!-- Immagine -->
@@ -30,7 +30,7 @@
           #img
         />
       }
-      <span class="text-white/20 text-sm">No preview</span>
+      <span class="text-white/20 text-sm">{{ "projects.noPreview" | transloco }}</span>
     </div>
 
     <!-- Contenuto -->
@@ -54,7 +54,7 @@
 
       <div class="flex flex-col gap-2">
         <span class="text-xs uppercase tracking-widest text-white/40"
-          >Tecnologia</span
+          >{{ "projects.technology" | transloco }}</span
         >
         <span
           class="inline-block self-start text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
@@ -70,7 +70,7 @@
           rel="noopener"
           class="mt-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-yellow-300 text-yellow-300 text-sm font-semibold hover:bg-yellow-300 hover:text-black transition-all duration-200"
         >
-          Apri progetto ↗
+          {{ "projects.openProject" | transloco }} ↗
         </a>
       }
 
@@ -79,7 +79,7 @@
         class="md:hidden mt-4 w-full py-3 rounded-lg border border-white/20 text-white/60 text-sm font-semibold hover:border-yellow-300 hover:text-yellow-300 transition-all"
         (click)="close.emit()"
       >
-        Chiudi
+        {{ "common.close" | transloco }}
       </button>
     </div>
   </aside>

@@ -1,9 +1,16 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, signal } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  DestroyRef,
+  inject,
+  signal,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { TranslocoService } from '@jsverse/transloco';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/all';
-import { combineLatest } from 'rxjs';
+import { switchMap, take } from 'rxjs';
 import { GsapServiceService } from '../../../services/gsap.service';
 
 @Component({
@@ -14,6 +21,9 @@ import { GsapServiceService } from '../../../services/gsap.service';
   styleUrl: './presentation.component.scss',
 })
 export class PresentationComponent implements AfterViewInit {
+  private _destroyRef = inject(DestroyRef);
+  private _animationComplete = false;
+
   constructor(
     private _gsapService: GsapServiceService,
     private _translateService: TranslocoService,
@@ -24,65 +34,97 @@ export class PresentationComponent implements AfterViewInit {
   public selectedLanguage = signal<string>('it');
 
   ngAfterViewInit(): void {
-    this._translateService.langChanges$.subscribe((res) => {
-      this.selectedLanguage.set(res);
-    });
+    this._translateService.langChanges$
+      .pipe(
+        takeUntilDestroyed(this._destroyRef),
+        switchMap((lang) => {
+          this.selectedLanguage.set(lang);
+          // Aspetta che il file di traduzione sia caricato prima di procedere
+          return this._translateService.selectTranslation(lang).pipe(take(1));
+        }),
+      )
+      .subscribe(() => {
+        if (this._gsapService.isOnBrowser()) {
+          gsap.killTweensOf('#titolo');
+          gsap.killTweensOf('#descrizione');
+          gsap.killTweensOf('#intestazione');
 
-    this._translateService.langChanges$.subscribe(() => {
-      if (this._gsapService.isOnVue()) {
-        gsap.killTweensOf('#titolo');
-        gsap.killTweensOf('#descrizione');
-        gsap.killTweensOf('#intestazione');
-
-        this._loadPresentation();
-      }
-    });
+          if (this._animationComplete) {
+            this._applyTranslations();
+          } else {
+            this._clearText();
+            this._playAnimation();
+          }
+        }
+      });
   }
 
-  private _loadPresentation() {
-    if (
-      this._gsapService.isOnVue() &&
-      (!gsap.isTweening('#titolo') ||
-        !gsap.isTweening('#descrizione') ||
-        !gsap.isTweening('#intestazione'))
-    ) {
-      combineLatest({
-        welcome: this._translateService.selectTranslate('intro.welcome'),
-        presentation:
-          this._translateService.selectTranslate('intro.presentation'),
+  private _getTranslations() {
+    const t = this._translateService;
+    return {
+      welcome: t.translate('intro.welcome'),
+      presentation: t.translate('intro.presentation'),
+      description: t.translate('intro.description'),
+      dnd: t.translate('intro.d&d'),
+    };
+  }
 
-        description:
-          this._translateService.selectTranslate('intro.description'),
-        dnd: this._translateService.selectTranslate('intro.d&d'),
-      }).subscribe({
-        next: (translations: any) => {
-          // Quando tutte le traduzioni sono pronte, esegui le animazioni
-          gsap.to('#titolo', {
-            duration: 2,
-            text: translations.welcome,
-            delay: 1,
-          });
-          gsap.to('#titolo', {
-            duration: 5,
-            text: translations.presentation,
-            delay: 4,
-          });
-          gsap.to('#titolo', { duration: 2, text: '|', delay: 16 });
-          gsap.to('#titolo', { duration: 2, text: 'LRS_DESIGN', delay: 18 });
-          gsap.to('#descrizione', {
-            duration: 6,
-            text: translations.description,
-            delay: 10,
-          });
-          gsap.to('#intestazione', {
-            duration: 2,
-            text: translations.dnd,
-            delay: 17,
-          });
-        },
-        error: (ex) => console.log(ex),
-      });
-    }
+  /** Animazione finita: sostituzione diretta del testo */
+  private _applyTranslations() {
+    const tr = this._getTranslations();
+    const titolo = document.querySelector('#titolo');
+    const descrizione = document.querySelector('#descrizione');
+    const intestazione = document.querySelector('#intestazione');
+
+    if (titolo) titolo.textContent = 'LRS_DESIGN';
+    if (descrizione) descrizione.textContent = tr.description;
+    if (intestazione) intestazione.textContent = tr.dnd;
+  }
+
+  /** Animazione in corso: svuota e riparte da zero */
+  private _clearText() {
+    const titolo = document.querySelector('#titolo');
+    const descrizione = document.querySelector('#descrizione');
+    const intestazione = document.querySelector('#intestazione');
+
+    if (titolo) titolo.textContent = '';
+    if (descrizione) descrizione.textContent = '';
+    if (intestazione) intestazione.textContent = '';
+  }
+
+  private _playAnimation() {
+    this._animationComplete = false;
+    const tr = this._getTranslations();
+
+    gsap.to('#titolo', {
+      duration: 2,
+      text: tr.welcome,
+      delay: 1,
+    });
+    gsap.to('#titolo', {
+      duration: 5,
+      text: tr.presentation,
+      delay: 4,
+    });
+    gsap.to('#titolo', { duration: 2, text: '|', delay: 16 });
+    gsap.to('#titolo', {
+      duration: 2,
+      text: 'LRS_DESIGN',
+      delay: 18,
+      onComplete: () => {
+        this._animationComplete = true;
+      },
+    });
+    gsap.to('#descrizione', {
+      duration: 6,
+      text: tr.description,
+      delay: 10,
+    });
+    gsap.to('#intestazione', {
+      duration: 2,
+      text: tr.dnd,
+      delay: 17,
+    });
   }
 
   changeLanguage(lang: string) {
