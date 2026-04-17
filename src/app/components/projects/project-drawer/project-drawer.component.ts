@@ -27,6 +27,7 @@ export class ProjectDrawerComponent {
   close = output<void>();
 
   currentImageIndex = signal(0);
+  imageLoaded = signal(false);
 
   images = computed(() => this.project()?.images ?? []);
   currentImage = computed(() => this.images()[this.currentImageIndex()]);
@@ -36,16 +37,28 @@ export class ProjectDrawerComponent {
     effect(() => {
       this.project();
       this.currentImageIndex.set(0);
+      this.imageLoaded.set(false);
     });
   }
 
+  onImageLoad() {
+    this.imageLoaded.set(true);
+  }
+
+  onImageError(event: Event) {
+    (event.target as HTMLImageElement).src = 'assets/images/projects/default.webp';
+    this.imageLoaded.set(true);
+  }
+
   prev() {
+    this.imageLoaded.set(false);
     this.currentImageIndex.update((i) =>
       i === 0 ? this.images().length - 1 : i - 1,
     );
   }
 
   next() {
+    this.imageLoaded.set(false);
     this.currentImageIndex.update((i) =>
       i === this.images().length - 1 ? 0 : i + 1,
     );

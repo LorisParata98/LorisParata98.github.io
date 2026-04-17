@@ -6,10 +6,16 @@
     <div
       class="relative w-full h-36 rounded-md overflow-hidden bg-black/40 border border-white/10"
     >
+      @if (!imageLoaded()) {
+        <div class="absolute inset-0 animate-pulse bg-white/10"></div>
+      }
       <img
         [src]="project()?.images?.[0] || 'assets/images/projects/default.webp'"
         [alt]="project()?.nome"
+        loading="lazy"
         class="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+        [class.opacity-0]="!imageLoaded()"
+        (load)="onImageLoad()"
         (error)="onImageError($event)"
       />
     </div>
