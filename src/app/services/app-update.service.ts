@@ -1,73 +1,54 @@
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
-import { filter } from 'rxjs';
+import { filter, take } from 'rxjs';
 
-/**
- * Servizio per gestire gli aggiornamenti della PWA
- * Rileva quando il service worker ha una nuova versione disponibile
- * e ricarica l'applicazione
- */
+const CHECK_INTERVAL_MS = 30 * 60 * 1000;
+
 @Injectable({
   providedIn: 'root',
 })
 export class AppUpdateService {
-  constructor(private swUpdate: SwUpdate) {
-    this.checkForUpdates();
-  }
+  readonly updateAvailable = signal<boolean>(false);
+  private pendingActivation = false;
 
-  /**
-   * Controlla se sono disponibili aggiornamenti della PWA
-   * Se disponibili, ricarica automaticamente l'app
-   */
-  private checkForUpdates(): void {
-    // Verifica periodicamente se ci sono aggiornamenti
+  constructor(
+    private swUpdate: SwUpdate,
+    private router: Router,
+  ) {
+    if (!this.swUpdate.isEnabled) return;
+
     this.swUpdate.versionUpdates
-      .pipe(
-        // Filtra solo gli aggiornamenti di tipo 'VERSION_READY'
-        filter((event) => event.type === 'VERSION_READY'),
-      )
+      .pipe(filter((event) => event.type === 'VERSION_READY'))
       .subscribe(() => {
-        console.log('Nuova versione disponibile, ricaricamento in corso...');
-        this.promptUserForReload();
+        this.updateAvailable.set(true);
+        this.pendingActivation = true;
       });
 
-    // Controlla aggiornamenti all'avvio
     this.swUpdate.checkForUpdate();
+    setInterval(() => this.swUpdate.checkForUpdate(), CHECK_INTERVAL_MS);
   }
 
-  /**
-   * Mostra un prompt all'utente e ricarica l'app se confermato
-   * Se non confermato entro 30 secondi, ricarica comunque
-   */
-  private promptUserForReload(): void {
-    this.reloadApp();
-    // const userConfirmed = confirm(
-    //   'Una nuova versione della PWA è disponibile. Vuoi ricaricare adesso?',
-    // );
-
-    // if (userConfirmed) {
-
-    // } else {
-    //   // Ricarica comunque dopo 30 secondi
-    //   setTimeout(() => {
-    //     console.log('Ricaricamento forzato della PWA');
-    //     this.reloadApp();
-    //   }, 30000); // 30 secondi
-    // }
+  applyUpdate(): void {
+    this.swUpdate
+      .activateUpdate()
+      .catch(() => void 0)
+      .finally(() => document.location.reload());
   }
 
-  /**
-   * Ricarica l'applicazione
-   */
-  private reloadApp(): void {
-    document.location.reload();
+  dismiss(): void {
+    this.updateAvailable.set(false);
+    if (!this.pendingActivation) return;
+
+    this.router.events
+      .pipe(
+        filter((e) => e instanceof NavigationEnd),
+        take(1),
+      )
+      .subscribe(() => this.applyUpdate());
   }
 
-  /**
-   * Controlla manualmente per aggiornamenti
-   * Utile da esporre tramite UI se necessario
-   */
-  public checkForUpdateManually(): Promise<boolean> {
+  checkForUpdateManually(): Promise<boolean> {
     return this.swUpdate.checkForUpdate();
   }
 }

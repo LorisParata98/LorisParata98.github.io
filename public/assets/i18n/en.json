@@ -73,6 +73,12 @@
     "yourEmail": "Your email",
     "message": "Message"
   },
+  "update": {
+    "title": "New version available",
+    "message": "Refresh to get the latest changes.",
+    "update": "Update",
+    "later": "Later"
+  },
   "common": {
     "ita": "ITA",
     "en": "ENG",

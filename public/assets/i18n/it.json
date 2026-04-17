@@ -72,6 +72,12 @@
     "yourEmail": "La tua email",
     "message": "Messaggio"
   },
+  "update": {
+    "title": "Nuova versione disponibile",
+    "message": "Aggiorna per vedere le ultime modifiche.",
+    "update": "Aggiorna",
+    "later": "Piu' tardi"
+  },
   "common": {
     "ita": "ITA",
     "en": "ENG",
