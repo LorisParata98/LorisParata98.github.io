@@ -1,32 +1,19 @@
-<div class="flex items-center gap-3">
-  <button
-    class="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-current opacity-60 hover:opacity-100 transition-opacity disabled:opacity-20 disabled:cursor-not-allowed"
-    [disabled]="!canPrev()"
-    (click)="prev()"
-    aria-label="Precedente"
-  >
-    &#8592;
-  </button>
-
-  <div
-    class="grid gap-4 flex-1 overflow-hidden"
-    [style.grid-template-columns]="
-      'repeat(' + visibleCount() + ', minmax(0, 1fr))'
-    "
-  >
-    @for (item of visibleItems(); track item.nome) {
-      <div class="min-w-0">
-        <app-project-card [project]="item" (select)="onSelect($event)" />
-      </div>
-    }
-  </div>
-
-  <button
-    class="shrink-0 w-8 h-8 flex items-center justify-center rounded-full border border-current opacity-60 hover:opacity-100 transition-opacity disabled:opacity-20 disabled:cursor-not-allowed"
-    [disabled]="!canNext()"
-    (click)="next()"
-    aria-label="Successivo"
-  >
-    &#8594;
-  </button>
+<div
+  class="grid gap-4 overflow-hidden select-none"
+  [style.grid-template-columns]="
+    'repeat(' + visibleCount() + ', minmax(0, 1fr))'
+  "
+  [@slide]="currentIndex()"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+  (mousedown)="onMouseDown($event)"
+  (mousemove)="onMouseMove($event)"
+  (mouseup)="onMouseUp($event)"
+  (mouseleave)="onMouseUp($event)"
+>
+  @for (item of visibleItems(); track item.nome) {
+    <div class="min-w-0">
+      <app-project-card [project]="item" (select)="onSelect($event)" />
+    </div>
+  }
 </div>

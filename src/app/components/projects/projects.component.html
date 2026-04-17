@@ -41,11 +41,35 @@
   <!-- Sezioni per anno -->
   @for (section of sections(); track section.year) {
     <div class="flex flex-col gap-4">
-      <h2 class="m-0 text-4xl md:text-6xl [font-family:var(--font-family)]">
-        {{ section.year }}
-      </h2>
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="m-0 text-4xl md:text-6xl [font-family:var(--font-family)]">
+          {{ section.year }}
+        </h2>
+        <div class="flex gap-2 shrink-0">
+          <button
+            class="w-8 h-8 flex items-center justify-center rounded-full border border-current transition-opacity"
+            [class.opacity-20]="!carousel.canPrev()"
+            [class.cursor-not-allowed]="!carousel.canPrev()"
+            [class.opacity-60]="carousel.canPrev()"
+            [class.hover:opacity-100]="carousel.canPrev()"
+            [disabled]="!carousel.canPrev()"
+            (click)="carousel.prev()"
+            aria-label="Precedente"
+          >&#8592;</button>
+          <button
+            class="w-8 h-8 flex items-center justify-center rounded-full border border-current transition-opacity"
+            [class.opacity-20]="!carousel.canNext()"
+            [class.cursor-not-allowed]="!carousel.canNext()"
+            [class.opacity-60]="carousel.canNext()"
+            [class.hover:opacity-100]="carousel.canNext()"
+            [disabled]="!carousel.canNext()"
+            (click)="carousel.next()"
+            aria-label="Successivo"
+          >&#8594;</button>
+        </div>
+      </div>
 
-      <app-carousel [items]="section.projects" (select)="onSelect($event)" />
+      <app-carousel #carousel [items]="section.projects" (select)="onSelect($event)" />
     </div>
   }
 
