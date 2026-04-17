@@ -13,10 +13,19 @@
   },
   "intro": {
     "welcome": "Welcome :)",
-    "presentation": "My name is Loris and I am a web designer and developer",
+    "presentation": "Hi, I'm Loris",
+    "presentation2": "I'm a web developer and designer.",
     "d&d": "Designer & Developer",
     "logo": "LRS_DESIGN",
-    "description": "I specialize in designing and developing web and mobile applications, with the goal of optimizing the experience for users who use my products daily to achieve their goals."
+    "description": "I specialize in designing and developing web and mobile applications, with the goal of optimizing the experience for users who use my products daily to achieve their goals.",
+    "roles": [
+      "Welcome :)",
+      "I'm a developer",
+      "I'm a designer",
+      "I design tailored digital experiences",
+      "I build solutions that improve routine activities",
+      "I turn problems into concrete results"
+    ]
   },
   "experience": {
     "title": "Experience is not lacking",
@@ -189,17 +198,7 @@
     "cancel": "Cancel",
     "completed": "Completed",
     "pending": "Pending",
-    "fileSizeTypes": [
-      "B",
-      "KB",
-      "MB",
-      "GB",
-      "TB",
-      "PB",
-      "EB",
-      "ZB",
-      "YB"
-    ],
+    "fileSizeTypes": ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"],
     "dayNames": [
       "Sunday",
       "Monday",
@@ -209,24 +208,8 @@
       "Friday",
       "Saturday"
     ],
-    "dayNamesShort": [
-      "Sun",
-      "Mon",
-      "Tue",
-      "Wed",
-      "Thu",
-      "Fri",
-      "Sat"
-    ],
-    "dayNamesMin": [
-      "Su",
-      "Mo",
-      "Tu",
-      "We",
-      "Th",
-      "Fr",
-      "Sa"
-    ],
+    "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+    "dayNamesMin": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
     "monthNames": [
       "January",
       "February",

@@ -13,10 +13,20 @@
   },
   "intro": {
     "welcome": "Benvenuto :)",
-    "presentation": "Il mio nome è Loris Parata, sono un progettista e sviluppatore web",
+    "presentation": "Ciao, mi chiamo Loris,",
+    "presentation2": "sviluppatore e designer web.",
     "d&d": "Designer & Developer",
     "logo": "LRS_DESIGN",
-    "description": "Mi occupo di realizzare applicativi web e mobile, con l'obiettivo di ottimizzare l'esperienza degli utenti che utilizzano quotidianamente i miei prodotti per raggiungere i loro obiettivi."
+    "description": "Mi occupo di realizzare applicativi web e mobile, con l'obiettivo di ottimizzare l'esperienza degli utenti che utilizzano quotidianamente i miei prodotti per raggiungere i loro obiettivi.",
+    "rolePrefix": "Sono un",
+    "roles": [
+      "Benvenuto :)",
+      "Sono uno sviluppatore",
+      "Sono un designer",
+      "Progetto esperienze digitali su misura",
+      "Sviluppo soluzioni che migliorano le attività di routine",
+      "Trasformo problemi in risultati concreti"
+    ]
   },
   "experience": {
     "title": "L'esperienza non manca",

@@ -1,10 +1,5 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import {
-  animate,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
 import {
   Component,
   computed,
@@ -31,11 +26,17 @@ const SWIPE_THRESHOLD = 50;
     trigger('slide', [
       transition(':increment', [
         style({ opacity: 0, transform: 'translateX(48px)' }),
-        animate('220ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+        animate(
+          '220ms ease-out',
+          style({ opacity: 1, transform: 'translateX(0)' }),
+        ),
       ]),
       transition(':decrement', [
         style({ opacity: 0, transform: 'translateX(-48px)' }),
-        animate('220ms ease-out', style({ opacity: 1, transform: 'translateX(0)' })),
+        animate(
+          '220ms ease-out',
+          style({ opacity: 1, transform: 'translateX(0)' }),
+        ),
       ]),
     ]),
   ],
@@ -50,10 +51,10 @@ export class CarouselComponent {
       map(({ breakpoints }) => {
         if (breakpoints['(max-width: 767px)']) return 1;
         if (breakpoints['(max-width: 1023px)']) return 2;
-        return 3;
+        return 4;
       }),
     ),
-    { initialValue: 3 },
+    { initialValue: 4 },
   );
 
   items = input<Project[]>([]);

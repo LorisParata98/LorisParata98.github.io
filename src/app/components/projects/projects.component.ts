@@ -29,15 +29,15 @@ export class ProjectsComponent {
   readonly allProjects: Project[] = [
     // 2025
     {
-      nome: 'Procurement',
+      nome: 'Vendor & Workforce management',
       descrizione:
         'Piattaforma enterprise per la gestione del ciclo procurement: registrazione fornitori, creazione progetti T&M e Fixed Price, matching tra profili e posizioni tramite algoritmo AI. Ho guidato il refactoring FE di una codebase legacy di 440k righe, portandola da Angular 11 a 14 (con predisposizione alla 16), riducendo il codice di oltre 20k righe e il tempo di build da 20 a 8 minuti. Migrazione da Material ad Ant Design con gestione dinamica di white-label. Utilizzata da Engineering, Sopra Steria e PWC.',
       tecnologie: ['Angular'],
       urlPreview: 'https://timeflow.it/',
       anno: 2025,
       images: [
-        'assets/images/projects/procurement/1.webp',
-        'assets/images/projects/procurement/2.webp',
+        'assets/images/projects/procurement/1.gif',
+        'assets/images/projects/procurement/2.gif',
       ],
     },
     {

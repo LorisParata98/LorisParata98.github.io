@@ -7,31 +7,32 @@ import {
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { TranslocoService } from '@jsverse/transloco';
-import gsap from 'gsap';
-import { TextPlugin } from 'gsap/all';
+import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
 import { switchMap, take } from 'rxjs';
-import { GsapServiceService } from '../../../services/gsap.service';
 
 @Component({
   selector: 'app-presentation',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslocoPipe],
   templateUrl: './presentation.component.html',
   styleUrl: './presentation.component.scss',
 })
 export class PresentationComponent implements AfterViewInit {
-  private _destroyRef = inject(DestroyRef);
-  private _animationComplete = false;
+  private readonly _destroyRef = inject(DestroyRef);
+  private _typewriterTimeout: ReturnType<typeof setTimeout> | null = null;
+  private _phrases: string[] = [];
+  private _phraseIdx = 0;
+  private _charIdx = 0;
+  private _isDeleting = false;
 
-  constructor(
-    private _gsapService: GsapServiceService,
-    private _translateService: TranslocoService,
-  ) {
-    gsap.registerPlugin(TextPlugin);
+  selectedLanguage = signal('it');
+  typewriterText = signal('');
+
+  constructor(private _translateService: TranslocoService) {
+    this._destroyRef.onDestroy(() => {
+      if (this._typewriterTimeout) clearTimeout(this._typewriterTimeout);
+    });
   }
-
-  public selectedLanguage = signal<string>('it');
 
   ngAfterViewInit(): void {
     this._translateService.langChanges$
@@ -39,112 +40,47 @@ export class PresentationComponent implements AfterViewInit {
         takeUntilDestroyed(this._destroyRef),
         switchMap((lang) => {
           this.selectedLanguage.set(lang);
-          // Aspetta che il file di traduzione sia caricato prima di procedere
           return this._translateService.selectTranslation(lang).pipe(take(1));
         }),
       )
       .subscribe(() => {
-        if (this._gsapService.isOnBrowser()) {
-          gsap.killTweensOf('#titolo');
-          gsap.killTweensOf('#descrizione');
-          gsap.killTweensOf('#intestazione');
-
-          if (this._animationComplete) {
-            this._applyTranslations();
-          } else {
-            this._restoreMinHeights();
-            this._clearText();
-            this._playAnimation();
-          }
-        }
+        const phrases = this._translateService.translate<string[]>('intro.roles');
+        this._startTypewriter(Array.isArray(phrases) ? phrases : []);
       });
   }
 
-  private _getTranslations() {
-    const t = this._translateService;
-    return {
-      welcome: t.translate('intro.welcome'),
-      presentation: t.translate('intro.presentation'),
-      description: t.translate('intro.description'),
-      dnd: t.translate('intro.d&d'),
-    };
+  private _startTypewriter(phrases: string[]) {
+    if (this._typewriterTimeout) clearTimeout(this._typewriterTimeout);
+    this._phrases = phrases;
+    this._phraseIdx = 0;
+    this._charIdx = 0;
+    this._isDeleting = false;
+    this.typewriterText.set('');
+    this._tick();
   }
 
-  /** Animazione finita: sostituzione diretta del testo */
-  private _applyTranslations() {
-    const tr = this._getTranslations();
-    const titolo = document.querySelector('#titolo');
-    const descrizione = document.querySelector('#descrizione');
-    const intestazione = document.querySelector('#intestazione');
+  private _tick() {
+    const phrase = this._phrases[this._phraseIdx];
+    if (!phrase) return;
 
-    if (titolo) titolo.textContent = 'LRS_DESIGN';
-    if (descrizione) descrizione.textContent = tr.description;
-    if (intestazione) intestazione.textContent = tr.dnd;
-  }
+    if (this._isDeleting) {
+      this.typewriterText.set(phrase.substring(0, --this._charIdx));
+    } else {
+      this.typewriterText.set(phrase.substring(0, ++this._charIdx));
+    }
 
-  /** Animazione in corso: svuota e riparte da zero */
-  private _clearText() {
-    const titolo = document.querySelector('#titolo');
-    const descrizione = document.querySelector('#descrizione');
-    const intestazione = document.querySelector('#intestazione');
+    let delay = this._isDeleting ? 50 : 100;
 
-    if (titolo) titolo.innerHTML = '&nbsp;';
-    if (descrizione) descrizione.innerHTML = '&nbsp;';
-    if (intestazione) intestazione.innerHTML = '&nbsp;';
-  }
+    if (!this._isDeleting && this._charIdx === phrase.length) {
+      delay = 1800;
+      this._isDeleting = true;
+    } else if (this._isDeleting && this._charIdx === 0) {
+      this._isDeleting = false;
+      this._phraseIdx = (this._phraseIdx + 1) % this._phrases.length;
+      delay = 400;
+    }
 
-  private _playAnimation() {
-    this._animationComplete = false;
-    const tr = this._getTranslations();
-
-    gsap.to('#titolo', {
-      duration: 2,
-      text: tr.welcome,
-      delay: 1,
-    });
-    gsap.to('#titolo', {
-      duration: 5,
-      text: tr.presentation,
-      delay: 4,
-    });
-    gsap.to('#titolo', { duration: 2, text: '|', delay: 16 });
-    gsap.to('#titolo', {
-      duration: 2,
-      text: 'LRS_DESIGN',
-      delay: 18,
-      onComplete: () => {
-        this._animationComplete = true;
-        this._releaseMinHeights();
-      },
-    });
-    gsap.to('#descrizione', {
-      duration: 6,
-      text: tr.description,
-      delay: 10,
-    });
-    gsap.to('#intestazione', {
-      duration: 2,
-      text: tr.dnd,
-      delay: 17,
-    });
-  }
-
-  /** Rimuove i min-height dopo l'animazione per evitare spazi vuoti */
-  private _releaseMinHeights() {
-    const titolo = document.querySelector<HTMLElement>('.intro-titolo');
-    const descrizione = document.querySelector<HTMLElement>('.intro-descrizione');
-
-    if (titolo) titolo.style.minHeight = '0';
-    if (descrizione) descrizione.style.minHeight = '0';
-  }
-
-  /** Ripristina i min-height prima di riavviare l'animazione */
-  private _restoreMinHeights() {
-    const titolo = document.querySelector<HTMLElement>('.intro-titolo');
-    const descrizione = document.querySelector<HTMLElement>('.intro-descrizione');
-
-    if (titolo) titolo.style.minHeight = '';
-    if (descrizione) descrizione.style.minHeight = '';
+    this._typewriterTimeout = setTimeout(() => this._tick(), delay);
   }
 
   changeLanguage(lang: string) {
