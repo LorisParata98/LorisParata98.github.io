@@ -36,7 +36,14 @@
     "working": "Lavorativa",
     "uxDesign": "Progettazione dell'esperienza utente",
     "prototyping": "Prototipazione",
-    "developing": "Sviluppo"
+    "developing": "Sviluppo",
+    "architecture": "Architettura",
+    "performance": "Prestazioni",
+    "frontendDev": "Frontend Development",
+    "uxDesing": "UX Design",
+    "devDesignIntegration": "Integrazione tra design e sviluppo",
+    "interactivePrototyping": "Prototipazione",
+    "informationArchitecture": "Architettura dell'Informazione"
   },
   "projects": {
     "projects": "Progetti",

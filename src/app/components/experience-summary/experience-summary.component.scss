@@ -9,22 +9,23 @@
     margin: 0;
     border: none;
     height: 3px;
-    /* Adjust the height as needed */
     background: linear-gradient(to right, var(--surface-0), black);
   }
 
   .indicators {
-    height: 230px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 32rem;
-    gap: 2rem;
-    margin-top: 1rem;
+    position: relative;
+    width: 100%;
+    max-width: clamp(300px, 28vw, 500px);
   }
 
   .years {
     font-size: 256px;
+  }
+
+  @media only screen and (max-width: 1024px) and (min-width: 769px) {
+    .indicators {
+      max-width: unset;
+    }
   }
 
   @media only screen and (max-width: 768px) {
@@ -35,6 +36,16 @@
     .vl {
       height: 440px;
     }
+
+    .indicators {
+      max-width: unset;
+
+      display: flex;
+      justify-content: center;
+      canvas {
+        width: 100%;
+      }
+    }
   }
 
   @media only screen and (max-width: 425px) {
@@ -44,6 +55,10 @@
 
     .vl {
       height: 390px;
+    }
+
+    .indicators {
+      max-width: 100%;
     }
   }
 }

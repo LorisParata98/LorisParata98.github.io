@@ -41,31 +41,17 @@
   <div class="col-span-2 lg:col-span-1">
     <div class="flex-col items-end h-full lg:px-8 py-8 gap-2 gap-2 md:gap-1">
       <h2
-        class="hidden lg:flex m-0 font-normal lg:max-w-lg text-4xl md:text-6xl"
+        class="hidden lg:flex m-0 font-normal text-4xl md:text-6xl"
         style="font-family: var(--font-family)"
       >
         {{ "experience.title" | transloco }}
       </h2>
 
-      <div class="max-w-full lg:max-w-lg text-2xl md:text-xl mt-4">
+      <div class="max-w-full text-2xl md:text-xl">
         {{ "experience.description" | transloco }}
       </div>
-      <div class="indicators">
-        <app-completation-bar
-          class="w-full"
-          [title]="'experience.developing' | transloco"
-          [value]="90"
-        ></app-completation-bar>
-        <app-completation-bar
-          class="w-full"
-          [title]="'experience.uxDesign' | transloco"
-          [value]="80"
-        ></app-completation-bar>
-        <app-completation-bar
-          class="w-full"
-          [title]="'experience.prototyping' | transloco"
-          [value]="70"
-        ></app-completation-bar>
+      <div class="indicators mt-4 md:mt-0">
+        <canvas #radarCanvas></canvas>
       </div>
     </div>
   </div>

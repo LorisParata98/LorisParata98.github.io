@@ -35,7 +35,14 @@
     "working": "Work",
     "uxDesign": "UX Design",
     "prototyping": "Prototyping",
-    "developing": "Development"
+    "developing": "Development",
+    "architecture": "Architecture",
+    "performance": "Performance",
+    "frontendDev": "Frontend Development",
+    "uxDesing": "UX Design",
+    "devDesignIntegration": "Design & Development Integration",
+    "interactivePrototyping": "Prototyping",
+    "informationArchitecture": "Information Architecture"
   },
   "projects": {
     "projects": "Projects",
