@@ -58,7 +58,7 @@ export class ProjectsComponent {
       descrizione:
         'Sito vetrina per lo studio M13, realtà che integra progettazione tecnica, interior design, comunicazione e organizzazione eventi. Progetto freelance in Angular 19 con SSG custom, curato interamente dal design alla realizzazione. Presenta i servizi dello studio e il portfolio dei lavori realizzati.',
       tecnologie: ['Angular', 'Figma'],
-      urlPreview: 'https://www.m13progetti.it',
+      urlPreview: 'https://www.m13progetti.com',
       anno: 2025,
       images: ['assets/images/projects/m13-progetti/1.webp'],
     },
