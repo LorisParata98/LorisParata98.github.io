@@ -27,6 +27,20 @@ export interface YearSection {
 export class ProjectsComponent {
   selectedProject = signal<Project | null>(null);
   readonly allProjects: Project[] = [
+    // 2026
+    {
+      nome: 'CV Builder',
+      descrizione:
+        'Editor con preview live, tre template, export PDF e DOCX, import JSON per riutilizzare i dati e traduzione integrata con DeepL per candidature internazionali. Obiettivo: rendere più veloce e meno stressante il processo di candidatura — aggiornare, personalizzare, esportare, tenere tutto pronto. Tutto dal browser: niente account, niente abbonamenti.',
+      tecnologie: ['React'],
+      urlPreview: 'https://cv-builder-rho-eight.vercel.app/',
+      anno: 2026,
+      images: [
+        'assets/images/projects/cv-builder/1.gif',
+        'assets/images/projects/cv-builder/1.webp',
+        'assets/images/projects/cv-builder/2.webp',
+      ],
+    },
     // 2025
     {
       nome: 'Vendor & Workforce management',
