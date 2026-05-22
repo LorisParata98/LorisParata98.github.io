@@ -2,7 +2,8 @@ import { Component, computed, effect, inject, signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormsModule } from '@angular/forms';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { MultiSelect } from 'primeng/multiselect';
+import { Drawer } from 'primeng/drawer';
+import { Listbox } from 'primeng/listbox';
 import { fadeInUp } from '../../animations';
 import { allProjects } from '../../data/projects.data';
 import { Project, ProjectTag, YearSection } from '../../models/project.model';
@@ -25,7 +26,8 @@ export type { Project, YearSection };
     TranslocoPipe,
     CarouselComponent,
     ProjectDrawerComponent,
-    MultiSelect,
+    Drawer,
+    Listbox,
     FormsModule,
     PortfolioToggleComponent,
   ],
@@ -45,6 +47,8 @@ export class ProjectsComponent {
   badgeKey = computed(() => `toggle.badge.${this.mode()}`);
 
   selectedProject = signal<Project | null>(null);
+  filterSidebarVisible = false;
+  listboxFilterValue = '';
 
   readonly allProjects: Project[] = allProjects;
 
@@ -54,24 +58,14 @@ export class ProjectsComponent {
 
   allFilterTags = computed<ProjectTag[]>(() => {
     const m = this.mode();
-    const designMap = new Map<string, ProjectTag>();
-    const techMap = new Map<string, ProjectTag>();
+    const tagMap = new Map<string, ProjectTag>();
     for (const p of this.allProjects) {
       const tags = p.variants?.[m]?.tags ?? p.variants?.all?.tags ?? [];
       for (const tag of tags) {
-        if (tag.type === 'design') designMap.set(tag.label, tag);
-        else techMap.set(tag.label, tag);
+        tagMap.set(tag.label, tag);
       }
     }
-    const designs = [...designMap.values()].sort((a, b) =>
-      a.label.localeCompare(b.label),
-    );
-    const techs = [...techMap.values()].sort((a, b) =>
-      a.label.localeCompare(b.label),
-    );
-    return [...designs, ...techs].sort((a, b) =>
-      a.label.localeCompare(b.label),
-    );
+    return [...tagMap.values()].sort((a, b) => a.label.localeCompare(b.label));
   });
 
   constructor() {
@@ -95,6 +89,7 @@ export class ProjectsComponent {
 
   clearFilters() {
     this.selectedTags.set(new Set());
+    this.listboxFilterValue = '';
   }
 
   public onSelect(project?: Project) {

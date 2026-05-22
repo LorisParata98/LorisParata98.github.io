@@ -1,0 +1,134 @@
+$drawer-bg: var(--black07);
+$border-subtle: 1px solid rgba(255, 255, 255, 0.08);
+$btn-padding: 0.5rem 0.875rem;
+
+.p-drawer-bottom .mobile-filter-drawer {
+  height: auto !important;
+}
+
+.mobile-filter-drawer {
+  background-color: $drawer-bg !important;
+  border-radius: 16px 16px 0 0 !important;
+  display: flex;
+  flex-direction: column;
+
+  .p-drawer-header {
+    background-color: $drawer-bg;
+    border-bottom: $border-subtle;
+    border-radius: 16px 16px 0 0;
+    color: var(--text-color);
+    flex-shrink: 0;
+  }
+
+  .p-drawer-content {
+    background-color: $drawer-bg;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .p-listbox {
+    display: flex;
+    flex-direction: column;
+    border: none;
+    background: transparent;
+    border-radius: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .p-listbox-list-container {
+    max-height: 55vh;
+    overflow-y: auto;
+  }
+
+  .p-listbox-option {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    color: var(--text-color);
+
+    .p-checkbox {
+      display: flex !important;
+      align-items: center !important;
+      flex-shrink: 0;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    &.p-listbox-option-selected {
+      background-color: var(--accent-dim) !important;
+      color: var(--accent) !important;
+
+      &.p-focus {
+        background-color: var(--accent-dim) !important;
+        color: var(--accent) !important;
+      }
+    }
+  }
+
+  .p-listbox-header {
+    background-color: $drawer-bg;
+    border-bottom: $border-subtle;
+    padding: 0.5rem 1rem;
+  }
+
+  .p-listbox-filter {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-color);
+
+    &:focus {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 0 1px var(--accent) !important;
+      outline: none;
+    }
+  }
+
+  .drawer-footer-actions {
+    display: flex;
+    gap: 0.75rem;
+    padding: $btn-padding;
+    flex-shrink: 0;
+    border-top: $border-subtle;
+    background-color: $drawer-bg;
+  }
+
+  .drawer-btn-clear,
+  .drawer-btn-apply {
+    flex: 1;
+    min-height: 1rem;
+    padding: $btn-padding;
+    border-radius: 6px;
+    font-family: var(--font-family);
+    font-size: 0.875rem;
+    cursor: pointer;
+  }
+
+  .drawer-btn-clear {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: transparent;
+    color: rgba(255, 255, 255, 0.6);
+    transition: border-color 0.2s, color 0.2s;
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+
+  .drawer-btn-apply {
+    border: none;
+    background-color: var(--accent);
+    color: #000;
+    font-weight: 600;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+}

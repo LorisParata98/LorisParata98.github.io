@@ -51,6 +51,8 @@
     "viewProjects": "Esplora portfolio",
     "myProjects": "I miei progetti",
     "intro": "Una selezione dei progetti a cui ho lavorato tra sviluppo frontend, design UX/UI e prototipazione.",
+    "applyFilters": "Filtra",
+    "close": "Chiudi",
     "clearFilters": "Rimuovi filtri",
     "filterPlaceholder": "Filtra per tag",
     "noResults": "Nessun progetto trovato per i filtri selezionati.",

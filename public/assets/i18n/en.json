@@ -51,6 +51,8 @@
     "viewProjects": "Explore Projects",
     "myProjects": "My Projects",
     "intro": "A selection of projects I've worked on across frontend development, UX/UI design and prototyping.",
+    "applyFilters": "Filter",
+    "close": "Close",
     "clearFilters": "Clear filters",
     "filterPlaceholder": "Filter by tag",
     "noResults": "No projects found for the selected filters.",

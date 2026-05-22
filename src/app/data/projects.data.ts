@@ -14,11 +14,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/cv-builder/2.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Side Project” Design + Dev',
-      design: 'Side Project” Design',
-      dev: 'Side Project” Dev',
-    },
     variants: {
       all: {
         problem: 'Come rendere la candidatura meno stressante',
@@ -125,16 +120,10 @@ export const allProjects: Project[] = [
       'assets/images/projects/procurement/2.gif',
     ],
     type: 'design',
-    pill: {
-      all: 'Enterprise” UX Design',
-      design: 'Enterprise” UX Design',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
-        problem:
-          'Come semplificare la gestione fornitori in aziende multi-sede',
-        desc: 'Piattaforma B2B enterprise per gestione centralizzata di fornitori e risorse. Progetto anonimizzato.',
+        problem: 'Come semplificare i flussi della procurement',
+        desc: 'Piattaforma B2B enterprise per gestione centralizzata di fornitori, progetti e risorse.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'UX Research', type: 'design' },
@@ -143,8 +132,7 @@ export const allProjects: Project[] = [
         type: 'design',
       },
       design: {
-        problem:
-          'Come semplificare la gestione fornitori in aziende multi-sede',
+        problem: 'Come semplificare i flussi della procurement',
         desc: 'Piattaforma B2B enterprise” ricerca, information architecture, prototipazione e test con utenti reali.',
         tags: [
           { label: 'Enterprise', type: 'design' },
@@ -156,10 +144,11 @@ export const allProjects: Project[] = [
       dev: {
         problem:
           'Performance su tabelle con 10k+ righe e stato complesso multi-componente',
-        desc: 'Angular per sincronizzazione filtri, virtual scroll custom e export asincrono con Web Worker.',
+        desc: 'Angular per sincronizzazione filtri, virtual scroll custom.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'Angular', type: 'tech' },
+          { label: 'Highcharts', type: 'tech' },
         ],
         type: 'design',
       },
@@ -235,11 +224,6 @@ export const allProjects: Project[] = [
   //     'assets/images/projects/marketplace/3.webp',
   //   ],
   //   type: 'dev',
-  //   pill: {
-  //     all: 'Enterprise” Design + Dev',
-  //     design: 'Enterprise” Interaction Design',
-  //     dev: 'Enterprise” Frontend Architecture',
-  //   },
   //   variants: {
   //     all: {
   //       problem:
@@ -337,11 +321,6 @@ export const allProjects: Project[] = [
     anno: 2025,
     images: ['assets/images/projects/m13-progetti/1.webp'],
     type: 'both',
-    pill: {
-      all: 'Freelance” Design + Dev',
-      design: 'Freelance” Web Design',
-      dev: 'Freelance” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -445,11 +424,6 @@ export const allProjects: Project[] = [
     anno: 2025,
     images: ['assets/images/projects/dendetravel/1.webp'],
     type: 'dev',
-    pill: {
-      all: 'Freelance” Web Dev',
-      design: 'Freelance” UI',
-      dev: 'Freelance” Web Dev',
-    },
     variants: {
       all: {
         problem: 'Come dare visibilità  online a una travel designer freelance',
@@ -556,11 +530,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/dmg-fusion/5.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Enterprise” Design + Dev',
-      design: 'Enterprise” UX/Product',
-      dev: 'Enterprise” Mobile + Web',
-    },
     variants: {
       all: {
         problem: 'Come digitalizzare le ispezioni di ascensori su campo',
@@ -665,11 +634,6 @@ export const allProjects: Project[] = [
     anno: 2024,
     images: ['assets/images/projects/portale-pubblico/1.webp'],
     type: 'dev',
-    pill: {
-      all: 'Enterprise” Dev',
-      design: 'Enterprise” Accessibilità ',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -771,11 +735,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/gestionale/2.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Enterprise” Design + Dev',
-      design: 'Enterprise” UX Design',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -881,11 +840,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/piattaforma-tirocini/2.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Enterprise” Design + Dev',
-      design: 'Enterprise” UX/UI',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -986,11 +940,6 @@ export const allProjects: Project[] = [
     anno: 2024,
     images: ['assets/images/projects/ehi-app/1.webp'],
     type: 'both',
-    pill: {
-      all: 'Startup” Design + Dev',
-      design: 'Startup” Product Design',
-      dev: 'Startup” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -1091,11 +1040,6 @@ export const allProjects: Project[] = [
     anno: 2023,
     images: ['assets/images/projects/default.webp'],
     type: 'dev',
-    pill: {
-      all: 'Enterprise” Dev',
-      design: 'Enterprise” Gamification',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -1195,11 +1139,6 @@ export const allProjects: Project[] = [
     anno: 2023,
     images: ['assets/images/projects/timecloud/1.webp'],
     type: 'both',
-    pill: {
-      all: 'Prodotto” Design + Dev',
-      design: 'Prodotto” UX/UI',
-      dev: 'Prodotto” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -1302,11 +1241,6 @@ export const allProjects: Project[] = [
     anno: 2023,
     images: ['assets/images/projects/cash-your-trash/1.webp'],
     type: 'design',
-    pill: {
-      all: 'Hackathon” Design',
-      design: 'Hackathon” UX Design',
-      dev: 'Hackathon” Prototipo',
-    },
     variants: {
       all: {
         problem:
@@ -1408,11 +1342,6 @@ export const allProjects: Project[] = [
     anno: 2023,
     images: ['assets/images/projects/default.webp'],
     type: 'dev',
-    pill: {
-      all: 'Università ” Dev',
-      design: 'Università ” Data',
-      dev: 'Università ” Python',
-    },
     variants: {
       all: {
         problem:
@@ -1519,11 +1448,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/sinfonist/2.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Enterprise” Dev + Design',
-      design: 'Enterprise” UX/Mobile',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -1630,11 +1554,6 @@ export const allProjects: Project[] = [
       'assets/images/projects/crowd-frame/3.webp',
     ],
     type: 'both',
-    pill: {
-      all: 'Università ” Design + Dev',
-      design: 'Università ” UX Research',
-      dev: 'Università ” Frontend',
-    },
     variants: {
       all: {
         problem:
@@ -1739,16 +1658,11 @@ export const allProjects: Project[] = [
     anno: 2021,
     images: ['assets/images/projects/default.webp'],
     type: 'dev',
-    pill: {
-      all: 'Enterprise” Dev',
-      design: 'Enterprise” UI',
-      dev: 'Enterprise” Frontend',
-    },
     variants: {
       all: {
         problem:
           '4 CRM su misura da una base Vue comune per PMI del settore servizi',
-        desc: 'Vue 2/3” base condivisa verticalizzata per Hydra, Spurgo CanalJet, Fast&Clean e Amici di Nico.',
+        desc: 'Vue 2/3 base condivisa verticalizzata per Hydra, Spurgo CanalJet, Fast&Clean e Amici di Nico.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'Vue', type: 'tech' },
@@ -1843,11 +1757,6 @@ export const allProjects: Project[] = [
     anno: 2021,
     images: ['assets/images/projects/myhealthstory/1.webp'],
     type: 'both',
-    pill: {
-      all: 'Università ” Design + Dev',
-      design: 'Università ” UX/UI',
-      dev: 'Università ” Mobile',
-    },
     variants: {
       all: {
         problem: 'App mobile per la gestione della cartella clinica personale',

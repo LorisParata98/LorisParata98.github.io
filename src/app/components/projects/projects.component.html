@@ -20,11 +20,11 @@
         class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 border border-white/15 w-fit"
       >
         <span
-          class="w-1.5 h-1.5 rounded-full flex-shrink-0"
+          class="w-1.5 h-1.5 rounded-full flex-shrink-0 self-center"
           style="background: var(--accent)"
         ></span>
         <span
-          class="text-[10px] font-mono uppercase tracking-widest text-white/50"
+          class="text-[10px] font-mono uppercase tracking-widest text-white/50 leading-none"
           >{{ badgeKey() | transloco }}</span
         >
       </div>
@@ -106,22 +106,54 @@
 <app-project-drawer [project]="selectedProject()" (close)="closeDrawer()" />
 
 <!-- Bottom navbar mobile: toggle + filtri -->
+<p-drawer
+  [(visible)]="filterSidebarVisible"
+  position="bottom"
+  styleClass="mobile-filter-drawer"
+  appendTo="body"
+  [header]="'projects.filterPlaceholder' | transloco"
+  [style]="{ height: 'auto', 'max-height': '80vh' }"
+  [blockScroll]="true"
+>
+  <p-listbox
+    [options]="allFilterTags()"
+    [ngModel]="selectedTagsArray()"
+    (ngModelChange)="setTagsFromMultiSelect($event)"
+    [multiple]="true"
+    [checkbox]="true"
+    [filter]="true"
+    [filterValue]="listboxFilterValue"
+    (onFilter)="listboxFilterValue = $event.filter"
+    optionLabel="label"
+    optionValue="label"
+    styleClass="w-full"
+  />
+  <div class="drawer-footer-actions">
+    <button class="drawer-btn-clear" (click)="hasFilters() ? clearFilters() : (filterSidebarVisible = false)">
+      {{ (hasFilters() ? "projects.clearFilters" : "projects.close") | transloco }}
+    </button>
+    <button class="drawer-btn-apply" (click)="filterSidebarVisible = false">
+      {{ "projects.applyFilters" | transloco }}
+    </button>
+  </div>
+</p-drawer>
 <div
   class="fixed bottom-0 left-0 right-0 sm:hidden flex flex-col gap-3 px-4 py-3 mobile-bottom-bar"
 >
   <app-portfolio-toggle />
   <div class="flex flex-row items-center gap-2">
-    <p-multiselect
-      [options]="allFilterTags()"
-      [ngModel]="selectedTagsArray()"
-      (ngModelChange)="setTagsFromMultiSelect($event)"
-      optionLabel="label"
-      optionValue="label"
-      [placeholder]="'projects.filterPlaceholder' | transloco"
-      styleClass="w-full"
-      appendTo="body"
-      class="flex-1 min-w-0"
-    />
+    <button
+      class="filter-trigger-btn flex-1 min-w-0"
+      (click)="filterSidebarVisible = true"
+    >
+      <span>
+        {{ "projects.filterPlaceholder" | transloco }}
+        @if (hasFilters()) {
+          ({{ selectedTagsArray().length }})
+        }
+      </span>
+      <span class="filter-caret">▾</span>
+    </button>
     @if (hasFilters()) {
       <button
         class="flex items-center justify-center w-8 h-8 flex-shrink-0 rounded-full border border-white/20 transition-all opacity-70 hover:opacity-100"

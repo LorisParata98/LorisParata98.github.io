@@ -3,7 +3,7 @@ import { Component, computed, effect, inject, input, output, signal } from '@ang
 import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { PortfolioMode, PortfolioModeService } from '../../../services/portfolio-mode.service';
-import { DrawerContent, Project } from '../../../models/project.model';
+import { DrawerContent, Project, ProjectTag } from '../../../models/project.model';
 
 @Component({
   selector: 'app-project-drawer',
@@ -38,27 +38,21 @@ export class ProjectDrawerComponent {
   currentImage = computed(() => this.images()[this.currentImageIndex()]);
   hasMultiple = computed(() => this.images().length > 1);
 
-  drawerData = computed<DrawerContent | null>(() => {
+  hasRichContent = computed(() => !!this.project()?.drawerContent);
+
+  designDrawerData = computed<DrawerContent | null>(() => this.project()?.drawerContent?.design ?? null);
+  devDrawerData = computed<DrawerContent | null>(() => this.project()?.drawerContent?.dev ?? null);
+
+  variantTags = computed<ProjectTag[]>(() => {
     const p = this.project();
-    if (!p?.drawerContent) return null;
-    const key = this.mode() === 'all' ? 'design' : this.mode();
-    return p.drawerContent[key as 'design' | 'dev'];
+    const m = this.mode();
+    return p?.variants?.[m]?.tags ?? p?.variants?.all?.tags ?? [];
   });
 
-  variantTechTags = computed<string[]>(() => {
+  variantDesc = computed<string>(() => {
     const p = this.project();
-    const key = this.mode() === 'all' ? 'design' : this.mode();
-    return (
-      p?.variants?.[key as 'design' | 'dev']?.tags
-        ?.filter((t) => t.type === 'tech')
-        .map((t) => t.label) ?? []
-    );
-  });
-
-  modePill = computed(() => {
-    const p = this.project();
-    if (!p?.pill) return null;
-    return p.pill[this.mode()];
+    const m = this.mode();
+    return p?.variants?.[m]?.desc ?? p?.descrizione ?? '';
   });
 
 

@@ -34,7 +34,6 @@ export interface Project {
   type?: 'both' | 'design' | 'dev';
   variants?: { all: ProjectVariant; design: ProjectVariant; dev: ProjectVariant };
   drawerContent?: { design: DrawerContent; dev: DrawerContent };
-  pill?: { all: string; design: string; dev: string };
 }
 
 export interface YearSection {
