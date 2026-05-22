@@ -4,6 +4,8 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { UpdatePromptComponent } from './components/update-prompt/update-prompt.component';
 import { AppUpdateService } from './services/app-update.service';
+import { PortfolioModeService } from './services/portfolio-mode.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,6 +16,7 @@ import { AppUpdateService } from './services/app-update.service';
 export class AppComponent implements OnInit {
   title = 'LRS_Design';
   private readonly appUpdateService = inject(AppUpdateService);
+  private readonly modeService = inject(PortfolioModeService);
 
   constructor(
     private titleService: Title,
@@ -22,7 +25,11 @@ export class AppComponent implements OnInit {
     this.titleService.setTitle(this.title);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.modeService.currentMode$.subscribe(mode => {
+      document.body.classList.toggle('mode-dev', mode === 'dev');
+    });
+  }
 
   public scrollToSection(id: string) {
     const targetDiv = document.querySelector(`#${id}`);

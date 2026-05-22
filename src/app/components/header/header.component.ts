@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
-import { Component, output, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { MatIconModule, MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
+import { filter, map, startWith } from 'rxjs';
 import { LayoutService, MenubarItem } from '../../services/app.layout.service';
+import { PortfolioMode, PortfolioModeService } from '../../services/portfolio-mode.service';
 
 @Component({
   selector: 'app-header',
@@ -18,6 +21,22 @@ export class HeaderComponent {
   public menuItems = signal<MenubarItem[]>([]);
   public activeId = signal<string | undefined>(undefined);
   public onSelect = output<string>();
+
+  private readonly _modeService = inject(PortfolioModeService);
+  public mode = toSignal(this._modeService.currentMode$, { initialValue: 'all' as PortfolioMode });
+
+  isProjectsPage = toSignal(
+    this._router.events.pipe(
+      filter(e => e instanceof NavigationEnd),
+      map(() => this._router.url.startsWith('/projects')),
+      startWith(this._router.url.startsWith('/projects')),
+    ),
+    { initialValue: this._router.url.startsWith('/projects') },
+  );
+
+  public setMode(m: PortfolioMode): void {
+    this._modeService.setMode(m);
+  }
 
   constructor(
     private _matIconRegistry: MatIconRegistry,

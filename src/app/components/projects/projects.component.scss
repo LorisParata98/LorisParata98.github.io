@@ -1,3 +1,19 @@
+.chip-filter {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.6);
+
+  &:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+    color: white;
+  }
+
+  &.selected {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: black;
+  }
+}
+
 .projects {
   margin-top: 3rem;
   h3,
@@ -6,5 +22,24 @@
   h6 {
     font-family: var(--font-family);
     color: var(--text-color);
+  }
+}
+
+:host ::ng-deep .hero-accent {
+  color: var(--accent);
+  transition: color 0.4s;
+}
+
+::ng-deep {
+  .p-overlay.p-component {
+    .p-multiselect-list-container {
+      p-multiselect-item {
+        li {
+          span {
+            height: 20px;
+          }
+        }
+      }
+    }
   }
 }

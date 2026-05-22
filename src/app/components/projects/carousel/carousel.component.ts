@@ -11,8 +11,12 @@ import {
 } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
+import { Project } from '../../../models/project.model';
+import {
+  PortfolioMode,
+  PortfolioModeService,
+} from '../../../services/portfolio-mode.service';
 import { ProjectCardComponent } from '../project-card/project-card.component';
-import { Project } from '../projects.component';
 
 const SWIPE_THRESHOLD = 50;
 
@@ -43,6 +47,11 @@ const SWIPE_THRESHOLD = 50;
 })
 export class CarouselComponent {
   private bp = inject(BreakpointObserver);
+  private modeService = inject(PortfolioModeService);
+
+  mode = toSignal(this.modeService.currentMode$, {
+    initialValue: 'all' as PortfolioMode,
+  });
 
   select = output<Project | undefined>();
 

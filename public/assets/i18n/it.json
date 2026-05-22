@@ -52,10 +52,25 @@
     "myProjects": "I miei progetti",
     "intro": "Una selezione dei progetti a cui ho lavorato tra sviluppo frontend, design UX/UI e prototipazione.",
     "clearFilters": "Rimuovi filtri",
+    "filterPlaceholder": "Filtra per tag",
     "noResults": "Nessun progetto trovato per i filtri selezionati.",
     "noPreview": "Nessuna anteprima",
     "technology": "Tecnologia",
-    "openProject": "Apri progetto"
+    "openProject": "Apri progetto",
+    "hero": {
+      "all": {
+        "titleHtml": "Frontend Dev<br>+ Product <span class=\"hero-accent\">Designer</span>",
+        "sub": "Una selezione del lavoro su sviluppo frontend, design UX/UI e product thinking. Ho sempre integrato le due discipline."
+      },
+      "design": {
+        "titleHtml": "Product <span class=\"hero-accent\">Designer</span><br>&amp; UX Researcher",
+        "sub": "Progetto esperienze digitali centrate sull'utente — con la consapevolezza di chi ha costruito per 6 anni quello che disegnava."
+      },
+      "dev": {
+        "titleHtml": "Frontend <span class=\"hero-accent\">Developer</span><br>&amp; Design Engineer",
+        "sub": "Sviluppo frontend con un occhio al design — componenti accessibili, design system scalabili, performance senza compromessi."
+      }
+    }
   },
   "work": {
     "title": "Esperienze accademiche e lavorative ",
@@ -131,6 +146,23 @@
     "goBackToList": "Torna alla lista",
     "add": "Aggiungi",
     "update": "Aggiorna"
+  },
+  "toggle": {
+    "all": "Entrambi",
+    "badge": {
+      "design": "Vista attiva: progetti di design",
+      "dev": "Vista attiva: progetti frontend"
+    }
+  },
+  "drawer": {
+    "problem": "Il problema",
+    "user": "Chi era l'utente",
+    "process": "Il processo",
+    "results": "I risultati",
+    "note": {
+      "design": "Il codice ha cambiato il design",
+      "dev": "Il design ha cambiato il codice"
+    }
   },
   "alert": {
     "title": "Attenzione"

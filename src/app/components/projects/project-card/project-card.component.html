@@ -1,5 +1,5 @@
 <article
-  class="flex flex-col justify-between p-5 w-full h-80 rounded-lg border border-white/10 bg-white/5 hover:border-yellow-300/40 hover:bg-white/10 transition-all duration-300 cursor-pointer group"
+  class="card-root flex flex-col justify-between p-5 w-full h-full min-h-80 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-all duration-300 cursor-pointer group"
   (click)="onClick()"
 >
   <div class="flex flex-col gap-3 min-h-0">
@@ -20,26 +20,40 @@
       />
     </div>
 
+    @if (variant()?.problem) {
+      <p class="m-0 text-[10px] font-mono uppercase tracking-wider leading-relaxed min-h-[2rem]"
+         style="color: var(--accent)">
+        {{ variant()!.problem }}
+      </p>
+    }
+
     <h4
-      class="m-0 font-medium text-white leading-snug group-hover:text-yellow-300 transition-colors"
+      class="card-title m-0 font-medium text-white leading-snug transition-colors"
     >
       {{ project()?.nome }}
     </h4>
 
-    <p
-      class="m-0 text-sm text-white/50 leading-relaxed line-clamp-2"
-    >
-      {{ project()?.descrizione }}
+    <p class="m-0 text-sm text-white/50 leading-relaxed line-clamp-2">
+      {{ cardDesc() }}
     </p>
   </div>
 
   <div class="flex flex-wrap gap-1.5 pt-3">
-    @for (tech of project()?.tecnologie || []; track tech) {
-      <span
-        class="text-xs font-semibold px-2.5 py-1 rounded-full border border-yellow-300/40 text-yellow-300"
-      >
-        {{ tech }}
-      </span>
+    @for (tag of cardTags(); track tag.label) {
+      @if ((mode() === 'dev') === (tag.type === 'tech')) {
+        <span
+          class="text-xs font-semibold px-2.5 py-1 rounded-full border transition-colors"
+          style="border-color: var(--accent); color: var(--accent)"
+        >
+          {{ tag.label }}
+        </span>
+      } @else {
+        <span
+          class="text-xs font-semibold px-2.5 py-1 rounded-full border border-white/20 text-white/40"
+        >
+          {{ tag.label }}
+        </span>
+      }
     }
   </div>
 </article>

@@ -8,6 +8,21 @@
 // @tailwind components;
 @tailwind utilities;
 
+:root {
+  --accent: #F5C400;
+  --accent-dim: rgba(245,196,0,0.1);
+  --p-primary-color: var(--accent);
+  --p-primary-contrast-color: #000000;
+  --p-primary-hover-color: var(--accent);
+  --p-primary-active-color: var(--accent);
+  --p-focus-ring-color: var(--accent);
+}
+
+body.mode-dev {
+  --accent: #4A9EFF;
+  --accent-dim: rgba(74,158,255,0.1);
+}
+
 body {
   font-family: var(--font-family);
   margin: 0;

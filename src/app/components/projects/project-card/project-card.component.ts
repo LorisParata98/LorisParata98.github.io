@@ -1,5 +1,6 @@
-import { Component, effect, input, output, signal } from '@angular/core';
-import { Project } from '../projects.component';
+import { Component, computed, effect, input, output, signal } from '@angular/core';
+import { PortfolioMode } from '../../../services/portfolio-mode.service';
+import { Project, ProjectVariant } from '../../../models/project.model';
 
 @Component({
   selector: 'app-project-card',
@@ -9,9 +10,19 @@ import { Project } from '../projects.component';
 })
 export class ProjectCardComponent {
   project = input<Project>();
+  mode = input<PortfolioMode>('all');
   select = output<Project | undefined>();
 
   imageLoaded = signal(false);
+
+  variant = computed<ProjectVariant | null>(() => {
+    const p = this.project();
+    const m = this.mode();
+    return p?.variants?.[m] ?? null;
+  });
+
+  cardDesc = computed(() => this.variant()?.desc ?? this.project()?.descrizione ?? '');
+  cardTags = computed(() => this.variant()?.tags ?? []);
 
   constructor() {
     effect(() => {

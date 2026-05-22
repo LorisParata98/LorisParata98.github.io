@@ -20,6 +20,75 @@
   }
 }
 
+.portfolio-toggle {
+  display: flex;
+  align-items: stretch;
+  height: 36px;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 6px;
+  overflow: hidden;
+
+  .toggle-btn {
+    display: flex;
+    align-items: center;
+    padding: 0 14px;
+    line-height: 1;
+    background: transparent;
+    color: rgba(255,255,255,0.35);
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+
+    &.btn-all {
+      font-family: var(--font-family);
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    &.btn-design {
+      font-family: var(--font-family-titles);
+      font-size: 16px;
+      letter-spacing: 0.04em;
+      padding: 4px 14px 0; // Bebas Neue ha cap-height molto alta, zero descenders → appare in alto
+    }
+
+    &.btn-dev {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 2px 14px 0; // Courier New leggera correzione ottica
+    }
+
+    &:hover:not(.active-all):not(.active-design):not(.active-dev) {
+      color: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.05);
+    }
+
+    &.active-all {
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.08);
+    }
+
+    &.active-design {
+      color: #F5C400;
+      background: rgba(245,196,0,0.1);
+    }
+
+    &.active-dev {
+      color: #4A9EFF;
+      background: rgba(74,158,255,0.1);
+    }
+  }
+
+  .toggle-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.15);
+    flex-shrink: 0;
+  }
+}
+
 .menu-list {
   background-color: #121212cc;
   width: 100%;

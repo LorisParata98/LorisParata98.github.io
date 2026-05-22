@@ -52,10 +52,25 @@
     "myProjects": "My Projects",
     "intro": "A selection of projects I've worked on across frontend development, UX/UI design and prototyping.",
     "clearFilters": "Clear filters",
+    "filterPlaceholder": "Filter by tag",
     "noResults": "No projects found for the selected filters.",
     "noPreview": "No preview",
     "technology": "Technology",
-    "openProject": "Open project"
+    "openProject": "Open project",
+    "hero": {
+      "all": {
+        "titleHtml": "Frontend Dev<br>+ Product <span class=\"hero-accent\">Designer</span>",
+        "sub": "A selection of work across frontend development, UX/UI design and product thinking. I've always integrated both disciplines."
+      },
+      "design": {
+        "titleHtml": "Product <span class=\"hero-accent\">Designer</span><br>&amp; UX Researcher",
+        "sub": "I design user-centered digital experiences — with the awareness of someone who spent 6 years building what they designed."
+      },
+      "dev": {
+        "titleHtml": "Frontend <span class=\"hero-accent\">Developer</span><br>&amp; Design Engineer",
+        "sub": "Frontend development with an eye for design — accessible components, scalable design systems, performance without compromise."
+      }
+    }
   },
   "work": {
     "title": "Academic and Work Experiences",
@@ -131,6 +146,23 @@
     "goBackToList": "Go back to the list",
     "add": "Add",
     "update": "Update"
+  },
+  "toggle": {
+    "all": "Both",
+    "badge": {
+      "design": "Active view: design projects",
+      "dev": "Active view: frontend projects"
+    }
+  },
+  "drawer": {
+    "problem": "The problem",
+    "user": "Who was the user",
+    "process": "The process",
+    "results": "The results",
+    "note": {
+      "design": "Code changed the design",
+      "dev": "Design changed the code"
+    }
   },
   "alert": {
     "title": "Attention"

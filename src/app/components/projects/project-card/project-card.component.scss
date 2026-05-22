@@ -1,0 +1,12 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.card-root:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.card-root:hover .card-title {
+  color: var(--accent);
+}

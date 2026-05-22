@@ -1,41 +1,78 @@
 <section
-  class="flex flex-col gap-12 md:gap-20 px-4 md:px-28 my-8"
+  class="flex flex-col gap-8 md:gap-12 px-4 md:px-28 my-8"
   id="projects-list"
 >
-  <div class="flex flex-col gap-2">
-    <h1 class="m-0">{{ "projects.myProjects" | transloco }}</h1>
-    <p class="m-0 text-white/60 text-lg md:text-xl max-w-3xl">
-      {{ "projects.intro" | transloco }}
+  <div class="flex flex-col gap-3">
+    <p class="m-0 text-xs font-mono uppercase tracking-[0.2em] text-white/40">
+      {{ "projects.myProjects" | transloco }}
     </p>
+    <div @fadeInUp>
+      <h1 class="m-0" [innerHTML]="heroTitleKey() | transloco"></h1>
+      <p
+        class="m-0 text-white/60 text-base md:text-lg max-w-2xl leading-relaxed mt-3"
+      >
+        {{ heroSubKey() | transloco }}
+      </p>
+    </div>
+    @if (showBadge()) {
+      <div
+        @fadeInUp
+        class="inline-flex items-center gap-2 mt-1 px-3 py-1.5 border border-white/15 w-fit"
+      >
+        <span
+          class="w-1.5 h-1.5 rounded-full flex-shrink-0"
+          style="background: var(--accent)"
+        ></span>
+        <span
+          class="text-[10px] font-mono uppercase tracking-widest text-white/50"
+          >{{ badgeKey() | transloco }}</span
+        >
+      </div>
+    }
   </div>
 
-  <!-- Filtri -->
-  <div class="flex flex-col gap-3">
-    <div class="flex flex-wrap gap-2">
-      @for (tech of allTecnologie; track tech) {
-        <button
-          class="text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
-          [class]="
-            isSelected(tech)
-              ? 'border-yellow-300 bg-yellow-300 text-black'
-              : 'border-white/20 text-white/60 hover:border-yellow-300/40 hover:text-white'
-          "
-          (click)="toggleTecnologia(tech)"
-        >
-          {{ tech }}
-        </button>
-      }
-    </div>
+  <!-- Filtri mobile: select multipla -->
+  <div class="flex flex-col gap-2 md:hidden">
+    <p-multiselect
+      [options]="allFilterTags()"
+      [ngModel]="selectedTagsArray()"
+      (ngModelChange)="setTagsFromMultiSelect($event)"
+      optionLabel="label"
+      optionValue="label"
+      [placeholder]="'projects.filterPlaceholder' | transloco"
+      styleClass="w-full"
+    />
+    @if (hasFilters()) {
+      <button
+        class="text-xs underline transition-colors px-1 opacity-70 hover:opacity-100 self-start"
+        style="color: var(--accent)"
+        (click)="clearFilters()"
+      >
+        {{ "projects.clearFilters" | transloco }}
+      </button>
+    }
+  </div>
 
-    <button
-      class="self-start text-xs text-white/40 hover:text-white underline transition-colors"
-      [class.invisible]="selectedTecnologie().size === 0"
-      [attr.aria-hidden]="selectedTecnologie().size === 0 ? 'true' : null"
-      [attr.tabindex]="selectedTecnologie().size === 0 ? -1 : null"
-      (click)="clearFilters()"
-    >
-      {{ "projects.clearFilters" | transloco }}
-    </button>
+  <!-- Filtri desktop: chip -->
+  <div class="hidden md:flex flex-wrap gap-2">
+    @for (tag of allFilterTags(); track tag.label) {
+      <button
+        class="chip-filter text-xs font-semibold px-3 py-1.5 rounded-full border transition-all duration-200"
+        [class.selected]="isSelected(tag.label)"
+        (click)="toggleTag(tag.label)"
+      >
+        {{ tag.label }}
+      </button>
+    }
+    @if (hasFilters()) {
+      <button
+        class="text-xs underline transition-colors px-1 opacity-70 hover:opacity-100"
+        style="color: var(--accent)"
+        (click)="clearFilters()"
+      >
+        {{ "projects.clearFilters" | transloco }}
+      </button>
+    }
   </div>
 
   <!-- Sezioni per anno -->
@@ -55,7 +92,9 @@
             [disabled]="!carousel.canPrev()"
             (click)="carousel.prev()"
             aria-label="Precedente"
-          >&#8592;</button>
+          >
+            &#8592;
+          </button>
           <button
             class="w-8 h-8 flex items-center justify-center rounded-full border border-current transition-opacity"
             [class.opacity-20]="!carousel.canNext()"
@@ -65,21 +104,24 @@
             [disabled]="!carousel.canNext()"
             (click)="carousel.next()"
             aria-label="Successivo"
-          >&#8594;</button>
+          >
+            &#8594;
+          </button>
         </div>
       </div>
 
-      <app-carousel #carousel [items]="section.projects" (select)="onSelect($event)" />
+      <app-carousel
+        #carousel
+        [items]="section.projects"
+        (select)="onSelect($event)"
+      />
     </div>
   }
 
-  @if (sections().length === 0) {
+  @if (noResults()) {
     <p class="text-white/40 text-sm">
       {{ "projects.noResults" | transloco }}
     </p>
   }
 </section>
-<app-project-drawer
-  [project]="selectedProject()"
-  (close)="selectedProject.set(null)"
-/>
+<app-project-drawer [project]="selectedProject()" (close)="closeDrawer()" />

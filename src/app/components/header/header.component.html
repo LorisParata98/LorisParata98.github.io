@@ -5,12 +5,39 @@
     <h1 class="cursor-pointer" (click)="goToHome()">
       {{ "intro.logo" | transloco }}
     </h1>
-    <div>
+    <div class="flex items-center gap-3">
+      @if (isProjectsPage()) {
+        <div class="portfolio-toggle">
+          <button
+            class="toggle-btn btn-all"
+            [class.active-all]="mode() === 'all'"
+            (click)="setMode('all')"
+          >
+            {{ "toggle.all" | transloco }}
+          </button>
+          <span class="toggle-divider"></span>
+          <button
+            class="toggle-btn btn-design"
+            [class.active-design]="mode() === 'design'"
+            (click)="setMode('design')"
+          >
+            Design
+          </button>
+          <span class="toggle-divider"></span>
+          <button
+            class="toggle-btn btn-dev"
+            [class.active-dev]="mode() === 'dev'"
+            (click)="setMode('dev')"
+          >
+            &lt;/&gt; Dev
+          </button>
+        </div>
+      }
       <button
         title="menu button"
         type="button"
         pButton
-        class="p-button p-button-text"
+        class="p-button p-button-text flex"
         (click)="onMenuToggle()"
       >
         <mat-icon class="menu-icon" svgIcon="menu"></mat-icon>

@@ -23,7 +23,9 @@
       </button>
 
       <!-- Immagine -->
-      <div class="relative w-full h-72 md:h-96 bg-black flex items-center justify-center shrink-0 overflow-hidden">
+      <div
+        class="relative w-full h-72 md:h-96 bg-black flex items-center justify-center shrink-0 overflow-hidden"
+      >
         @if (!imageLoaded()) {
           <div class="absolute inset-0 animate-pulse bg-white/10"></div>
         }
@@ -80,12 +82,22 @@
 
       <!-- Testo -->
       <div class="flex flex-col gap-6 p-6 pb-4 md:pb-6">
+        <!-- Header: pill + titolo -->
         <div class="flex flex-col gap-2">
-          <span
-            class="text-xs font-semibold uppercase tracking-widest text-yellow-300"
-          >
-            {{ project()?.anno }}
-          </span>
+          @if (modePill()) {
+            <span
+              class="text-[10px] font-mono uppercase tracking-widest px-2 py-1 border w-fit transition-colors"
+              style="border-color: var(--accent); color: var(--accent)"
+            >
+              {{ modePill() }}
+            </span>
+          } @else {
+            <span
+              class="text-xs font-semibold uppercase tracking-widest text-yellow-300"
+            >
+              {{ project()?.anno }}
+            </span>
+          }
           <h2
             class="m-0 text-3xl font-bold text-white uppercase leading-tight [font-family:var(--font-family)]"
           >
@@ -93,24 +105,161 @@
           </h2>
         </div>
 
-        <p class="m-0 text-white/70 leading-relaxed text">
-          {{ project()?.descrizione }}
-        </p>
+        @if (drawerData(); as data) {
+          <!-- Sezioni ricche per i 3 progetti principali -->
 
-        <div class="flex flex-col gap-2">
-          <span class="text-xs uppercase tracking-widest text-white/40">
-            {{ "projects.technology" | transloco }}
-          </span>
-          <div class="flex flex-wrap gap-1.5">
-            @for (tech of project()?.tecnologie || []; track tech) {
-              <span
-                class="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
-              >
-                {{ tech }}
-              </span>
-            }
+          <!-- Problema -->
+          <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+            <p
+              class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+              style="color: var(--accent)"
+            >
+              {{ "drawer.problem" | transloco }}
+            </p>
+            <p
+              class="m-0 text-sm text-white/70 leading-relaxed"
+              [innerHTML]="data.problem"
+            ></p>
           </div>
-        </div>
+
+          <!-- Utente (solo design) -->
+          @if (data.user) {
+            <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+              <p
+                class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+                style="color: var(--accent)"
+              >
+                {{ "drawer.user" | transloco }}
+              </p>
+              <p class="m-0 text-sm text-white/70 leading-relaxed">
+                {{ data.user }}
+              </p>
+            </div>
+          }
+
+          <!-- Processo -->
+          <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+            <p
+              class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+              style="color: var(--accent)"
+            >
+              {{ "drawer.process" | transloco }}
+            </p>
+            <div class="flex flex-col">
+              @for (step of data.steps; track step.n) {
+                <div
+                  class="flex gap-3 py-3 border-b border-white/5 last:border-0"
+                >
+                  <span
+                    class="text-[10px] font-mono w-5 flex-shrink-0 pt-0.5 transition-colors"
+                    style="color: var(--accent)"
+                    >{{ step.n }}</span
+                  >
+                  <div>
+                    <p
+                      class="m-0 text-[10px] font-mono font-bold uppercase tracking-widest mb-1"
+                    >
+                      {{ step.title }}
+                    </p>
+                    <p class="m-0 text-xs text-white/50 leading-relaxed">
+                      {{ step.desc }}
+                    </p>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Risultati / Metriche -->
+          <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+            <p
+              class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+              style="color: var(--accent)"
+            >
+              {{ "drawer.results" | transloco }}
+            </p>
+            <div class="grid grid-cols-3 gap-px bg-white/10">
+              @for (m of data.metrics; track m.label) {
+                <div class="bg-black px-3 py-4 text-center">
+                  <span
+                    class="block text-xl font-bold font-mono transition-colors"
+                    style="color: var(--accent)"
+                    >{{ m.value }}</span
+                  >
+                  <span
+                    class="block text-[10px] font-mono uppercase tracking-widest text-white/40 mt-1"
+                    >{{ m.label }}</span
+                  >
+                </div>
+              }
+            </div>
+          </div>
+
+          <!-- Nota (opzionale) -->
+          @if (data.note) {
+            <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+              <p
+                class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+                style="color: var(--accent)"
+              >
+                {{ "drawer.note." + mode() | transloco }}
+              </p>
+              <p class="m-0 text-sm text-white/70 leading-relaxed font-medium">
+                {{ data.note }}
+              </p>
+            </div>
+          }
+
+          <!-- Tech stack -->
+          <div class="flex flex-col gap-2">
+            <p
+              class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+              style="color: var(--accent)"
+            >
+              Stack
+            </p>
+            <div class="flex flex-wrap gap-2">
+              @for (tech of data.tech; track tech) {
+                <span
+                  class="text-[10px] rounded-full tracking-widest px-2.5 py-1.5 border transition-all"
+                  [class.border-white]="!data.highlightTech.includes(tech)"
+                  [class.text-white]="!data.highlightTech.includes(tech)"
+                  [class.opacity-30]="!data.highlightTech.includes(tech)"
+                  [style.borderColor]="
+                    data.highlightTech.includes(tech) ? 'var(--accent)' : ''
+                  "
+                  [style.color]="
+                    data.highlightTech.includes(tech) ? 'var(--accent)' : ''
+                  "
+                  [style.background]="
+                    data.highlightTech.includes(tech) ? 'var(--accent-dim)' : ''
+                  "
+                  >{{ tech }}</span
+                >
+              }
+            </div>
+          </div>
+        } @else {
+          <!-- Contenuto standard per gli altri progetti -->
+          <p class="m-0 text-white/70 leading-relaxed text">
+            {{ project()?.descrizione }}
+          </p>
+
+          <div class="flex flex-col gap-2">
+            <span class="text-xs uppercase tracking-widest text-white/40">
+              {{ "projects.technology" | transloco }}
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              @for (tech of project()?.tecnologie || []; track tech) {
+                <span
+                  class="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
+                >
+                  {{ tech }}
+                </span>
+              }
+            </div>
+          </div>
+        }
       </div>
     </div>
 

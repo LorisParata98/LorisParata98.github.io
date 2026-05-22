@@ -12,8 +12,12 @@
   (mouseleave)="onMouseUp($event)"
 >
   @for (item of visibleItems(); track item.nome) {
-    <div class="min-w-0">
-      <app-project-card [project]="item" (select)="onSelect($event)" />
+    <div class="min-w-0 h-full transition-all duration-300">
+      <app-project-card
+        [project]="item"
+        [mode]="mode()"
+        (select)="onSelect($event)"
+      />
     </div>
   }
 </div>

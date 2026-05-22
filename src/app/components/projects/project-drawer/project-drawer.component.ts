@@ -1,7 +1,9 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, computed, effect, input, output, signal } from '@angular/core';
+import { Component, computed, effect, inject, input, output, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe } from '@jsverse/transloco';
-import { Project } from '../projects.component';
+import { PortfolioMode, PortfolioModeService } from '../../../services/portfolio-mode.service';
+import { DrawerContent, Project } from '../../../models/project.model';
 
 @Component({
   selector: 'app-project-drawer',
@@ -26,12 +28,29 @@ export class ProjectDrawerComponent {
   project = input<Project | null>(null);
   close = output<void>();
 
+  private modeService = inject(PortfolioModeService);
+  mode = toSignal(this.modeService.currentMode$, { initialValue: 'all' as PortfolioMode });
+
   currentImageIndex = signal(0);
   imageLoaded = signal(false);
 
   images = computed(() => this.project()?.images ?? []);
   currentImage = computed(() => this.images()[this.currentImageIndex()]);
   hasMultiple = computed(() => this.images().length > 1);
+
+  drawerData = computed<DrawerContent | null>(() => {
+    const p = this.project();
+    if (!p?.drawerContent) return null;
+    const key = this.mode() === 'all' ? 'design' : this.mode();
+    return p.drawerContent[key as 'design' | 'dev'];
+  });
+
+  modePill = computed(() => {
+    const p = this.project();
+    if (!p?.pill) return null;
+    return p.pill[this.mode()];
+  });
+
 
   constructor() {
     effect(() => {
