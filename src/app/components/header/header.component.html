@@ -7,30 +7,8 @@
     </h1>
     <div class="flex items-center gap-3">
       @if (isProjectsPage()) {
-        <div class="portfolio-toggle">
-          <button
-            class="toggle-btn btn-all"
-            [class.active-all]="mode() === 'all'"
-            (click)="setMode('all')"
-          >
-            {{ "toggle.all" | transloco }}
-          </button>
-          <span class="toggle-divider"></span>
-          <button
-            class="toggle-btn btn-design"
-            [class.active-design]="mode() === 'design'"
-            (click)="setMode('design')"
-          >
-            Design
-          </button>
-          <span class="toggle-divider"></span>
-          <button
-            class="toggle-btn btn-dev"
-            [class.active-dev]="mode() === 'dev'"
-            (click)="setMode('dev')"
-          >
-            &lt;/&gt; Dev
-          </button>
+        <div class="hidden sm:block">
+          <app-portfolio-toggle></app-portfolio-toggle>
         </div>
       }
       <button

@@ -45,6 +45,16 @@ export class ProjectDrawerComponent {
     return p.drawerContent[key as 'design' | 'dev'];
   });
 
+  variantTechTags = computed<string[]>(() => {
+    const p = this.project();
+    const key = this.mode() === 'all' ? 'design' : this.mode();
+    return (
+      p?.variants?.[key as 'design' | 'dev']?.tags
+        ?.filter((t) => t.type === 'tech')
+        .map((t) => t.label) ?? []
+    );
+  });
+
   modePill = computed(() => {
     const p = this.project();
     if (!p?.pill) return null;

@@ -59,11 +59,11 @@
     "openProject": "Open project",
     "hero": {
       "all": {
-        "titleHtml": "Frontend Dev<br>+ Product <span class=\"hero-accent\">Designer</span>",
+        "titleHtml": "Frontend <span class=\"hero-accent-dev\">Developer</span> &<br>Product <span class=\"hero-accent\">Designer</span>",
         "sub": "A selection of work across frontend development, UX/UI design and product thinking. I've always integrated both disciplines."
       },
       "design": {
-        "titleHtml": "Product <span class=\"hero-accent\">Designer</span><br>&amp; UX Researcher",
+        "titleHtml": "Product <span class=\"hero-accent\">Designer</span> &<br>UX Researcher",
         "sub": "I design user-centered digital experiences — with the awareness of someone who spent 6 years building what they designed."
       },
       "dev": {

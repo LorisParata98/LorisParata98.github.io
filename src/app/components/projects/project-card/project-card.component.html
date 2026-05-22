@@ -21,8 +21,10 @@
     </div>
 
     @if (variant()?.problem) {
-      <p class="m-0 text-[10px] font-mono uppercase tracking-wider leading-relaxed min-h-[2rem]"
-         style="color: var(--accent)">
+      <p
+        class="m-0 text-[10px] font-mono uppercase tracking-wider leading-relaxed min-h-[1rem]"
+        style="color: var(--accent)"
+      >
         {{ variant()!.problem }}
       </p>
     }
@@ -39,8 +41,8 @@
   </div>
 
   <div class="flex flex-wrap gap-1.5 pt-3">
-    @for (tag of cardTags(); track tag.label) {
-      @if ((mode() === 'dev') === (tag.type === 'tech')) {
+    @for (tag of sortedCardTags(); track tag.label) {
+      @if (isTagHighlighted(tag)) {
         <span
           class="text-xs font-semibold px-2.5 py-1 rounded-full border transition-colors"
           style="border-color: var(--accent); color: var(--accent)"

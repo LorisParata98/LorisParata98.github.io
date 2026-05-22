@@ -9,8 +9,8 @@
 @tailwind utilities;
 
 :root {
-  --accent: #F5C400;
-  --accent-dim: rgba(245,196,0,0.1);
+  --accent: #f5c400;
+  --accent-dim: rgba(245, 196, 0, 0.1);
   --p-primary-color: var(--accent);
   --p-primary-contrast-color: #000000;
   --p-primary-hover-color: var(--accent);
@@ -19,8 +19,8 @@
 }
 
 body.mode-dev {
-  --accent: #4A9EFF;
-  --accent-dim: rgba(74,158,255,0.1);
+  --accent: #4a9eff;
+  --accent-dim: rgba(74, 158, 255, 0.1);
 }
 
 body {

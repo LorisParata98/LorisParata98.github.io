@@ -1,6 +1,6 @@
 export interface ProjectTag {
   label: string;
-  type: 'category' | 'tech';
+  type: 'design' | 'tech' | 'common';
 }
 
 export interface ProjectVariant {
@@ -22,14 +22,12 @@ export interface DrawerContent {
   steps: DrawerStep[];
   metrics: { value: string; label: string }[];
   note?: string;
-  tech: string[];
   highlightTech: string[];
 }
 
 export interface Project {
   nome: string;
   descrizione: string;
-  tecnologie: string[];
   urlPreview: string;
   anno: number;
   images?: string[];

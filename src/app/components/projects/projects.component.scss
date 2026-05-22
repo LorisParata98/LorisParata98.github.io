@@ -1,3 +1,9 @@
+.mobile-bottom-bar {
+  background-color: var(--header-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 50;
+}
+
 .chip-filter {
   border-color: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.6);
@@ -30,13 +36,17 @@
   transition: color 0.4s;
 }
 
+:host ::ng-deep .hero-accent-dev {
+  color: #4a9eff;
+}
+
 ::ng-deep {
   .p-overlay.p-component {
     .p-multiselect-list-container {
       p-multiselect-item {
         li {
           span {
-            height: 20px;
+            // height: 20px;
           }
         }
       }

@@ -67,6 +67,7 @@ export class CarouselComponent {
   );
 
   items = input<Project[]>([]);
+  activeTags = input<Set<string>>(new Set());
   currentIndex = signal(0);
 
   canPrev = computed(() => this.currentIndex() > 0);

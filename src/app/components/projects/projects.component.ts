@@ -7,6 +7,7 @@ import { fadeInUp } from '../../animations';
 import { allProjects } from '../../data/projects.data';
 import { Project, ProjectTag, YearSection } from '../../models/project.model';
 import { PortfolioModeService } from '../../services/portfolio-mode.service';
+import { PortfolioToggleComponent } from '../portfolio-toggle/portfolio-toggle.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProjectDrawerComponent } from './project-drawer/project-drawer.component';
 
@@ -26,6 +27,7 @@ export type { Project, YearSection };
     ProjectDrawerComponent,
     MultiSelect,
     FormsModule,
+    PortfolioToggleComponent,
   ],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss',
@@ -52,24 +54,22 @@ export class ProjectsComponent {
 
   allFilterTags = computed<ProjectTag[]>(() => {
     const m = this.mode();
-    const categoryMap = new Map<string, ProjectTag>();
+    const designMap = new Map<string, ProjectTag>();
     const techMap = new Map<string, ProjectTag>();
     for (const p of this.allProjects) {
-      const tags =
-        p.variants?.[m]?.tags ??
-        p.tecnologie.map((t) => ({ label: t, type: 'tech' as const }));
+      const tags = p.variants?.[m]?.tags ?? p.variants?.all?.tags ?? [];
       for (const tag of tags) {
-        if (tag.type === 'category') categoryMap.set(tag.label, tag);
+        if (tag.type === 'design') designMap.set(tag.label, tag);
         else techMap.set(tag.label, tag);
       }
     }
-    const categories = [...categoryMap.values()].sort((a, b) =>
+    const designs = [...designMap.values()].sort((a, b) =>
       a.label.localeCompare(b.label),
     );
     const techs = [...techMap.values()].sort((a, b) =>
       a.label.localeCompare(b.label),
     );
-    return [...categories, ...techs].sort((a, b) =>
+    return [...designs, ...techs].sort((a, b) =>
       a.label.localeCompare(b.label),
     );
   });
@@ -106,9 +106,7 @@ export class ProjectsComponent {
     const m = this.mode();
     if (selected.size === 0) return this.allProjects;
     return this.allProjects.filter((p) => {
-      const tags =
-        p.variants?.[m]?.tags ??
-        p.tecnologie.map((t) => ({ label: t, type: 'tech' as const }));
+      const tags = p.variants?.[m]?.tags ?? p.variants?.all?.tags ?? [];
       return tags.some((tag) => selected.has(tag.label));
     });
   });

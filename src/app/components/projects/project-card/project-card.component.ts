@@ -1,6 +1,6 @@
 import { Component, computed, effect, input, output, signal } from '@angular/core';
 import { PortfolioMode } from '../../../services/portfolio-mode.service';
-import { Project, ProjectVariant } from '../../../models/project.model';
+import { Project, ProjectTag, ProjectVariant } from '../../../models/project.model';
 
 @Component({
   selector: 'app-project-card',
@@ -11,6 +11,7 @@ import { Project, ProjectVariant } from '../../../models/project.model';
 export class ProjectCardComponent {
   project = input<Project>();
   mode = input<PortfolioMode>('all');
+  activeTags = input<Set<string>>(new Set());
   select = output<Project | undefined>();
 
   imageLoaded = signal(false);
@@ -23,6 +24,22 @@ export class ProjectCardComponent {
 
   cardDesc = computed(() => this.variant()?.desc ?? this.project()?.descrizione ?? '');
   cardTags = computed(() => this.variant()?.tags ?? []);
+
+  sortedCardTags = computed(() => {
+    const tags = this.cardTags();
+    const active = this.activeTags();
+    if (active.size === 0) return tags;
+    const selected = tags.filter((t) => active.has(t.label));
+    const rest = tags.filter((t) => !active.has(t.label));
+    return [...selected, ...rest];
+  });
+
+  isTagHighlighted(tag: ProjectTag): boolean {
+    const active = this.activeTags();
+    if (active.size > 0) return active.has(tag.label);
+    const m = this.mode();
+    return (m === 'dev' && tag.type === 'tech') || (m === 'design' && tag.type === 'design');
+  }
 
   constructor() {
     effect(() => {

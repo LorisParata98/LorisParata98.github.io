@@ -16,6 +16,7 @@
       <app-project-card
         [project]="item"
         [mode]="mode()"
+        [activeTags]="activeTags()"
         (select)="onSelect($event)"
       />
     </div>

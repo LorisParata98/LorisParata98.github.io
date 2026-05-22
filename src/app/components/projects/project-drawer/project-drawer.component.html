@@ -219,7 +219,7 @@
               Stack
             </p>
             <div class="flex flex-wrap gap-2">
-              @for (tech of data.tech; track tech) {
+              @for (tech of variantTechTags(); track tech) {
                 <span
                   class="text-[10px] rounded-full tracking-widest px-2.5 py-1.5 border transition-all"
                   [class.border-white]="!data.highlightTech.includes(tech)"
@@ -250,7 +250,7 @@
               {{ "projects.technology" | transloco }}
             </span>
             <div class="flex flex-wrap gap-1.5">
-              @for (tech of project()?.tecnologie || []; track tech) {
+              @for (tech of variantTechTags(); track tech) {
                 <span
                   class="inline-block text-xs font-semibold px-3 py-1.5 rounded-full border border-yellow-300/40 text-yellow-300"
                 >
