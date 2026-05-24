@@ -4,11 +4,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TranslocoPipe } from '@jsverse/transloco';
 import { PortfolioMode, PortfolioModeService } from '../../../services/portfolio-mode.service';
 import { DrawerContent, Project, ProjectTag } from '../../../models/project.model';
+import { DrawerContentBlockComponent } from './drawer-content-block/drawer-content-block.component';
 
 @Component({
   selector: 'app-project-drawer',
   standalone: true,
-  imports: [TranslocoPipe],
+  imports: [TranslocoPipe, DrawerContentBlockComponent],
   templateUrl: './project-drawer.component.html',
   styleUrl: './project-drawer.component.scss',
   animations: [
@@ -42,6 +43,13 @@ export class ProjectDrawerComponent {
 
   designDrawerData = computed<DrawerContent | null>(() => this.project()?.drawerContent?.design ?? null);
   devDrawerData = computed<DrawerContent | null>(() => this.project()?.drawerContent?.dev ?? null);
+
+  activeDrawerData = computed<DrawerContent | null>(() => {
+    const m = this.mode();
+    if (m === 'design') return this.designDrawerData();
+    if (m === 'dev') return this.devDrawerData();
+    return null;
+  });
 
   variantTags = computed<ProjectTag[]>(() => {
     const p = this.project();

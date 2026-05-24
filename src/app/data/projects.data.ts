@@ -37,10 +37,7 @@ export const allProjects: Project[] = [
         problem:
           'Rendering PDF realtime, con styling integrato, importazione in JSON ed export multi formato',
         desc: 'React app con state management locale, integrazione DeepL API e rendering cross-browser senza backend.',
-        tags: [
-          { label: 'Side Project', type: 'common' },
-          { label: 'React', type: 'tech' },
-        ],
+        tags: [{ label: 'React', type: 'tech' }],
         type: 'both',
       },
     },
@@ -126,7 +123,7 @@ export const allProjects: Project[] = [
         desc: 'Piattaforma B2B enterprise per gestione centralizzata di fornitori, progetti e risorse.',
         tags: [
           { label: 'Enterprise', type: 'design' },
-          { label: 'UX Research', type: 'design' },
+
           { label: 'Angular', type: 'tech' },
         ],
         type: 'design',
@@ -136,7 +133,7 @@ export const allProjects: Project[] = [
         desc: 'Piattaforma B2B enterprise” ricerca, information architecture, prototipazione e test con utenti reali.',
         tags: [
           { label: 'Enterprise', type: 'design' },
-          { label: 'UX Research', type: 'design' },
+
           { label: 'Figma', type: 'design' },
         ],
         type: 'design',
@@ -241,7 +238,7 @@ export const allProjects: Project[] = [
   //         'Come ridurre il drop del 67% nel flusso di discovery di un marketplace',
   //       desc: 'Ridisegno del sistema filtri con progressive disclosure. A/B test su 2 varianti, +34% click sul primo risultato.',
   //       tags: [
-  //         { label: 'UX Research', type: 'design' },
+  //
   //         { label: 'Figma', type: 'design' },
   //         { label: 'Hotjar', type: 'tech' },
   //       ],
@@ -328,7 +325,6 @@ export const allProjects: Project[] = [
           'Come presentare uno studio multidisciplinare con identità coerente',
         desc: 'Sito vetrina per studio M13: design e sviluppo full-ownership, Angular 19 SSG.',
         tags: [
-          { label: 'Freelance', type: 'design' },
           { label: 'Web Design', type: 'design' },
           { label: 'Angular', type: 'tech' },
           { label: 'Figma', type: 'design' },
@@ -351,7 +347,6 @@ export const allProjects: Project[] = [
           'SSG in Angular 19 senza framework dedicato per performance e SEO',
         desc: 'Angular 19 con prerendering custom, ottimizzazione immagini e deploy Vercel senza backend.',
         tags: [
-          { label: 'Freelance', type: 'design' },
           { label: 'Angular 19', type: 'tech' },
           { label: 'SSG', type: 'tech' },
         ],
@@ -429,7 +424,6 @@ export const allProjects: Project[] = [
         problem: 'Come dare visibilità online a una travel designer freelance',
         desc: 'Sito web WordPress con customizzazione completa del tema. Dal brief alla consegna.',
         tags: [
-          { label: 'Freelance', type: 'design' },
           { label: 'CMS', type: 'design' },
           { label: 'WordPress', type: 'tech' },
         ],
@@ -446,7 +440,6 @@ export const allProjects: Project[] = [
           'Customizzazione WordPress mantenendo la manutenibilità futura',
         desc: 'Tema base esteso con CSS custom, Gutenberg configurato e ottimizzazioni SEO e performance.',
         tags: [
-          { label: 'Freelance', type: 'design' },
           { label: 'CMS', type: 'design' },
           { label: 'WordPress', type: 'tech' },
         ],
@@ -541,7 +534,7 @@ export const allProjects: Project[] = [
           "Come progettare un'app per tecnici su campo con connettività instabile",
         desc: 'UX per tecnici manutenzione: progettazione autonoma con cliente, prototipi Figma, test su campo.',
         tags: [
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Mobile', type: 'design' },
           { label: 'Figma', type: 'design' },
           { label: 'Prototyping', type: 'design' },
@@ -743,7 +736,7 @@ export const allProjects: Project[] = [
           'Come progettare evolutive in continuità con un design system ereditato',
         desc: 'Progettazione evolutive del gestionale FOFI: allineamento con design system ereditato, IA e flussi per nuove aree.',
         tags: [
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Enterprise', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
@@ -836,7 +829,7 @@ export const allProjects: Project[] = [
         desc: 'Full ownership: UX, UI design e FE. Approvata dal CRUI per le università italiane.',
         tags: [
           { label: 'Enterprise', type: 'design' },
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Angular', type: 'tech' },
           { label: 'Figma', type: 'design' },
         ],
@@ -847,7 +840,7 @@ export const allProjects: Project[] = [
           '8 ruoli utente, 1 flusso di convalida del tirocinio, approvazione CRUI',
         desc: 'Flussi UX e UI design per piattaforma CRUI. 8 ruoli distinti, azioni personalizzate per ogni profilo.',
         tags: [
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Enterprise', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
@@ -1032,7 +1025,7 @@ export const allProjects: Project[] = [
         desc: 'Quiz, campionati, classifiche e badge per dipendenti Poste. Frontend Vue + backend Strapi.',
         tags: [
           { label: 'Enterprise', type: 'design' },
-          { label: 'Gamification', type: 'design' },
+
           { label: 'Vue', type: 'tech' },
         ],
         type: 'dev',
@@ -1042,9 +1035,9 @@ export const allProjects: Project[] = [
           'Come rendere la formazione sulla cybersecurity coinvolgente su scala enterprise',
         desc: 'UX per piattaforma gamificata: flussi quiz, classifiche e avatar configurabili per utenti enterprise.',
         tags: [
-          { label: 'Gamification', type: 'design' },
+          { label: 'Enterprise', type: 'design' },
+
           { label: 'UX', type: 'design' },
-          { label: 'Vue', type: 'tech' },
         ],
         type: 'dev',
       },
@@ -1052,7 +1045,6 @@ export const allProjects: Project[] = [
         problem: 'Classifiche real-time e sistema badge su Vue con CMS Strapi',
         desc: 'Vue + Strapi. Classifiche live, sistema badge e campionati gestibili da CMS senza deploy.',
         tags: [
-          { label: 'Gamification', type: 'design' },
           { label: 'Enterprise', type: 'design' },
           { label: 'Vue', type: 'tech' },
         ],
@@ -1139,10 +1131,7 @@ export const allProjects: Project[] = [
         problem:
           'Come portare coerenza a un prodotto SaaS cresciuto per accumulazione',
         desc: 'Primo redesign del timesheet Mind The App. Audit visivo, nuovi pattern UI e allineamento design system.',
-        tags: [
-          { label: 'UX/UI', type: 'design' },
-          { label: 'Figma', type: 'design' },
-        ],
+        tags: [{ label: 'Figma', type: 'design' }],
         type: 'both',
       },
       dev: {
@@ -1229,8 +1218,7 @@ export const allProjects: Project[] = [
           'Come incentivare la pulizia delle spiagge con un loop comportamentale',
         desc: 'App gamificata, 2° posto hackathon. Progettazione completa del flusso e prototipo Figma in 24h.',
         tags: [
-          { label: 'Hackathon', type: 'design' },
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
         type: 'design',
@@ -1240,8 +1228,7 @@ export const allProjects: Project[] = [
           'Trasformare la pulizia delle spiagge in esperienza sociale e competitiva in 24h',
         desc: 'Concept, flussi UX e prototipo Figma in 24 ore. Premio 2° classificato al Polo Tecnologico di Pordenone.',
         tags: [
-          { label: 'Hackathon', type: 'design' },
-          { label: 'UX Design', type: 'design' },
+          { label: 'UX', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
         type: 'design',
@@ -1250,11 +1237,7 @@ export const allProjects: Project[] = [
         problem:
           "Prototipo ad alta fedeltà per pitch finale” priorità al flusso, non all'implementazione",
         desc: 'Figma prototype per app gamificata di raccolta rifiuti. Interazioni simulate per pitch finale.',
-        tags: [
-          { label: 'Prototipo', type: 'design' },
-          { label: 'Hackathon', type: 'design' },
-          { label: 'Figma', type: 'design' },
-        ],
+        tags: [],
         type: 'design',
       },
     },
@@ -1332,7 +1315,6 @@ export const allProjects: Project[] = [
         tags: [
           { label: 'Università', type: 'design' },
           { label: 'Python', type: 'tech' },
-          { label: 'BeautifulSoup', type: 'tech' },
         ],
         type: 'dev',
       },
@@ -1351,10 +1333,8 @@ export const allProjects: Project[] = [
           'Scraper affidabile e riproducibile per dataset di ricerca universitaria',
         desc: 'Scraper Python con parsing strutturato, deduplicazione e export CSV/JSON per esperimenti IR.',
         tags: [
-          { label: 'Scraping', type: 'design' },
-          { label: 'Python', type: 'tech' },
           { label: 'BeautifulSoup', type: 'tech' },
-          { label: 'Pandas', type: 'tech' },
+          { label: 'Python', type: 'tech' },
         ],
         type: 'dev',
       },
@@ -1447,7 +1427,7 @@ export const allProjects: Project[] = [
         problem: 'Evolutive mobile per ispettori su campo di grandi telco',
         desc: 'Design evolutive per app mobile Sinfonist. UX per audit di ispezione su campo e gestione documenti.',
         tags: [
-          { label: 'UX/Mobile', type: 'design' },
+          { label: 'Mobile', type: 'design' },
           { label: 'Enterprise', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
@@ -1456,9 +1436,8 @@ export const allProjects: Project[] = [
       dev: {
         problem:
           'Primo progetto enterprise: architettura 5 librerie Angular su repo separati',
-        desc: 'Angular 8→9 con architettura a librerie separate per dominio. Team 6, 2 anni in produzione.',
+        desc: 'Angular 8→9 con architettura a librerie separate per dominio. Sviluppo di oltre 2 anni.',
         tags: [
-          { label: 'Architettura', type: 'design' },
           { label: 'Angular 9', type: 'tech' },
           { label: 'RxJS', type: 'tech' },
         ],
@@ -1554,10 +1533,8 @@ export const allProjects: Project[] = [
           'Come progettare un chatbot per raccogliere annotazioni da crowd worker non esperti',
         desc: 'UX del chatbot Crowd Frame: flussi conversazionali, test con utenti reali e analisi performance annotazioni.',
         tags: [
-          { label: 'UX Research', type: 'design' },
           { label: 'Università', type: 'design' },
           { label: 'Figma', type: 'design' },
-          { label: 'Mechanical Turk', type: 'tech' },
         ],
         type: 'both',
       },
@@ -1566,7 +1543,6 @@ export const allProjects: Project[] = [
           'Chatbot integrato in framework Angular open source senza rompere la compatibilità',
         desc: 'Angular 15 chatbot su Crowd Frame. Timer task (triennale) + conversational crowdsourcing (magistrale).',
         tags: [
-          { label: 'Università', type: 'design' },
           { label: 'Angular 15', type: 'tech' },
           { label: 'Python', type: 'tech' },
         ],
@@ -1658,7 +1634,6 @@ export const allProjects: Project[] = [
         tags: [
           { label: 'UI', type: 'design' },
           { label: 'Customizzazione', type: 'design' },
-          { label: 'Vue', type: 'tech' },
         ],
         type: 'dev',
       },
@@ -1756,7 +1731,6 @@ export const allProjects: Project[] = [
           'Come rendere la gestione della salute personale accessibile e non ansiogena',
         desc: 'Prima app progettata da zero: UX per cartella clinica, reminder farmaci e appuntamenti in Figma.',
         tags: [
-          { label: 'UX/UI', type: 'design' },
           { label: 'Università', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
@@ -1765,12 +1739,11 @@ export const allProjects: Project[] = [
       dev: {
         problem:
           'Prima app Flutter: state management, persistenza locale e notifiche push',
-        desc: 'Flutter 2 con gestione stato locale, persistenza Hive e notifiche per reminder appuntamenti e farmaci.',
+        desc: 'Flutter 2 con gestione stato locale, persistenza e notifiche per reminder appuntamenti e farmaci.',
         tags: [
           { label: 'Mobile', type: 'design' },
           { label: 'Università', type: 'design' },
           { label: 'Flutter 2', type: 'tech' },
-          { label: 'Hive', type: 'tech' },
         ],
         type: 'both',
       },
@@ -1816,7 +1789,7 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'State e persistenza',
-            desc: 'Provider per gestione stato. Hive per persistenza locale dei documenti e dei reminder” nessun backend, dati solo on-device.',
+            desc: 'Provider per gestione stato, dati solo on-device.',
           },
           {
             n: '03',
@@ -1826,10 +1799,9 @@ export const allProjects: Project[] = [
         ],
         metrics: [
           { value: '0', label: 'Backend richiesto' },
-          { value: 'Hive', label: 'Persistenza locale' },
           { value: '1', label: 'Prima app Flutter' },
         ],
-        highlightTech: ['Flutter 2', 'Hive', 'Provider'],
+        highlightTech: ['Flutter 2'],
       },
     },
   },

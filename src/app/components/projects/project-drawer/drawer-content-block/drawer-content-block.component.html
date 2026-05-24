@@ -1,0 +1,93 @@
+@if (title()) {
+  <p
+    class="text-[10px] font-mono uppercase tracking-[0.18em] pb-2 border-b"
+    style="color: var(--accent); border-color: var(--accent-dim, color-mix(in srgb, var(--accent) 25%, transparent))"
+  >
+    {{ title() }}
+  </p>
+}
+
+<!-- Problem -->
+<div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+  <p
+    class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+    style="color: var(--accent)"
+  >
+    {{ "drawer.problem" | transloco }}
+  </p>
+  <p
+    class="m-0 text-sm text-white/70 leading-relaxed"
+    [innerHTML]="data().problem"
+  ></p>
+</div>
+
+<!-- User (solo design) -->
+@if (showUser() && data().user) {
+  <div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+    <p
+      class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+      style="color: var(--accent)"
+    >
+      {{ "drawer.user" | transloco }}
+    </p>
+    <p class="m-0 text-sm text-white/70 leading-relaxed">
+      {{ data().user }}
+    </p>
+  </div>
+}
+
+<!-- Process -->
+<div class="flex flex-col gap-2 pb-5 border-b border-white/10">
+  <p
+    class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+    style="color: var(--accent)"
+  >
+    {{ "drawer.process" | transloco }}
+  </p>
+  <div class="flex flex-col">
+    @for (step of data().steps; track step.n) {
+      <div class="flex gap-3 py-3 border-b border-white/5 last:border-0">
+        <span
+          class="text-[10px] font-mono w-5 flex-shrink-0 pt-0.5 transition-colors"
+          style="color: var(--accent)"
+          >{{ step.n }}</span
+        >
+        <div>
+          <p
+            class="m-0 text-[10px] font-mono font-bold uppercase tracking-widest mb-1"
+          >
+            {{ step.title }}
+          </p>
+          <p class="m-0 text-xs text-white/50 leading-relaxed">
+            {{ step.desc }}
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- Results -->
+<div class="flex flex-col gap-2">
+  <p
+    class="text-[10px] font-mono uppercase tracking-[0.18em] mb-1"
+    style="color: var(--accent)"
+  >
+    {{ "drawer.results" | transloco }}
+  </p>
+  <div class="grid grid-cols-3 gap-px bg-white/10">
+    @for (m of data().metrics; track m.label) {
+      <div class="bg-black px-3 py-4 text-center">
+        <span
+          class="block text-xl font-bold font-mono transition-colors"
+          style="color: var(--accent)"
+          >{{ m.value }}</span
+        >
+        <span
+          class="block text-[10px] font-mono uppercase tracking-widest text-white/40 mt-1"
+          >{{ m.label }}</span
+        >
+      </div>
+    }
+  </div>
+</div>
