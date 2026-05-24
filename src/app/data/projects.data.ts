@@ -35,8 +35,8 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Rendering PDF affidabile da CSS e architettura dati JSON per export multi-formato',
-        desc: 'React app con state management custom, integrazione DeepL API e rendering cross-browser senza backend.',
+          'Rendering PDF realtime, con styling integrato, importazione in JSON ed export multi formato',
+        desc: 'React app con state management locale, integrazione DeepL API e rendering cross-browser senza backend.',
         tags: [
           { label: 'Side Project', type: 'common' },
           { label: 'React', type: 'tech' },
@@ -47,8 +47,8 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          "Il processo di candidatura è frammentato tra troppi strumenti: editor, traduttore, converter PDF. <strong>Obiettivo: un'unica interfaccia che riduca il friction senza richiedere account.</strong>",
-        user: 'Developer e designer mid-senior in job hunting. Pain point principale: ogni candidatura in una lingua diversa richiedeva di rifare il CV da zero.',
+          "Il processo di candidatura è frammentato tra troppi strumenti: editor, traduttore, converter PDF. <strong>Obiettivo: un'unica interfaccia che snellisca il flusso per e visualizzi il risultato.</strong>",
+        user: 'Figura del mondo IT in job hunting. Pain point principale: ogni candidatura in una lingua diversa richiedeva di rifare il CV da zero.',
         steps: [
           {
             n: '01',
@@ -58,24 +58,24 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Architettura informativa',
-            desc: 'Definizione del flusso editor → preview → export. Tre iterazioni sul posizionamento del selettore template prima di arrivare alla sidebar fissa.',
+            desc: 'Definizione del flusso editor → preview → export.',
           },
           {
             n: '03',
             title: 'Usability test',
-            desc: '3 cicli di test. Cambio più significativo: sidebar template sempre visibile invece di modal” riduce i click del 60%.',
+            desc: 'Cambio più significativo: modalità form ridimensionabile',
           },
         ],
         metrics: [
-          { value: '82%', label: 'Tempo candidatura' },
-          { value: '3', label: 'Lingue supportate' },
+          { value: '82%', label: 'Riduzione tempo adattamento candidatura' },
+          { value: '4', label: 'Lingue supportate' },
           { value: '0', label: 'Account richiesti' },
         ],
         highlightTech: [],
       },
       dev: {
         problem:
-          'Rendering CSS-to-PDF affidabile con layout complessitè un problema aperto. <strong>La scelta tecnica di usare template a colonna singola è stata guidata da questo vincolo” non da una preferenza estetica.</strong>',
+          'Trovare un modo agevole per partire da un template riutilizzabile nel tempo',
         steps: [
           {
             n: '01',
@@ -85,12 +85,12 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Rendering engine',
-            desc: 'Valutazione di react-pdf vs html-to-canvas vs puppeteer. Scelta: html-to-canvas per compatibilità  browser e controllo layout.',
+            desc: 'Valutazione di react-pdf vs html-to-canvas. Scelta: react-pdf per fedeltà del layout.',
           },
           {
             n: '03',
             title: 'Export PDF',
-            desc: 'Esportazione del PDF con alta fedeltà  riguardo alla preview visualizzata.',
+            desc: 'Esportazione del PDF con alta fedeltà riguardo alla preview visualizzata.',
           },
           {
             n: '04',
@@ -103,7 +103,7 @@ export const allProjects: Project[] = [
           { value: '3', label: 'Format export' },
           { value: '0', label: 'Dipendenze backend' },
         ],
-        note: 'Il background da designer ha influenzato le scelte tecniche: la struttura a colonna singola dei template non è una scelta estetica” è la soluzione al problema del CSS-to-PDF rendering su font embedding cross-browser.',
+        note: 'Il background da designer ha influenzato la scelta di una struttura che permettesse di vedere in realtime il risultato, invece di fare centinaia di tentativi.',
         highlightTech: ['React'],
       },
     },
@@ -144,20 +144,22 @@ export const allProjects: Project[] = [
       dev: {
         problem:
           'Performance su tabelle con 10k+ righe e stato complesso multi-componente',
-        desc: 'Angular per sincronizzazione filtri, virtual scroll custom.',
+        desc: 'Risoluzione virtual scrolling per ridurre le change detection su poche decine di righe alla volta',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'Angular', type: 'tech' },
           { label: 'Highcharts', type: 'tech' },
+          { label: 'Ant Design', type: 'tech' },
+          { label: 'Material', type: 'tech' },
         ],
-        type: 'design',
+        type: 'dev',
       },
     },
     drawerContent: {
       design: {
         problem:
-          "La gestione di fornitori e risorse in aziende multi-sede era distribuita su fogli Excel e email. <strong>Obiettivo: centralizzare il workflow in un'unica piattaforma senza aumentare la complessità  percepita.</strong>",
-        user: 'HR manager e responsabili acquisti di aziende con 200+ dipendenti. Utenti abituati a Excel” bassa tolleranza per la complessità .',
+          "La gestione di fornitori e risorse in aziende multi-sede era distribuita su fogli Excel e email. <strong>Obiettivo: centralizzare il workflow in un'unica piattaforma senza aumentare la complessità percepita.</strong>",
+        user: 'HR manager e responsabili acquisti di aziende con 200+ dipendenti. Utenti abituati a Excel” bassa tolleranza per la complessità.',
         steps: [
           {
             n: '01',
@@ -167,18 +169,17 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Information architecture',
-            desc: 'Card sorting con 8 utenti per definire la gerarchia dei contenuti. 3 iterazioni sul menu di navigazione principale.',
+            desc: 'Definire le proprità delle informazioni, per una visualizzazione chiara e immediata.',
           },
           {
             n: '03',
             title: 'Prototipazione',
-            desc: 'Wireframe → prototipo Figma → test moderato con 4 utenti. Task success rate passato da 62% a 89% tra V1 e V3.',
+            desc: 'Wireframe → prototipo Figma → test moderato con 8 utenti.',
           },
         ],
         metrics: [
-          { value: '+89%', label: 'Task success rate' },
-          { value: '−40%', label: 'Tempo per task' },
-          { value: '6', label: 'Utenti intervistati' },
+          { value: '-40%', label: 'Tempo per task' },
+          { value: '8', label: 'Utenti intervistati' },
         ],
         highlightTech: [],
       },
@@ -194,12 +195,12 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'State management',
-            desc: "Architettura NgRx per la sincronizzazione dei filtri tra componenti distanti nell'albero.",
+            desc: "Architettura RxJS per la sincronizzazione dei filtri tra componenti distanti nell'albero.",
           },
           {
             n: '03',
-            title: 'Export asincrono',
-            desc: 'Gestione export CSV/Excel in background con Web Worker per non bloccare il thread principale.',
+            title: 'Import asincrono',
+            desc: 'Gestione import CV in background con gestione delle code per non bloccare il thread principale.',
           },
         ],
         metrics: [
@@ -208,7 +209,7 @@ export const allProjects: Project[] = [
           { value: '0', label: 'UI freeze su export' },
         ],
         note: 'La conoscenza del design system ha permesso di implementare i componenti rispettando esattamente le specifiche Figma senza andata-ritorno con il designer.',
-        highlightTech: ['Angular', 'RxJS', 'Web Worker'],
+        highlightTech: ['Angular', 'RxJS', 'State management'],
       },
     },
   },
@@ -227,7 +228,7 @@ export const allProjects: Project[] = [
   //   variants: {
   //     all: {
   //       problem:
-  //         'Architettura componenti per un marketplace ad alta complessità ',
+  //         'Architettura componenti per un marketplace ad alta complessità',
   //       desc: 'Design system e architettura frontend per piattaforma B2C. Gestione stato complessa, performance e accessibilit .',
   //       tags: [
   //         { label: 'Design System', type: 'design' },
@@ -262,7 +263,7 @@ export const allProjects: Project[] = [
   //   drawerContent: {
   //     design: {
   //       problem:
-  //         "Il flusso di discovery per una piattaforma marketplace aveva un drop del 67% prima del primo contatto. <strong>Obiettivo: ridisegnare l'esperienza di ricerca e filtraggio mantenendo la complessità  dell'offerta.</strong>",
+  //         "Il flusso di discovery per una piattaforma marketplace aveva un drop del 67% prima del primo contatto. <strong>Obiettivo: ridisegnare l'esperienza di ricerca e filtraggio mantenendo la complessità dell'offerta.</strong>",
   //       user: 'Acquirenti B2C con bassa alfabetizzazione digitale. Il problema principale: troppi filtri visibili subito, paralisi della scelta.',
   //       steps: [
   //         {
@@ -290,7 +291,7 @@ export const allProjects: Project[] = [
   //     },
   //     dev: {
   //       problem:
-  //         'Design system da zero per un marketplace con 40+ componenti, 3 team di sviluppo paralleli e requisiti di accessibilità  WCAG AA. <strong>La sfida: garantire coerenza senza bloccare la velocità  dei team.</strong>',
+  //         'Design system da zero per un marketplace con 40+ componenti, 3 team di sviluppo paralleli e requisiti di accessibilità WCAG AA. <strong>La sfida: garantire coerenza senza bloccare la velocità dei team.</strong>',
   //       steps: [
   //         {
   //           n: '01',
@@ -316,7 +317,7 @@ export const allProjects: Project[] = [
   {
     nome: 'M13 Progetti',
     descrizione:
-      'Sito vetrina per lo studio M13, realtà  che integra progettazione tecnica, interior design, comunicazione e organizzazione eventi. Progetto freelance in Angular 19 con SSG custom, curato interamente dal design alla realizzazione. Presenta i servizi dello studio e il portfolio dei lavori realizzati.',
+      'Sito vetrina per lo studio M13, realtà che integra progettazione tecnica, interior design, comunicazione e organizzazione eventi. Progetto freelance in Angular 19 con SSG, curato interamente dal design alla realizzazione. Presenta i servizi dello studio e il portfolio dei lavori realizzati.',
     urlPreview: 'https://www.m13progetti.com',
     anno: 2025,
     images: ['assets/images/projects/m13-progetti/1.webp'],
@@ -324,7 +325,7 @@ export const allProjects: Project[] = [
     variants: {
       all: {
         problem:
-          'Come presentare uno studio multidisciplinare con identità  coerente',
+          'Come presentare uno studio multidisciplinare con identità coerente',
         desc: 'Sito vetrina per studio M13: design e sviluppo full-ownership, Angular 19 SSG.',
         tags: [
           { label: 'Freelance', type: 'design' },
@@ -336,8 +337,8 @@ export const allProjects: Project[] = [
       },
       design: {
         problem:
-          "Come tradurre l'identità  di uno studio multidisciplinare in un sito coerente",
-        desc: "Identità  visiva, layout, tipografia e copywriting curati interamente. Dall'intervista al cliente alla consegna.",
+          "Come tradurre l'identità di uno studio multidisciplinare in un sito coerente",
+        desc: "Identità visiva, layout, tipografia e copywriting curati interamente. Dall'intervista al cliente alla consegna.",
         tags: [
           { label: 'Web Design', type: 'design' },
           { label: 'Brand Identity', type: 'design' },
@@ -351,7 +352,6 @@ export const allProjects: Project[] = [
         desc: 'Angular 19 con prerendering custom, ottimizzazione immagini e deploy Vercel senza backend.',
         tags: [
           { label: 'Freelance', type: 'design' },
-
           { label: 'Angular 19', type: 'tech' },
           { label: 'SSG', type: 'tech' },
         ],
@@ -361,18 +361,18 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          "M13 integra progettazione tecnica, interior design, eventi e comunicazione. <strong>La sfida: creare un'identità  visiva che tenesse insieme discipline così diverse senza sembrare generica.</strong>",
+          "M13 integra progettazione tecnica, interior design, eventi e comunicazione. <strong>La sfida: creare un'identità visiva che tenesse insieme discipline così diverse senza sembrare generica.</strong>",
         user: 'Studio di 4 persone senza presenza web. Clienti target: aziende e privati del territorio nord-est.',
         steps: [
           {
             n: '01',
-            title: 'Brief e identità ',
+            title: 'Brief e identità',
             desc: "Interviste al team per definire i valori chiave. Il claim dello studio è emerso dallo stesso processo: 'competenza, cura, visione'.",
           },
           {
             n: '02',
             title: 'Moodboard e direzione visiva',
-            desc: "3 direzioni presentate al cliente. Scelta unanime per l'approccio minimalista con accenti caldi” riflette la qualità  materica del lavoro fisico dello studio.",
+            desc: "3 direzioni presentate al cliente. Scelta unanime per l'approccio minimalista con accenti caldi” riflette la qualità materica del lavoro fisico dello studio.",
           },
           {
             n: '03',
@@ -426,7 +426,7 @@ export const allProjects: Project[] = [
     type: 'dev',
     variants: {
       all: {
-        problem: 'Come dare visibilità  online a una travel designer freelance',
+        problem: 'Come dare visibilità online a una travel designer freelance',
         desc: 'Sito web WordPress con customizzazione completa del tema. Dal brief alla consegna.',
         tags: [
           { label: 'Freelance', type: 'design' },
@@ -437,23 +437,18 @@ export const allProjects: Project[] = [
       },
       design: {
         problem: 'Come comunicare il valore di un servizio di viaggi su misura',
-        desc: 'Identità  visiva e layout adattati al brand della travel designer. UX orientata alla conversione.',
-        tags: [
-          { label: 'Web Design', type: 'design' },
-          { label: 'UI', type: 'design' },
-          { label: 'Figma', type: 'design' },
-        ],
+        desc: 'Identità visiva e layout adattati al brand della travel designer. UX orientata alla conversione.',
+        tags: [{ label: 'Web Design', type: 'design' }],
         type: 'dev',
       },
       dev: {
         problem:
-          'Customizzazione WordPress mantenendo la manutenibilità  futura',
+          'Customizzazione WordPress mantenendo la manutenibilità futura',
         desc: 'Tema base esteso con CSS custom, Gutenberg configurato e ottimizzazioni SEO e performance.',
         tags: [
           { label: 'Freelance', type: 'design' },
           { label: 'CMS', type: 'design' },
           { label: 'WordPress', type: 'tech' },
-          { label: 'CSS', type: 'tech' },
         ],
         type: 'dev',
       },
@@ -461,8 +456,8 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          "Una travel designer freelance senza presenza online non riusciva a comunicare la differenza tra il suo servizio e un'agenzia tradizionale. <strong>Obiettivo: trasmettere personalizzazione e cura già  dalla prima pagina.</strong>",
-        user: 'Clienti privati che cercano viaggi su misura. Pain point: difficoltà  a distinguere un servizio premium da uno standard.',
+          "Una travel designer freelance senza presenza online non riusciva a comunicare la differenza tra il suo servizio e un'agenzia tradizionale. <strong>Obiettivo: trasmettere personalizzazione e cura già dalla prima pagina.</strong>",
+        user: 'Clienti privati che cercano viaggi su misura. Pain point: difficoltà a distinguere un servizio premium da uno standard.',
         steps: [
           {
             n: '01',
@@ -472,7 +467,7 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Selezione tema',
-            desc: 'Valutazione di 5 temi WordPress per flessibilità  e performance. Scelta orientata alla facilità  di aggiornamento autonomo da parte della cliente.',
+            desc: 'Valutazione di 5 temi WordPress per flessibilità e performance. Scelta orientata alla facilità di aggiornamento autonomo da parte della cliente.',
           },
           {
             n: '03',
@@ -489,12 +484,12 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'WordPress customizzato mantenendo la possibilità  di aggiornamenti autonomi da parte della cliente. <strong>Nessun page builder pesante” solo CSS custom e configurazione nativa.</strong>',
+          'WordPress customizzato mantenendo la possibilità di aggiornamenti autonomi da parte della cliente. <strong>Nessun page builder pesante” solo CSS custom e configurazione nativa.</strong>',
         steps: [
           {
             n: '01',
             title: 'Setup tema',
-            desc: 'Tema base selezionato per performance e manutenibilità . Child theme per isolare le customizzazioni dagli aggiornamenti.',
+            desc: 'Tema base selezionato per performance e manutenibilità. Child theme per isolare le customizzazioni dagli aggiornamenti.',
           },
           {
             n: '02',
@@ -508,7 +503,6 @@ export const allProjects: Project[] = [
           },
         ],
         metrics: [
-          { value: '85+', label: 'Lighthouse mobile' },
           { value: '0', label: 'Page builder' },
           { value: '1', label: 'Child theme' },
         ],
@@ -519,7 +513,7 @@ export const allProjects: Project[] = [
   {
     nome: 'DMG - Fusion',
     descrizione:
-      'App mobile per la manutenzione e ispezione di ascensori su tutto il territorio italiano, con connessione Bluetooth e Wi-Fi Direct alle centraline. Ho curato il design da zero interfacciandomi in autonomia con i clienti, realizzato prototipi in Figma per testare i flussi, e sviluppato parte delle funzionalità  in Flutter 3 nel porting da Xamarin. Successivamente ho progettato e sviluppato il gestionale web in Angular 17 per la gestione di edifici, ascensori, personale e chiavi di accesso, facendo da tutor a una junior dev per un anno.',
+      'App mobile per la manutenzione e ispezione di ascensori su tutto il territorio italiano, con connessione Bluetooth e Wi-Fi Direct alle centraline. Ho curato il design da zero interfacciandomi in autonomia con i clienti, realizzato prototipi in Figma per testare i flussi, e sviluppato parte delle funzionalità in Flutter 3 nel porting da Xamarin. Successivamente ho progettato e sviluppato il gestionale web in Angular 17 per la gestione di edifici, ascensori, personale e chiavi di accesso.',
     urlPreview: 'https://fusiondashboard.dmg.it/',
     anno: 2024,
     images: [
@@ -544,12 +538,13 @@ export const allProjects: Project[] = [
       },
       design: {
         problem:
-          "Come progettare un'app per tecnici su campo con connettività  instabile",
+          "Come progettare un'app per tecnici su campo con connettività instabile",
         desc: 'UX per tecnici manutenzione: progettazione autonoma con cliente, prototipi Figma, test su campo.',
         tags: [
           { label: 'UX Design', type: 'design' },
           { label: 'Mobile', type: 'design' },
           { label: 'Figma', type: 'design' },
+          { label: 'Prototyping', type: 'design' },
         ],
         type: 'both',
       },
@@ -585,7 +580,7 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Prototipazione e test',
-            desc: 'Prototipi Figma testati con 5 tecnici. Cambio principale: grandi target touch e feedback visivo esplicito per connessione Bluetooth.',
+            desc: 'Prototipi Figma testati con 5 tecnici. Cambio principale: grandi target touch e feedback visivo esplicito per lo stato della connessione.',
           },
         ],
         metrics: [
@@ -597,7 +592,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Porting da Xamarin a Flutter 3 con gestione connessione Bluetooth e Wi-Fi Direct alle centraline. <strong>La complessità  principale: stato ibrido online/offline su app e dashboard sincronizzati.</strong>',
+          'Porting da Xamarin a Flutter 3 con gestione connessione Bluetooth e Wi-Fi Direct alle centraline. <strong>La complessità principale: stato ibrido online/offline su app e dashboard sincronizzati.</strong>',
         steps: [
           {
             n: '01',
@@ -617,11 +612,10 @@ export const allProjects: Project[] = [
         ],
         metrics: [
           { value: '2', label: 'Piattaforme (iOS + Android)' },
-          { value: '1', label: 'Anno tutoraggio junior' },
           { value: '0', label: 'Dipendenze cloud per ispezione' },
         ],
-        note: "Il design dell'app mobile ha direttamente influenzato l'architettura del gestionale web: stessa struttura dati, stesso vocabolario UI” nessuna ambiguità  tra le due piattaforme.",
-        highlightTech: ['Flutter 3', 'Angular 17', 'Bluetooth'],
+        note: "Il design dell'app mobile ha direttamente influenzato l'architettura del gestionale web: stessa struttura dati, stesso vocabolario UI” nessuna ambiguità tra le due piattaforme.",
+        highlightTech: ['Flutter 3', 'Angular 17', 'Bluetooth', 'Wi-fi direct'],
       },
     },
   },
@@ -640,7 +634,7 @@ export const allProjects: Project[] = [
           "Portale pubblico accessibile per l'albo professionale dei farmacisti",
         desc: 'Angular 16→18, WCAG 2.2 AA compliant. Ricerca iscritti su base pubblica nazionale.',
         tags: [
-          { label: 'Accessibilità ', type: 'design' },
+          { label: 'Accessibilità', type: 'design' },
           { label: 'Enterprise', type: 'design' },
           { label: 'Angular', type: 'tech' },
         ],
@@ -648,10 +642,10 @@ export const allProjects: Project[] = [
       },
       design: {
         problem:
-          'Come garantire accessibilità  WCAG 2.2 AA in un portale istituzionale',
-        desc: 'Conformità  WCAG 2.2 AA su navigazione, form e ricerca. Test con screen reader reali.',
+          'Come garantire accessibilità  WCAG 2.2 AA in un portale istituzionale',
+        desc: 'Conformità WCAG 2.2 AA su navigazione, form e ricerca. Test con screen reader reali.',
         tags: [
-          { label: 'Accessibilità ', type: 'design' },
+          { label: 'Accessibilità', type: 'design' },
           { label: 'UX', type: 'design' },
         ],
         type: 'dev',
@@ -661,7 +655,7 @@ export const allProjects: Project[] = [
           'Migrazione Angular 16→18 su portale istituzionale in produzione',
         desc: 'Angular upgrade, WCAG 2.2 AA, lazy loading e ottimizzazione query per albo professionale pubblico.',
         tags: [
-          { label: 'Accessibilità ', type: 'design' },
+          { label: 'Accessibilità', type: 'design' },
           { label: 'Angular 18', type: 'tech' },
         ],
         type: 'dev',
@@ -670,13 +664,13 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          "Un portale istituzionale pubblico deve essere accessibile a chiunque, inclusi utenti con disabilità  visive o motorie. <strong>L'accessibilità  non era opzionale: requisito legale per la PA italiana.</strong>",
-        user: "Cittadini, professionisti e aziende che cercano farmacisti iscritti all'albo. Utenti diversificati per età  e abilità  digitale.",
+          "Un portale istituzionale pubblico deve essere accessibile a chiunque, inclusi utenti con disabilità visive o motorie. <strong>L'accessibilità non era opzionale: requisito legale per la PA italiana.</strong>",
+        user: "Cittadini, professionisti e aziende che cercano farmacisti iscritti all'albo. Utenti diversificati per età e abilità digitale.",
         steps: [
           {
             n: '01',
             title: 'Audit WCAG',
-            desc: 'Analisi completa contro WCAG 2.2 AA. 23 issue critiche identificate” concentrate su contrasto, focus management e label form.',
+            desc: 'Analisi completa contro WCAG 2.2 AA. 23 issue critiche identificate concentrate su contrasto e label form.',
           },
           {
             n: '02',
@@ -689,24 +683,21 @@ export const allProjects: Project[] = [
             desc: 'Test manuali con VoiceOver.',
           },
         ],
-        metrics: [
-          { value: '0', label: 'Violazioni WCAG AA' },
-          { value: '23', label: 'Issue risolte' },
-        ],
+        metrics: [{ value: '0', label: 'Violazioni WCAG AA' }],
         highlightTech: [],
       },
       dev: {
         problem:
-          'Portare Angular 16 alla versione 18 mantenendo la conformità  WCAG e la stabilità  di un portale istituzionale in produzione. <strong>Ogni breaking change doveva essere verificato sui componenti di accessibilità .</strong>',
+          'Portare Angular 16 alla versione 18 mantenendo la conformità WCAG e la stabilità di un portale istituzionale in produzione. <strong>Ogni breaking change doveva essere verificato sui componenti di accessibilità.</strong>',
         steps: [
           {
             n: '01',
             title: 'Upgrade Angular',
-            desc: 'Migrazione graduata 16→17→18 con test regressione su ogni step. Nessun downtime grazie a deploy blue-green.',
+            desc: 'Migrazione graduata 16→17→18 con test regressione su ogni step. Nessun downtime.',
           },
           {
             n: '02',
-            title: 'Accessibilità  tecnica',
+            title: 'Accessibilità tecnica',
             desc: 'Implementazione focus management, ARIA roles e skip-nav.',
           },
           {
@@ -727,7 +718,7 @@ export const allProjects: Project[] = [
   {
     nome: 'FOFI - Gestionale',
     descrizione:
-      'Gestionale interno della Federazione degli Ordini dei Farmacisti Italiani per la gestione di personale, società , corsi e iscrizioni. Ho seguito la realizzazione FE per il primo anno su design esterno, poi ho preso in carico anche il design per le nuove funzionalità .',
+      'Gestionale interno della Federazione degli Ordini dei Farmacisti Italiani per la gestione di personale, società, corsi e iscrizioni. Ho seguito la realizzazione FE per il primo anno su design esterno, poi ho preso in carico anche il design per le nuove funzionalità.',
     urlPreview: 'https://portale.fofiruf.it',
     anno: 2024,
     images: [
@@ -738,11 +729,10 @@ export const allProjects: Project[] = [
     variants: {
       all: {
         problem:
-          'Gestionale FOFI: 4 domini (personale, società , corsi, iscrizioni)',
-        desc: 'Gestionale enterprise: primo anno dev su design esterno, poi ownership design per le nuove funzionalità .',
+          'Gestionale FOFI: un dominio, decine di funzionalità intrecciate',
+        desc: 'Gestionale enterprise: primo anno dev su design esterno, poi ownership design per le nuove funzionalità.',
         tags: [
           { label: 'Enterprise', type: 'design' },
-
           { label: 'Angular', type: 'tech' },
           { label: 'Figma', type: 'design' },
         ],
@@ -750,7 +740,7 @@ export const allProjects: Project[] = [
       },
       design: {
         problem:
-          'Come progettare evolutive in continuità  con un design system ereditato',
+          'Come progettare evolutive in continuità con un design system ereditato',
         desc: 'Progettazione evolutive del gestionale FOFI: allineamento con design system ereditato, IA e flussi per nuove aree.',
         tags: [
           { label: 'UX Design', type: 'design' },
@@ -760,9 +750,8 @@ export const allProjects: Project[] = [
         type: 'both',
       },
       dev: {
-        problem:
-          'Frontend Angular multi-dominio con form complessi e tabelle gestionali',
-        desc: 'Implementazione FE multi-dominio con state management, form complessi e tabelle di gestione.',
+        problem: 'Frontend Angular con form complessi e tabelle gestionali',
+        desc: 'Implementazione FE con state management, form complessi e tabelle di gestione.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'Angular', type: 'tech' },
@@ -774,7 +763,7 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          'Dopo un anno di sviluppo su design esterno, le nuove funzionalità  non avevano un designer dedicato. <strong>Obiettivo: progettare in continuità  con il sistema esistente senza perdere coerenza.</strong>',
+          'Dopo un anno di sviluppo su design esterno, le nuove funzionalità non avevano un designer dedicato. <strong>Obiettivo: progettare in continuità con il sistema esistente senza perdere coerenza.</strong>',
         user: "Operatori FOFI: gestori di ordini provinciali, responsabili corsi ECM, amministrativi. Utenti con alta frequenza d'uso quotidiano.",
         steps: [
           {
@@ -785,7 +774,7 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Progettazione evolutive',
-            desc: 'Design delle nuove sezioni (corsi, società ) in Figma. Revisione settimanale con il team BE per allineamento.',
+            desc: 'Design delle nuove sezioni (corsi, società) in Figma. Revisione settimanale con il team BE per allineamento.',
           },
           {
             n: '03',
@@ -802,7 +791,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          "Gestionale con 4 domini separati (personale, società , corsi, iscrizioni) su un'unica codebase Angular. <strong>La sfida: mantenere la coerenza tra moduli sviluppati in momenti diversi.</strong>",
+          'Gestionale FOFI: un dominio, decine di funzionalità intrecciate, <strong>La sfida: mantenere la coerenza tra moduli sviluppati in momenti diversi.</strong>',
         steps: [
           {
             n: '01',
@@ -817,11 +806,11 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Tabelle gestionali',
-            desc: 'Tabelle con filtri multipli, ordinamento, paginazione server-side e export CSV. Layer comune riusato tra i 4 domini.',
+            desc: 'Tabelle con filtri multipli, ordinamento, paginazione server-side e export CSV.',
           },
         ],
         metrics: [
-          { value: '4', label: 'Moduli lazy' },
+          { value: '10+', label: 'Moduli lazy' },
           { value: '2+', label: 'Anni sviluppo' },
           { value: '1', label: 'Codebase Angular' },
         ],
@@ -832,7 +821,7 @@ export const allProjects: Project[] = [
   {
     nome: 'FOFI - Piattaforma tirocini',
     descrizione:
-      "Piattaforma per la gestione centralizzata dei tirocinanti delle università  italiane, approvata dal CRUI. Ho curato l'intero processo: flussi UX, UI design e implementazione FE.",
+      "Piattaforma per la gestione centralizzata dei tirocinanti delle università italiane, approvata dal CRUI. Ho curato l'intero processo: flussi UX, UI design e implementazione FE.",
     urlPreview: 'https://tirocini.fofiruf.it',
     anno: 2024,
     images: [
@@ -844,7 +833,7 @@ export const allProjects: Project[] = [
       all: {
         problem:
           'Centralizzare la gestione tirocini farmaceutici a livello nazionale',
-        desc: 'Full ownership: UX, UI design e FE. Approvata dal CRUI per le università  italiane.',
+        desc: 'Full ownership: UX, UI design e FE. Approvata dal CRUI per le università italiane.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'UX Design', type: 'design' },
@@ -854,8 +843,9 @@ export const allProjects: Project[] = [
         type: 'both',
       },
       design: {
-        problem: '3 ruoli utente, 12 flussi, approvazione CRUI',
-        desc: 'Flussi UX e UI design per piattaforma CRUI. 3 ruoli distinti, dashboard personalizzate per ogni profilo.',
+        problem:
+          '8 ruoli utente, 1 flusso di convalida del tirocinio, approvazione CRUI',
+        desc: 'Flussi UX e UI design per piattaforma CRUI. 8 ruoli distinti, azioni personalizzate per ogni profilo.',
         tags: [
           { label: 'UX Design', type: 'design' },
           { label: 'Enterprise', type: 'design' },
@@ -864,8 +854,9 @@ export const allProjects: Project[] = [
         type: 'both',
       },
       dev: {
-        problem: 'Piattaforma multi-ruolo con routing separato per 3 profili',
-        desc: 'Angular FE con guards per ruolo, form multi-step di registrazione e approvazione tirocini.',
+        problem:
+          'Piattaforma multi-ruolo con gestione delle azioni separate per 8 tipologie di utente',
+        desc: 'Angular FE con guards e direttiver per ruolo, form multi-step e approvazione tirocini.',
         tags: [
           { label: 'Enterprise', type: 'design' },
           { label: 'Angular', type: 'tech' },
@@ -878,34 +869,34 @@ export const allProjects: Project[] = [
       design: {
         problem:
           "La gestione dei tirocini farmaceutici era frammentata tra ogni ordine provinciale. <strong>Obiettivo: un'unica piattaforma per tirocinanti, tutor universitari e ordini, approvata dal CRUI.</strong>",
-        user: '3 tipologie di utente: studenti universitari, tutor aziendali, responsabili ordini provinciali. Ciascuno con permessi e dashboard diversi.',
+        user: '8 tipologie di utente: studenti universitari, tutor aziendali, tutor universitari, ordine, ecc... Ciascuno con permessi e funzioanlità diverse.',
         steps: [
           {
             n: '01',
             title: 'Mappatura ruoli e flussi',
-            desc: 'Analisi dei 3 profili utente con i referenti FOFI. Definizione di 12 flussi primari” approvazioni, registrazioni, monitoraggio ore.',
+            desc: 'Analisi dei 8 ruoli utente con i referenti FOFI. Definizione del flusso di approvazione del tirocinio con 8 step',
           },
           {
             n: '02',
-            title: 'IA e navigazione',
-            desc: 'Struttura a ruolo singolo per login: ogni utente vede solo le sue funzionalità . Riduce la complessità  percepita del 60%.',
+            title: 'Navigazione e azioni',
+            desc: 'Ogni utente vede solo le sue funzionalità. Riduce la complessità percepita del 60%.',
           },
           {
             n: '03',
             title: 'UI e prototipazione',
-            desc: 'Design in Figma con componenti condivisi tra i ruoli. Prototipo testato con referenti FOFI prima del go-live.',
+            desc: 'Design in Figma con componenti condivisi. Prototipo testato con referenti FOFI prima del go-live.',
           },
         ],
         metrics: [
-          { value: '3', label: 'Ruoli utente' },
-          { value: '12', label: 'Flussi mappati' },
+          { value: '8', label: 'Ruoli utente' },
+          { value: '10+', label: 'Funzionalità' },
           { value: 'CRUI', label: 'Approvazione' },
         ],
         highlightTech: [],
       },
       dev: {
         problem:
-          "Piattaforma con 3 profili utente e routing separato per ruolo. <strong>Ogni sezione aveva flussi, form e permessi diversi” l'architettura doveva renderlo scalabile.</strong>",
+          "Piattaforma con 8 tipologie di utente. <strong>Ogni ruolo aveva flussi, form e permessi diversi l'architettura essere manutenibile.</strong>",
         steps: [
           {
             n: '01',
@@ -915,7 +906,7 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Form multi-step',
-            desc: 'Registrazione e approvazione tirocini con form multi-step, validazione async e salvataggio bozza.',
+            desc: 'Approvazione tirocini con form multi-step, validazione async e salvataggio bozza.',
           },
           {
             n: '03',
@@ -924,7 +915,7 @@ export const allProjects: Project[] = [
           },
         ],
         metrics: [
-          { value: '3', label: 'Ruoli con routing separato' },
+          { value: '8', label: 'Ruoli con routing separato' },
           { value: '0', label: 'Route non autorizzate' },
           { value: '1', label: 'Codebase Angular' },
         ],
@@ -957,27 +948,22 @@ export const allProjects: Project[] = [
         desc: 'Dal team di ideazione al design del backoffice. Dashboard monitoring, flussi gestione eventi e contest.',
         tags: [
           { label: 'Product Design', type: 'design' },
-
           { label: 'Figma', type: 'design' },
         ],
         type: 'both',
       },
       dev: {
-        problem:
-          'Dashboard backoffice con dati real-time per gestione eventi e contest musicali',
-        desc: 'Angular + WebSocket per dashboard live, gestione comunicazioni e contest. In startup da zero.',
-        tags: [
-          { label: 'Angular', type: 'tech' },
-          { label: 'WebSocket', type: 'tech' },
-        ],
+        problem: '',
+        desc: '',
+        tags: [{ label: 'Angular', type: 'tech' }],
         type: 'both',
       },
     },
     drawerContent: {
       design: {
         problem:
-          'Una startup musicale cresciuta rapidamente aveva bisogno di un backoffice per gestire eventi, comunicazioni e contest. <strong>Obiettivo: strumento usabile dal team” non dai tecnici.</strong>',
-        user: 'Team interno startup (4 persone non tecniche). Necessità : creare eventi, mandare notifiche e monitorare i contest senza assistenza.',
+          'Una startup musicale cresciuta rapidamente aveva bisogno di un backoffice per gestire eventi, comunicazioni e contest. <strong>Obiettivo: strumento usabile dal team non dai tecnici.</strong>',
+        user: 'Team interno startup (4 persone non tecniche). Necessità: creare eventi, mandare notifiche e monitorare i contest senza assistenza.',
         steps: [
           {
             n: '01',
@@ -1004,7 +990,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Backoffice Angular per startup in rapida crescita” requisiti che cambiano ogni sprint. <strong>Architettura flessibile per aggiungere moduli senza riscrivere quello che già  funzionava.</strong>',
+          'Backoffice Angular per startup in rapida crescita requisiti che cambiano ogni sprint. <strong>Architettura flessibile per aggiungere moduli senza riscrivere quello che già funzionava.</strong>',
         steps: [
           {
             n: '01',
@@ -1019,15 +1005,14 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Gestione contest',
-            desc: 'Logica frontend per contest a tempo con classifica aggiornata in real-time e validazione partecipazioni.',
+            desc: 'Logica frontend per contest a tempo con classifica aggiornata e validazione partecipazioni.',
           },
         ],
         metrics: [
           { value: '4', label: 'Feature module' },
           { value: '2', label: 'Anni di evolutive' },
-          { value: 'WS', label: 'Real-time updates' },
         ],
-        highlightTech: ['Angular', 'RxJS', 'WebSocket'],
+        highlightTech: ['Angular', 'RxJS'],
       },
     },
   },
@@ -1078,7 +1063,7 @@ export const allProjects: Project[] = [
       design: {
         problem:
           "La formazione obbligatoria sulla cybersecurity aveva tassi di completamento bassi. <strong>Obiettivo: trasformare contenuti didattici in un'esperienza competitiva per aumentare il coinvolgimento.</strong>",
-        user: 'Dipendenti Poste Italiane con profili molto diversi. La gamification doveva funzionare anche per chi non ha familiarità  con i videogiochi.',
+        user: 'Dipendenti Poste Italiane con profili molto diversi. La gamification doveva funzionare anche per chi non ha familiarità con i videogiochi.',
         steps: [
           {
             n: '01',
@@ -1087,25 +1072,24 @@ export const allProjects: Project[] = [
           },
           {
             n: '02',
-            title: 'Avatar e identità ',
-            desc: "Avatar configurabile per dare identità  personale sull'esperienza. Riduce il distacco da una piattaforma enterprise anonima.",
+            title: 'Avatar e identità',
+            desc: "Avatar configurabile per dare identità personale sull'esperienza. Riduce il distacco da una piattaforma enterprise anonima.",
           },
           {
             n: '03',
             title: 'Campionati a squadre',
-            desc: 'Modalità  campionato per stimolare la competizione tra uffici. Classifiche separate per non demotivare i nuovi iscritti.',
+            desc: 'Modalità campionato per stimolare la competizione tra uffici. Classifiche separate per non demotivare i nuovi iscritti.',
           },
         ],
         metrics: [
           { value: '3', label: 'Tipi di challenge' },
-          { value: 'Live', label: 'Classifiche aggiornate' },
-          { value: '1', label: 'Avatar per utente' },
+          { value: '10+', label: 'Avatar possibili per utente' },
         ],
         highlightTech: [],
       },
       dev: {
         problem:
-          'Classifiche e badge in real-time su scala enterprise con backend Strapi gestibile senza deploy. <strong>Il cliente doveva poter aggiornare quiz e campionati autonomamente.</strong>',
+          'Classifiche e badge su scala enterprise con backend Strapi. <strong>Il cliente doveva poter aggiornare quiz e campionati autonomamente.</strong>',
         steps: [
           {
             n: '01',
@@ -1134,7 +1118,7 @@ export const allProjects: Project[] = [
   {
     nome: 'Timecloud',
     descrizione:
-      "Timesheet aziendale proprietario di Mind The App per la gestione di dipendenti, buste paga e assegnazione su progetti. Ho sviluppato nuove funzionalità , curato i primi redesign e lavorato anche sull'app Flutter.",
+      "Timesheet aziendale proprietario di Mind The App per la gestione di dipendenti, buste paga e assegnazione su progetti. Ho sviluppato nuove funzionalità, curato i primi redesign e lavorato anche sull'app Flutter.",
     urlPreview: 'https://www.timecloud.it/',
     anno: 2023,
     images: ['assets/images/projects/timecloud/1.webp'],
@@ -1146,7 +1130,6 @@ export const allProjects: Project[] = [
         desc: 'Contributo a prodotto esistente: nuove feature, primi redesign e sviluppo app Flutter.',
         tags: [
           { label: 'SaaS', type: 'design' },
-
           { label: 'Angular', type: 'tech' },
           { label: 'Flutter', type: 'tech' },
         ],
@@ -1158,7 +1141,6 @@ export const allProjects: Project[] = [
         desc: 'Primo redesign del timesheet Mind The App. Audit visivo, nuovi pattern UI e allineamento design system.',
         tags: [
           { label: 'UX/UI', type: 'design' },
-
           { label: 'Figma', type: 'design' },
         ],
         type: 'both',
@@ -1179,7 +1161,7 @@ export const allProjects: Project[] = [
       design: {
         problem:
           'Un prodotto SaaS cresciuto per 3 anni per accumulazione aveva inconsistenze visive tra sezioni vecchie e nuove. <strong>Obiettivo: primo redesign sistematico senza bloccare lo sviluppo continuo.</strong>',
-        user: "HR manager e dipendenti di PMI italiane. Utenti abituali con alta frequenza d'uso” le modifiche visive dovevano essere evolutive, non disruptive.",
+        user: "HR manager e dipendenti di PMI italiane. Utenti abituali con alta frequenza d'uso le modifiche visive dovevano essere evolutive, non disruptive.",
         steps: [
           {
             n: '01',
@@ -1199,19 +1181,19 @@ export const allProjects: Project[] = [
         ],
         metrics: [
           { value: '15+', label: 'Pattern inconsistenti risolti' },
-          { value: '0', label: 'Funzionalità  interrotte' },
+          { value: '0', label: 'Funzionalità interrotte' },
           { value: '1', label: 'Design system embrionale' },
         ],
         highlightTech: [],
       },
       dev: {
         problem:
-          "Feature development su codebase Angular consolidata in parallelo con contributi all'app Flutter della stessa piattaforma. <strong>Due codebase diverse, stesso prodotto” allineamento costante tra le implementazioni.</strong>",
+          "Feature development su codebase Angular consolidata in parallelo con contributi all'app Flutter della stessa piattaforma. <strong>Due codebase diverse, stesso prodotto allineamento costante tra le implementazioni.</strong>",
         steps: [
           {
             n: '01',
             title: 'Feature Angular',
-            desc: 'Sviluppo nuove funzionalità  su timesheet (gestione straordinari, esportazione buste paga, filtri avanzati). Rispetto delle convenzioni esistenti.',
+            desc: 'Sviluppo nuove funzionalità su timesheet (gestione straordinari, aggiunta smart working, filtri avanzati). Rispetto delle convenzioni esistenti.',
           },
           {
             n: '02',
@@ -1221,7 +1203,7 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Allineamento prodotto',
-            desc: 'Review incrociata tra le due piattaforme per garantire parity delle funzionalità  principali.',
+            desc: 'Review incrociata tra le due piattaforme per garantire parity delle funzionalità principali.',
           },
         ],
         metrics: [
@@ -1266,7 +1248,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          "Prototipo ad alta fedeltà  per pitch finale” priorità  al flusso, non all'implementazione",
+          "Prototipo ad alta fedeltà per pitch finale” priorità al flusso, non all'implementazione",
         desc: 'Figma prototype per app gamificata di raccolta rifiuti. Interazioni simulate per pitch finale.',
         tags: [
           { label: 'Prototipo', type: 'design' },
@@ -1295,7 +1277,7 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Prototipo Figma',
-            desc: 'Prototipo ad alta fedeltà  in 20h. Flusso completo: onboarding, raccolta, rewards e classifica. Presentato al panel di giuria.',
+            desc: 'Prototipo ad alta fedeltà in 20h. Flusso completo: onboarding, raccolta, rewards e classifica. Presentato al panel di giuria.',
           },
         ],
         metrics: [
@@ -1348,7 +1330,7 @@ export const allProjects: Project[] = [
           'Dataset etichettato da Full Fact per esperimenti di crowdsourcing IR',
         desc: 'Scraper Python per IR universitario. Estrazione e labeling automatico di claim verificati.',
         tags: [
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Python', type: 'tech' },
           { label: 'BeautifulSoup', type: 'tech' },
         ],
@@ -1391,12 +1373,12 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Schema dati',
-            desc: 'Progettazione dello schema CSV/JSON per compatibilità  con Crowd Frame, il framework di crowdsourcing del laboratorio.',
+            desc: 'Progettazione dello schema CSV/JSON per compatibilità con Crowd Frame, il framework di crowdsourcing del laboratorio.',
           },
           {
             n: '03',
             title: 'Validazione',
-            desc: 'Test su 100 record estratti. Controllo manuale della qualità  delle label e della completezza dei campi.',
+            desc: 'Test su 100 record estratti. Controllo manuale della qualità delle label e della completezza dei campi.',
           },
         ],
         metrics: [
@@ -1408,7 +1390,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Scraper affidabile per un portale con struttura HTML non documentata, in un contesto di ricerca dove la riproducibilità  è critica. <strong>Ogni run doveva produrre lo stesso risultato.</strong>',
+          'Scraper affidabile per un portale con struttura HTML non documentata, in un contesto di ricerca dove la riproducibilità è critica. <strong>Ogni run doveva produrre lo stesso risultato.</strong>',
         steps: [
           {
             n: '01',
@@ -1423,13 +1405,13 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Export',
-            desc: 'Export in CSV e JSON compatibili con Crowd Frame. Logging delle run per tracciabilità .',
+            desc: 'Export in CSV e JSON compatibili con Crowd Frame. Logging delle run per tracciabilità.',
           },
         ],
         metrics: [
           { value: '0', label: 'Duplicati nel dataset' },
           { value: '2', label: 'Format export' },
-          { value: '100%', label: 'Riproducibilità  run' },
+          { value: '100%', label: 'Riproducibilità run' },
         ],
         highlightTech: ['Python', 'BeautifulSoup', 'Pandas'],
       },
@@ -1486,18 +1468,18 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          "L'app mobile Sinfonist per le ispezioni sul campo aveva bisogno di evolutive frequenti in parallelo con il prodotto web. <strong>Sfida: progettare per ispettori su campo con vincoli di connettività  e dispositivi aziendali fissi.</strong>",
+          "L'app mobile Sinfonist per le ispezioni sul campo aveva bisogno di evolutive frequenti in parallelo con il prodotto web. <strong>Sfida: progettare per ispettori su campo con vincoli di connettività e dispositivi aziendali fissi.</strong>",
         user: "Ispettori aziendali di grandi telco (Fastweb, Sielte). Contesto d'uso: cantieri, edifici, scarsa connessione. Dispositivi: Android aziendali.",
         steps: [
           {
             n: '01',
             title: "Analisi casi d'uso mobile",
-            desc: 'Interviste con i referenti Fastweb per capire i flussi di ispezione sul campo. Priorità : velocità  di inserimento dati, non ricchezza visiva.',
+            desc: 'Interviste con i referenti Fastweb per capire i flussi di ispezione sul campo. Priorità: velocità di inserimento dati, non ricchezza visiva.',
           },
           {
             n: '02',
             title: 'Design evolutive',
-            desc: 'Progettazione di nuovi moduli (QSM mobile, firma digitale) in continuità  con il design esistente.',
+            desc: 'Progettazione di nuovi moduli (QSM mobile, firma digitale) in continuità con il design esistente.',
           },
           {
             n: '03',
@@ -1560,7 +1542,7 @@ export const allProjects: Project[] = [
           "Chatbot per crowdsourcing conversazionale: dal design all'analisi performance",
         desc: 'Due tesi su Crowd Frame. Triennale: task timer. Magistrale: chatbot conversazionale Angular 15.',
         tags: [
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
 
           { label: 'Angular', type: 'tech' },
           { label: 'Python', type: 'tech' },
@@ -1573,7 +1555,7 @@ export const allProjects: Project[] = [
         desc: 'UX del chatbot Crowd Frame: flussi conversazionali, test con utenti reali e analisi performance annotazioni.',
         tags: [
           { label: 'UX Research', type: 'design' },
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Figma', type: 'design' },
           { label: 'Mechanical Turk', type: 'tech' },
         ],
@@ -1581,10 +1563,10 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Chatbot integrato in framework Angular open source senza rompere la compatibilità ',
+          'Chatbot integrato in framework Angular open source senza rompere la compatibilità',
         desc: 'Angular 15 chatbot su Crowd Frame. Timer task (triennale) + conversational crowdsourcing (magistrale).',
         tags: [
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Angular 15', type: 'tech' },
           { label: 'Python', type: 'tech' },
         ],
@@ -1594,13 +1576,13 @@ export const allProjects: Project[] = [
     drawerContent: {
       design: {
         problem:
-          'I task di annotazione tradizionali generano bassa qualità  quando i worker non capiscono le istruzioni. <strong>Obiettivo: un chatbot che guidasse i worker attraverso il task in modo conversazionale per migliorare la qualità .</strong>',
-        user: 'Crowd worker su Mechanical Turk e piattaforme simili. Background eterogeneo, bassa familiarità  con task di annotazione accademica.',
+          'I task di annotazione tradizionali generano bassa qualità quando i worker non capiscono le istruzioni. <strong>Obiettivo: un chatbot che guidasse i worker attraverso il task in modo conversazionale per migliorare la qualità.</strong>',
+        user: 'Crowd worker su Mechanical Turk e piattaforme simili. Background eterogeneo, bassa familiarità con task di annotazione accademica.',
         steps: [
           {
             n: '01',
             title: 'Flussi conversazionali',
-            desc: "Mappatura di 4 tipologie di task in formato conversazionale. Design delle domande per ridurre l'ambiguità  nelle istruzioni.",
+            desc: "Mappatura di 4 tipologie di task in formato conversazionale. Design delle domande per ridurre l'ambiguità nelle istruzioni.",
           },
           {
             n: '02',
@@ -1610,7 +1592,7 @@ export const allProjects: Project[] = [
           {
             n: '03',
             title: 'Analisi performance',
-            desc: 'Esperimento con 50+ worker su Mechanical Turk. Confronto qualità  annotazioni: chatbot vs. form tradizionale.',
+            desc: 'Esperimento con 50+ worker su Mechanical Turk. Confronto qualità annotazioni: chatbot vs. form tradizionale.',
           },
         ],
         metrics: [
@@ -1622,7 +1604,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          'Integrare un chatbot conversazionale in un framework Angular open source esistente senza rompere la compatibilità  con i task non-chatbot. <strong>Il framework era usato da altri ricercatori” ogni modifica doveva essere backward compatible.</strong>',
+          'Integrare un chatbot conversazionale in un framework Angular open source esistente senza rompere la compatibilità con i task non-chatbot. <strong>Il framework era usato da altri ricercatori” ogni modifica doveva essere backward compatible.</strong>',
         steps: [
           {
             n: '01',
@@ -1695,7 +1677,7 @@ export const allProjects: Project[] = [
       design: {
         problem:
           '4 aziende diverse con processi operativi diversi avevano bisogno di strumenti di gestione personalizzati con costi di sviluppo contenuti. <strong>Soluzione: una base UI comune con verticalizzazioni per cliente.</strong>',
-        user: 'Operatori aziendali di PMI del settore servizi (pulizie, spurgo, cura animali). Bassa alfabetizzazione digitale” priorità  alla semplicità .',
+        user: 'Operatori aziendali di PMI del settore servizi (pulizie, spurgo, cura animali). Bassa alfabetizzazione digitale” priorità alla semplicità.',
         steps: [
           {
             n: '01',
@@ -1732,12 +1714,12 @@ export const allProjects: Project[] = [
           {
             n: '02',
             title: 'Verticalizzazione',
-            desc: 'Estensione della base con moduli specifici per cliente. Nessuna modifica alla base per aggiungere funzionalità  cliente.',
+            desc: 'Estensione della base con moduli specifici per cliente. Nessuna modifica alla base per aggiungere funzionalità cliente.',
           },
           {
             n: '03',
             title: 'Migrazione Vue 2→3',
-            desc: 'Aggiornamento progressivo dei progetti da Vue 2 a Vue 3 man mano che le funzionalità  lo permettevano.',
+            desc: 'Aggiornamento progressivo dei progetti da Vue 2 a Vue 3 man mano che le funzionalità lo permettevano.',
           },
         ],
         metrics: [
@@ -1763,7 +1745,7 @@ export const allProjects: Project[] = [
         desc: 'Prima app mobile: Flutter 2, design completo in Figma. Progetto universitario.',
         tags: [
           { label: 'Mobile', type: 'design' },
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Flutter', type: 'tech' },
           { label: 'Figma', type: 'design' },
         ],
@@ -1775,7 +1757,7 @@ export const allProjects: Project[] = [
         desc: 'Prima app progettata da zero: UX per cartella clinica, reminder farmaci e appuntamenti in Figma.',
         tags: [
           { label: 'UX/UI', type: 'design' },
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Figma', type: 'design' },
         ],
         type: 'both',
@@ -1786,7 +1768,7 @@ export const allProjects: Project[] = [
         desc: 'Flutter 2 con gestione stato locale, persistenza Hive e notifiche per reminder appuntamenti e farmaci.',
         tags: [
           { label: 'Mobile', type: 'design' },
-          { label: 'Università ', type: 'design' },
+          { label: 'Università', type: 'design' },
           { label: 'Flutter 2', type: 'tech' },
           { label: 'Hive', type: 'tech' },
         ],
@@ -1824,7 +1806,7 @@ export const allProjects: Project[] = [
       },
       dev: {
         problem:
-          "Prima app Flutter da zero: state management, persistenza locale e notifiche push senza backend. <strong>Ogni scelta tecnica era anche di apprendimento” la semplicità  dell'architettura era vincolo e obiettivo.</strong>",
+          "Prima app Flutter da zero: state management, persistenza locale e notifiche push senza backend. <strong>Ogni scelta tecnica era anche di apprendimento” la semplicità dell'architettura era vincolo e obiettivo.</strong>",
         steps: [
           {
             n: '01',

@@ -8,7 +8,9 @@
     "build-prod": "ng build ",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:my-site": "node dist/server/server.mjs"
+    "serve:ssr:my-site": "node dist/server/server.mjs",
+    "serve:lan": "ng serve --host 0.0.0.0 --port 4200",
+    "serve:stop": "npx kill-port 4200"
   },
   "i18n": [
     {
