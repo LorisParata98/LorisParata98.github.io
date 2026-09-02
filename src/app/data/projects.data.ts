@@ -3,6 +3,111 @@ import { Project } from '../models/project.model';
 export const allProjects: Project[] = [
   // 2026
   {
+    nome: 'Casa Memè',
+    descrizione:
+      "Guida di benvenuto per gli ospiti di una casa vacanze in Salento: regolamento, orari di check-in, calendario della raccolta differenziata, numeri utili e consigli sul territorio. Multilingua in 5 lingue con scelta al primo avvio, mobile-first, dark mode manuale. Nessun backend, nessun account, nessun tracker: i dati della struttura vivono in un unico file di configurazione.",
+    urlPreview: 'https://casa-meme.vercel.app/',
+    anno: 2026,
+    images: [
+      'assets/images/projects/casa-meme/1.webp',
+      'assets/images/projects/casa-meme/2.webp',
+      'assets/images/projects/casa-meme/3.webp',
+      'assets/images/projects/casa-meme/4.webp',
+      'assets/images/projects/casa-meme/5.webp',
+    ],
+    type: 'both',
+    variants: {
+      all: {
+        problem:
+          "Come dare all'ospite tutte le info della casa senza fogli stampati e messaggi WhatsApp lunghi",
+        desc: 'Guida consultabile dal telefono: regole, check-in, differenziata, numeri utili e cosa vedere in Salento. 5 lingue, nessun account.',
+        tags: [
+          { label: 'Side Project', type: 'common' },
+          { label: 'Vue', type: 'tech' },
+        ],
+        type: 'both',
+      },
+      design: {
+        problem:
+          "Come dare all'ospite tutte le info della casa senza fogli stampati e messaggi WhatsApp lunghi",
+        desc: "Cinque sezioni ricavate dalle domande che l'host ripeteva a ogni arrivo. Gerarchia mobile-first, touch target 48px, scelta della lingua al primo avvio.",
+        tags: [
+          { label: 'Side Project', type: 'common' },
+          { label: 'Mobile', type: 'design' },
+          { label: 'Accessibilità', type: 'design' },
+        ],
+        type: 'both',
+      },
+      dev: {
+        problem:
+          'Cinque lingue e i dati della struttura da tenere allineati senza backend e senza duplicarli nelle viste',
+        desc: 'Vue 3 + Vite, vue-i18n su 5 locale con gate di scelta lingua, route lazy e dark mode manuale. Dati centralizzati in un solo config, deploy statico su Vercel.',
+        tags: [{ label: 'Vue 3', type: 'tech' }],
+        type: 'both',
+      },
+    },
+    drawerContent: {
+      design: {
+        problem:
+          "Le informazioni della casa erano sparse tra annuncio, messaggi WhatsApp e cartelli appesi in cucina. <strong>Obiettivo: un solo link che l'ospite apre dal telefono e dove trova tutto.</strong>",
+        user: "Ospite non tecnico, spesso straniero, che apre il link dal telefono appena arrivato. Pain point: informazioni sparse tra annuncio, WhatsApp e cartelli in casa.",
+        steps: [
+          {
+            n: '01',
+            title: 'Inventario',
+            desc: "Raccolta delle domande che l'host riceveva a ogni check-in: orari, chiavi, parcheggio, raccolta differenziata, numeri utili.",
+          },
+          {
+            n: '02',
+            title: 'Gerarchia',
+            desc: 'Domande raggruppate in 5 sezioni, una per schermata, con la Home come indice: nessuna pagina più lunga di uno scroll.',
+          },
+          {
+            n: '03',
+            title: 'Iterazioni col cliente',
+            desc: 'Iterazioni sul prodotto reale invece che su un mockup: sezioni tagliate, regolamento esteso, palette e raggi uniformati schermata per schermata.',
+          },
+        ],
+        metrics: [
+          { value: '48px', label: 'Touch target minimo' },
+          { value: '6', label: 'Schermate' },
+        ],
+        highlightTech: [],
+      },
+      dev: {
+        problem:
+          'Tenere allineate 5 lingue e i dati della struttura senza backend e senza duplicazioni nelle viste',
+        steps: [
+          {
+            n: '01',
+            title: 'Config unica',
+            desc: 'Contatti, codici struttura, coordinate e attrazioni in un solo file: le viste iterano sui dati invece di ripeterli.',
+          },
+          {
+            n: '02',
+            title: 'i18n a 5 locale',
+            desc: 'vue-i18n con detection del browser, schermata di scelta lingua al primo avvio e persistenza in localStorage. Uno script verifica la parità delle 135 chiavi.',
+          },
+          {
+            n: '03',
+            title: 'Tema e mobile',
+            desc: 'Dark mode manuale su data-theme applicata prima di createApp per evitare il flash, safe-area insets e touch target 48px.',
+          },
+          {
+            n: '04',
+            title: 'Deploy statico',
+            desc: 'Build Vite su Vercel con rewrite SPA e header di sicurezza. Route lazy-loaded per un bundle iniziale minimo.',
+          },
+        ],
+        metrics: [
+          { value: '3', label: 'Dipendenze runtime' },
+          { value: '5', label: 'Lingue supportate' },
+        ],
+        highlightTech: ['Vue 3', 'vue-i18n'],
+      },
+    },
+  },
+  {
     nome: 'CV Builder',
     descrizione:
       'Editor con preview live, tre template, export PDF e DOCX, import JSON per riutilizzare i dati e traduzione integrata con DeepL per candidature internazionali. Obiettivo: rendere più veloce e meno stressante il processo di candidatura” aggiornare, personalizzare, esportare, tenere tutto pronto. Tutto dal browser: niente account, niente abbonamenti.',
@@ -98,7 +203,7 @@ export const allProjects: Project[] = [
         metrics: [
           { value: '<200ms', label: 'Preview latency' },
           { value: '3', label: 'Format export' },
-          { value: '0', label: 'Dipendenze backend' },
+          { value: '5', label: 'Lingue supportate' },
         ],
         note: 'Il background da designer ha influenzato la scelta di una struttura che permettesse di vedere in realtime il risultato, invece di fare centinaia di tentativi.',
         highlightTech: ['React'],
@@ -404,7 +509,7 @@ export const allProjects: Project[] = [
         ],
         metrics: [
           { value: '100', label: 'Lighthouse perf' },
-          { value: '0', label: 'Dipendenze backend' },
+          { value: '5', label: 'Lingue supportate' },
           { value: '<1s', label: 'LCP' },
         ],
         highlightTech: ['Angular 19', 'SSG'],
