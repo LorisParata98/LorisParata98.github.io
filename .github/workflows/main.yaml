@@ -1,13 +1,11 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Deploy Angular App
 
 on:
   push:
     branches:
       - main
-      
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
@@ -16,22 +14,32 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
-  
+
 jobs:
   build:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-      
+
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
       - name: npm install
         shell: bash
         run: 'npm ci'
+
+      - name: npm test
+        shell: bash
+        run: 'npm run test:ci'
 
       - name: npm build prod
         shell: bash
@@ -43,8 +51,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
           path: 'dist/browser'
 
       - name: Deploy to Github Pages
+        id: deployment
         uses: actions/deploy-pages@v4
