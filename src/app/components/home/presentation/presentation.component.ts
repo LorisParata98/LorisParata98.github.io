@@ -1,9 +1,10 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   DestroyRef,
   inject,
+  PLATFORM_ID,
   signal,
 } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -19,6 +20,7 @@ import { switchMap, take } from 'rxjs';
 })
 export class PresentationComponent implements AfterViewInit {
   private readonly _destroyRef = inject(DestroyRef);
+  private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
   private _typewriterTimeout: ReturnType<typeof setTimeout> | null = null;
   private _phrases: string[] = [];
   private _phraseIdx = 0;
@@ -35,6 +37,10 @@ export class PresentationComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // Il typewriter è un loop di setTimeout: durante il prerender terrebbe
+    // l'applicazione instabile e bloccherebbe la generazione dell'HTML
+    if (!this._isBrowser) return;
+
     this._translateService.langChanges$
       .pipe(
         takeUntilDestroyed(this._destroyRef),

@@ -1,7 +1,9 @@
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { APP_INITIALIZER, ApplicationConfig, isDevMode } from '@angular/core';
-import { getMessaging, provideMessaging } from '@angular/fire/messaging';
-import { provideClientHydration } from '@angular/platform-browser';
+import {
+  provideClientHydration,
+  withNoHttpTransferCache,
+} from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
@@ -15,7 +17,9 @@ import {
 } from './i18n/transloco-loader';
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideClientHydration(),
+    // Il transfer cache serializzerebbe nell'HTML prerenderizzato l'intero
+    // iconset MDI scaricato da MatIconRegistry (~3 MB per pagina)
+    provideClientHydration(withNoHttpTransferCache()),
     provideHttpClient(withFetch()),
     provideRouter(
       routes,
@@ -49,8 +53,11 @@ export const appConfig: ApplicationConfig = {
       deps: [TranslocoService],
       multi: true,
     },
-    // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideMessaging(() => getMessaging()),
+    // Firebase Cloud Messaging: disattivato.
+    // Per riattivarlo servono ENTRAMBE le righe, ed è codice solo browser
+    // (getMessaging() non funziona in Node, quindi rompe il prerender):
+    //   provideFirebaseApp(() => initializeApp(environment.firebase)),
+    //   provideMessaging(() => getMessaging()),
     provideServiceWorker('ngsw-worker.js', {
       enabled: typeof navigator !== 'undefined' && 'serviceWorker' in navigator,
       registrationStrategy: 'registerWhenStable:30000',

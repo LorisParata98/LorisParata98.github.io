@@ -20,6 +20,8 @@
             "outputPath": "dist",
             "index": "src/index.html",
             "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "static",
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
@@ -28,7 +30,6 @@
               "src/favicon.svg",
               "src/favicon-16.png",
               "src/favicon-32.png",
-              "src/manifest.json",
               {
                 "glob": "mdi.svg",
                 "input": "node_modules/@mdi/angular-material/",

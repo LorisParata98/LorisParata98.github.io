@@ -1,8 +1,11 @@
+import { isPlatformBrowser } from '@angular/common';
 import {
   AfterViewInit,
   Component,
   ElementRef,
+  inject,
   OnDestroy,
+  PLATFORM_ID,
   ViewChild,
 } from '@angular/core';
 import { TranslocoPipe, TranslocoService } from '@jsverse/transloco';
@@ -36,6 +39,8 @@ Chart.register(
 export class ExperienceSummaryComponent implements AfterViewInit, OnDestroy {
   @ViewChild('radarCanvas') canvasRef!: ElementRef<HTMLCanvasElement>;
 
+  private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+
   public expirenceYears: number;
   private chart: Chart | null = null;
   private langSub: Subscription | null = null;
@@ -54,6 +59,9 @@ export class ExperienceSummaryComponent implements AfterViewInit, OnDestroy {
   }
 
   ngAfterViewInit(): void {
+    // Chart.js richiede un canvas reale: durante il prerender non esiste
+    if (!this._isBrowser) return;
+
     this.initChart();
     this.langSub = this.translocoService.langChanges$.subscribe(() => {
       this.updateChartLabels();
