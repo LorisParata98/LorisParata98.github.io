@@ -43,4 +43,5 @@ testem.log
 .DS_Store
 Thumbs.db
 dist
-/.claude
+# Claude Code: la config di progetto è versionata, le override locali no
+/.claude/settings.local.json
