@@ -1,6 +1,5 @@
-import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { CommonModule, DOCUMENT, isPlatformBrowser } from '@angular/common';
+import { Component, inject, PLATFORM_ID } from '@angular/core';
 import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 import { ExperienceSummaryComponent } from '../experience-summary/experience-summary.component';
 import { TecnologySkillsComponent } from '../tecnology-skills/tecnology-skills.component';
@@ -21,23 +20,20 @@ import { ProjectsPortfolioComponent } from './projects-portfolio/projects-portfo
     ProjectsPortfolioComponent,
     AnimateOnScrollModule,
     PresentationComponent,
-    // NotificationsButtonComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent {
-  title = 'LRS_Design';
+  private readonly _document = inject(DOCUMENT);
+  private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
-  constructor(private titleService: Title) {
-    this.titleService.setTitle(this.title);
-  }
+  public scrollToSection(id: string): void {
+    if (!this._isBrowser) return;
 
-  public scrollToSection(id: string) {
-    const targetDiv = document.querySelector(`#${id}`);
-    if (targetDiv) {
-      const scrollPosition = (targetDiv as any).offsetTop - 540;
-      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-    }
+    const target = this._document.querySelector<HTMLElement>(`#${id}`);
+    if (!target) return;
+
+    window.scrollTo({ top: target.offsetTop - 540, behavior: 'smooth' });
   }
 }

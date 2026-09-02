@@ -1,5 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { Title } from '@angular/platform-browser';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  OnInit,
+  PLATFORM_ID,
+} from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { UpdatePromptComponent } from './components/update-prompt/update-prompt.component';
@@ -14,38 +21,28 @@ import { PortfolioModeService } from './services/portfolio-mode.service';
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
-  title = 'LRS_Design';
-  private readonly appUpdateService = inject(AppUpdateService);
-  private readonly modeService = inject(PortfolioModeService);
+  private readonly _document = inject(DOCUMENT);
+  private readonly _destroyRef = inject(DestroyRef);
+  private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly _modeService = inject(PortfolioModeService);
 
-  constructor(
-    private titleService: Title,
-    // private pushService: PushNotificationService,
-  ) {
-    this.titleService.setTitle(this.title);
-  }
+  // Istanziato qui per avviare il controllo aggiornamenti del service worker
+  private readonly _appUpdateService = inject(AppUpdateService);
 
   ngOnInit(): void {
-    this.modeService.currentMode$.subscribe(mode => {
-      document.body.classList.toggle('mode-dev', mode === 'dev');
-    });
+    this._modeService.currentMode$
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe((mode) => {
+        this._document.body.classList.toggle('mode-dev', mode === 'dev');
+      });
   }
 
-  public scrollToSection(id: string) {
-    const targetDiv = document.querySelector(`#${id}`);
-    if (targetDiv) {
-      const scrollPosition = (targetDiv as any).offsetTop - 540;
-      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-    }
-  }
+  public scrollToSection(id: string): void {
+    if (!this._isBrowser) return;
 
-  private sendTokenToBackend(token: string): void {
-    // Implementa la chiamata al tuo backend
-    console.log('Invia questo token al backend:', token);
-    // fetch('/api/save-token', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ token })
-    // });
+    const target = this._document.querySelector<HTMLElement>(`#${id}`);
+    if (!target) return;
+
+    window.scrollTo({ top: target.offsetTop - 540, behavior: 'smooth' });
   }
 }
