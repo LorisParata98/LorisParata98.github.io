@@ -8,6 +8,13 @@ Aggiungi un progetto al portfolio. Input: $ARGUMENTS
 
 Leggi prima `.claude/docs/data-model.md`.
 
+Questo comando copre il caso in cui i contenuti ci sono già e va solo scritta la
+voce. Altrimenti usa una skill:
+
+- input è una **cartella di materiale** (screenshot, export, brief) →
+  `material-import`
+- input è un **repository o un URL** → `project-intake` (a livello utente)
+
 ## Procedura
 
 1. **Raccogli quello che manca.** Servono: nome, anno, `urlPreview`, a quale mode

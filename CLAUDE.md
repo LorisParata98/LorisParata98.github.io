@@ -112,6 +112,16 @@ Leggila **prima** di lavorare sull'area corrispondente:
 - [Deploy](.claude/docs/deployment.md) — GitHub Actions, Pages, SPA redirect
 - [Stato noto e debiti tecnici](.claude/docs/known-issues.md) — leggi prima di "correggere" stranezze
 
+Per aggiungere un progetto al portfolio ci sono due skill, scelte in base a cosa
+hai in mano:
+
+- [`material-import`](.claude/skills/material-import/SKILL.md) — parti da una
+  **cartella di materiale** (screenshot, export, brief): inventaria, converte le
+  immagini in webp e compone la voce `Project`
+- `project-intake` — parti dal **repository o dall'URL** del progetto: estrae le
+  evidenze dal codice, compone la voce e cattura screenshot e GIF. Installata a
+  livello utente in `~/.claude/skills/project-intake/`
+
 ## Verifica prima di consegnare
 
 Non esiste linter configurato. Il gate minimo è:

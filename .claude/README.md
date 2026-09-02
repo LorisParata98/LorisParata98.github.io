@@ -36,6 +36,49 @@ sessione e rimanda ai documenti di questa cartella.
 | `/add-project` | aggiunge un progetto al portfolio seguendo il modello dati |
 | `/new-component` | crea un componente standalone secondo le convenzioni |
 
+## Skill
+
+Si attivano da sole quando il contesto corrisponde alla loro `description`.
+
+| Skill | Input | Dove vive |
+| --- | --- | --- |
+| [`material-import`](skills/material-import/SKILL.md) | cartella di materiale (screenshot, export, brief) | in questo repo |
+| `project-intake` | repository o URL del progetto | a livello utente |
+
+### material-import
+
+Inventaria una cartella di materiale, converte le immagini in webp dentro
+`public/assets/images/projects/<slug>/` e compone la voce `Project`.
+
+```bash
+# 1. inventario: immagini con dimensioni, duplicati, documenti, video
+node .claude/skills/material-import/scripts/import-material.mjs "<path-materiale>"
+
+# 2. import nell'ordine deciso, la prima è la copertina
+node .claude/skills/material-import/scripts/import-material.mjs "<path>" \
+     --slug <slug> --import "hero.png,dashboard.png"
+```
+
+### project-intake
+
+Estrae da un repository o da un URL le informazioni per aggiungere il progetto a
+`/projects`, compone la voce `Project` e cattura le immagini.
+
+Vive **a livello utente**, non in questo repo: `~/.claude/skills/project-intake/`.
+Non è quindi versionata qui. Include due script:
+
+```bash
+# evidenze dal repo di origine: stack, date, README, URL, tag proponibili
+node $HOME/.claude/skills/project-intake/scripts/scan-project.mjs <path-progetto>
+
+# screenshot webp, conversione immagini, frame per una GIF demo
+node $HOME/.claude/skills/project-intake/scripts/capture-media.mjs <url> --slug <slug>
+```
+
+`capture-media.mjs` usa Chrome headless via DevTools Protocol e non richiede
+dipendenze npm: Chrome codifica webp nativamente. Serve ffmpeg solo per
+comporre le GIF, e in sua assenza lo script lascia i frame e stampa il comando.
+
 ## Agenti
 
 | Agente | Uso |
